@@ -308,12 +308,19 @@
     }
     .work-img{
   width:100%;
-  height:160px;
+  height:180px;
   object-fit:cover;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.03);
 }
+
+.work-img-contain{
+  object-fit:contain;
+  padding:10px;
+  background: rgba(255,255,255,.06);
+}
+
 
     /* Pricing carousel */
     .pricing-wrap{
@@ -625,49 +632,62 @@
       </div>
     </section>
 
-    <!-- PROOF / WORK -->
-    <section id="proof">
-      <div class="container">
-        <div class="panel alt">
-          <div class="panel-head">
-            <h2>Recent work</h2>
-            <p>Add real examples here when you’re ready — this is the trust section that converts “maybe” into “email sent”.</p>
+    <!-- PROOF / RECENT WORK -->
+<section id="proof">
+  <div class="container">
+    <div class="panel alt">
+      <div class="panel-head">
+        <h2>Recent work</h2>
+        <p>A couple of recent examples. If you want something similar, email us and we’ll quote it properly.</p>
+      </div>
+
+      <div class="proof-grid">
+        <!-- PC WORK -->
+        <div class="work-card">
+          <div class="work-head">
+            <h3 style="margin:0;">PC builds & fixes</h3>
+            <span class="tag">⚙️ Proof</span>
           </div>
 
-          <div class="proof-grid">
-            <div class="work-card">
-              <div class="work-head">
-                <h3 style="margin:0;">PC builds & fixes</h3>
-                <span class="tag">⚙️ Proof</span>
-              </div>
-              <img class="work-img" src="pcbuild.jpg" alt="Recent PC build" loading="lazy" />
-              <div class="work-meta">
-                <span>• Example: Overheating fix</span>
-                <span>• Example: Budget gaming build</span>
-                <span>• Example: SSD + RAM upgrade</span>
-              </div>
-            </div>
+          <img
+            class="work-img"
+            src="pcbuild.jpg"
+            alt="Clean, compact PC build with improved airflow"
+            loading="lazy"
+          />
 
-            <div class="work-card">
-              <div class="work-head">
-                <h3 style="margin:0;">Websites</h3>
-                <span class="tag">🌐 Proof</span>
-              </div>
-              <img class="work-img" src="DataWorxsite.png" alt="Screenshot of a recent website build" loading="lazy" />
-              <div class="work-meta">
-                <span>• Example: Tutor site</span>
-                <span>• Example: Trades site</span>
-                <span>• Example: Small business brochure</span>
-              </div>
-            </div>
+          <div class="work-meta">
+            <span>• Clean, compact build</span>
+            <span>• Improved airflow & temps</span>
+            <span>• Upgrade-ready layout</span>
+          </div>
+        </div>
+
+        <!-- WEBSITE WORK -->
+        <div class="work-card">
+          <div class="work-head">
+            <h3 style="margin:0;">Websites</h3>
+            <span class="tag">🌐 Proof</span>
           </div>
 
-          <p class="muted" style="margin:12px 0 0; font-weight:850;">
-            Tip: even 2 real screenshots and 2 short testimonials will massively improve enquiries.
-          </p>
+          <img
+            class="work-img work-img-contain"
+            src="DataWorxsite.png"
+            alt="Screenshot of a modern small business website"
+            loading="lazy"
+          />
+
+          <div class="work-meta">
+            <span>• Modern brochure layout</span>
+            <span>• Clear service sections</span>
+            <span>• Mobile-friendly design</span>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <!-- PRICING -->
     <section class="pricing" id="pricing">

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Byte My System | PC Help & Small Business Websites</title>
-  <meta name="description" content="PC builds, repairs and upgrades — plus clean, fast small business websites. Transparent pricing. No lock-in." />
+  <meta name="description" content="PC builds, repairs and upgrades — plus clean, fast small business websites. Transparent starting prices and clear scope." />
   <meta name="theme-color" content="#0b0f14" />
 
   <style>
@@ -22,6 +22,7 @@
       --shadow:0 18px 55px rgba(0,0,0,.45);
       --max:1120px;
     }
+
     *{ box-sizing:border-box; }
     html,body{ margin:0; padding:0; }
     body{
@@ -33,10 +34,12 @@
         var(--bg);
       line-height:1.55;
     }
+
     a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
     .container{ width:min(100% - 32px, var(--max)); margin-inline:auto; }
 
-    /* Header */
+    /* Sticky header */
     header{
       position:sticky; top:0; z-index:10;
       background: rgba(11,15,20,.72);
@@ -62,7 +65,7 @@
     nav{
       display:flex; gap:16px; flex-wrap:wrap;
       color:var(--muted);
-      font-weight:800;
+      font-weight:850;
     }
     nav a:hover{ color:var(--text); }
 
@@ -75,33 +78,31 @@
       background: rgba(255,255,255,.06);
       font-weight:950;
       cursor:pointer;
+      user-select:none;
     }
     .btn-green{ background: rgba(53,208,127,.18); border-color: rgba(53,208,127,.35); }
     .btn-blue{ background: rgba(34,193,255,.16); border-color: rgba(34,193,255,.32); }
     .btn-solid{
-      background: linear-gradient(135deg, rgba(53,208,127,.9), rgba(34,193,255,.65));
+      background: linear-gradient(135deg, rgba(53,208,127,.92), rgba(34,193,255,.65));
       border-color: transparent;
       color:#071018;
       box-shadow: var(--shadow);
     }
 
-    /* Hero split */
-    .hero{
-      padding:52px 0 26px;
+    /* Page layout */
+    main{ padding-bottom: 18px; }
+    section{ padding: 52px 0; }
+    /* Sticky header anchor offset */
+    #pc, #web, #pricing, #contact { scroll-margin-top: 90px; }
+
+    /* Hero heading */
+    .hero-head{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:10px;
+      margin-bottom:18px;
     }
-.hero-head{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.hero-head .lead{
-  max-width: 72ch;
-  font-size: 1.12rem;
-}
-
     h1{
       margin:0;
       font-size: clamp(2.2rem, 4.2vw, 3.4rem);
@@ -112,9 +113,10 @@
       margin:0;
       color:var(--muted);
       font-size:1.08rem;
-      max-width: 70ch;
+      max-width: 75ch;
     }
 
+    /* Split lanes */
     .lane-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -129,7 +131,7 @@
       padding:18px;
       position:relative;
       overflow:hidden;
-      min-height: 220px;
+      min-height: 230px;
     }
     .lane:before{
       content:"";
@@ -137,23 +139,19 @@
       inset:-90px -120px auto auto;
       width:260px; height:260px;
       border-radius:50%;
-      filter: blur(0px);
-      opacity:.9;
+      opacity:.95;
       transform: rotate(12deg);
     }
-    .lane.pc:before{
-      background: radial-gradient(circle at 30% 30%, rgba(53,208,127,.22), transparent 65%);
-    }
-    .lane.web:before{
-      background: radial-gradient(circle at 30% 30%, rgba(34,193,255,.20), transparent 65%);
-    }
+    .lane.pc:before{ background: radial-gradient(circle at 30% 30%, rgba(53,208,127,.22), transparent 65%); }
+    .lane.web:before{ background: radial-gradient(circle at 30% 30%, rgba(34,193,255,.20), transparent 65%); }
+
     .lane h2{ margin:0 0 6px; font-size:1.3rem; }
     .lane p{ margin:0 0 12px; color:var(--muted); }
     .lane ul{
       margin:0 0 14px;
       padding-left:18px;
       color:var(--muted);
-      font-weight:700;
+      font-weight:750;
     }
     .lane .actions{ display:flex; gap:10px; flex-wrap:wrap; }
 
@@ -183,10 +181,7 @@
     .step h3{ margin:0 0 6px; font-size:1.05rem; }
     .step p{ margin:0; color:var(--muted); }
 
-    /* Website pricing block */
-    .pricing{
-      padding:30px 0;
-    }
+    /* Generic panel */
     .panel{
       background: rgba(15,22,33,.78);
       border:1px solid var(--line);
@@ -203,47 +198,178 @@
       margin-bottom:12px;
     }
     .panel-head h2{ margin:0; font-size:1.5rem; }
-    .panel-head p{ margin:0; color:var(--muted); max-width: 70ch; }
+    .panel-head p{ margin:0; color:var(--muted); max-width: 75ch; }
 
-    .price-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:12px;
+    .muted{ color:var(--muted); }
+
+    /* PRICING CAROUSEL */
+    .pricing-wrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top: 12px;
     }
-    .price-card{
+
+    .pricing-carousel{
+      display:flex;
+      gap:12px;
+      overflow:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 6px 2px 10px;
+      scrollbar-width: thin;
+      width:100%;
+    }
+
+    .price-slide{
+      flex: 0 0 min(360px, 85vw);
+      scroll-snap-align: start;
+      background: rgba(255,255,255,.04);
       border:1px solid var(--line);
       border-radius: var(--radius);
-      padding:14px;
-      background: rgba(255,255,255,.04);
+      padding:16px;
+      cursor:pointer;
+      outline:none;
       position:relative;
     }
-    .badge{
-      position:absolute; top:12px; right:12px;
-      background: rgba(251,191,36,.18);
-      border:1px solid rgba(251,191,36,.35);
-      color: #ffe8a3;
-      font-weight:950;
-      font-size:.78rem;
-      padding:6px 10px;
+
+    .price-slide:hover{
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .price-slide:focus{
+      box-shadow: 0 0 0 3px rgba(53,208,127,.22);
+    }
+
+    .price-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:6px;
+    }
+
+    .price-pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding:8px 10px;
+      border-radius: 999px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .tap-hint{
+      margin-top: 12px;
+      color: var(--muted);
+      font-weight: 850;
+      font-size: .9rem;
+    }
+
+    .car-btn{
+      width:42px;
+      height:42px;
       border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-size: 1.4rem;
+      font-weight: 950;
+      cursor:pointer;
+      flex: 0 0 auto;
     }
-    .price{
-      font-weight:1000;
-      font-size:2rem;
-      margin:6px 0 8px;
+
+    @media (max-width: 900px){
+      .car-btn{ display:none; } /* swipe on mobile */
     }
-    .muted{ color:var(--muted); }
-    .list{ margin:0; padding-left:18px; color:var(--muted); font-weight:700; }
+
+    /* Modal bubble */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      z-index:999;
+    }
+    .modal[aria-hidden="false"]{ display:block; }
+
+    .modal-backdrop{
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,.55);
+    }
+
+    .modal-card{
+      position:relative;
+      width: min(920px, calc(100% - 32px));
+      margin: 6vh auto;
+      background: rgba(15,22,33,.94);
+      border:1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .modal-close{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 950;
+      cursor:pointer;
+    }
+
+    .modal-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      padding-right: 46px; /* space for close button */
+    }
+
+    .modal-price{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .modal-cols{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      margin-top: 14px;
+    }
+
+    .modal-cols h4{
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .modal-list{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-weight: 780;
+    }
+
+    @media (max-width: 900px){
+      .modal-card{ margin: 10vh auto; }
+      .modal-cols{ grid-template-columns: 1fr; }
+    }
 
     /* Contact */
-    .contact{
-      padding: 30px 0 52px;
-    }
     .contact-grid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap:12px;
+      margin-top:12px;
     }
     .mini{
       border:1px solid var(--line);
@@ -251,25 +377,22 @@
       padding:14px;
       background: rgba(255,255,255,.04);
     }
-    .email{
-      font-weight:950;
-      border-color: rgba(53,208,127,.35);
-      background: rgba(53,208,127,.12);
-    }
+    .list{ margin:0; padding-left:18px; color:var(--muted); font-weight:780; }
 
+    /* Footer */
     footer{
       border-top:1px solid var(--line);
       padding:18px 0;
       color:var(--muted);
-      font-weight:750;
+      font-weight:780;
     }
     .footer-inner{
       display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
     }
 
+    /* Responsive */
     @media(max-width: 920px){
-      .hero-head{ grid-template-columns:1fr; }
-      .lane-grid, .strip, .price-grid, .contact-grid{ grid-template-columns:1fr; }
+      .lane-grid, .strip, .contact-grid{ grid-template-columns:1fr; }
       nav{ display:none; }
     }
   </style>
@@ -293,14 +416,12 @@
   </header>
 
   <main id="top">
-    <!-- Split hero: choose a lane -->
+    <!-- HERO -->
     <section class="hero">
       <div class="container">
         <div class="hero-head">
           <h1>Pick a lane: PC help or a business website.</h1>
-          <p class="lead">
-            Same rule for both: we do it properly, price it clearly, and we won’t sell you nonsense.
-          </p>
+          <p class="lead">Same rule for both: we do it properly, price it clearly, and we won’t sell you nonsense.</p>
         </div>
 
         <div class="lane-grid" aria-label="Primary services">
@@ -337,12 +458,12 @@
           <div class="step">
             <div class="num">1</div>
             <h3>You message</h3>
-            <p>Tell us what you need + budget. For PCs, include specs. For websites, include what you do.</p>
+            <p>Tell us what you need + budget. PCs: include specs. Websites: include what you do and pages needed.</p>
           </div>
           <div class="step">
             <div class="num">2</div>
             <h3>We recommend</h3>
-            <p>Best value route, plus alternatives. If the right answer is “don’t upgrade yet”, we’ll say it.</p>
+            <p>Best value route + alternatives. If the right answer is “don’t upgrade yet”, we’ll say it.</p>
           </div>
           <div class="step">
             <div class="num">3</div>
@@ -353,56 +474,85 @@
       </div>
     </section>
 
-    <!-- Website pricing as a product panel -->
+    <!-- PRICING (ID is on the SECTION) -->
     <section class="pricing" id="pricing">
       <div class="container">
         <div class="panel">
           <div class="panel-head">
             <h2>Website pricing</h2>
-            <p>Clear pricing, no lock-in. Hosting can be free (GitHub Pages) if you want it.</p>
+            <p>Starting prices with guardrails. Click a package for what’s included and what changes the price.</p>
           </div>
 
-          <div class="price-grid">
-            <div class="price-card">
-              <h3>Starter Site</h3>
-              <div class="price">£199</div>
-              <p class="muted">One-page site for sole traders.</p>
-              <ul class="list">
-                <li>One page</li>
-                <li>Mobile-first</li>
-                <li>Domain setup support</li>
-                <li>Email CTA</li>
-              </ul>
+          <div class="pricing-wrap">
+            <button class="car-btn" type="button" data-dir="-1" aria-label="Previous pricing option">‹</button>
+
+            <div class="pricing-carousel" id="pricingCarousel" aria-label="Website pricing carousel">
+              <article class="price-slide" tabindex="0"
+                data-title="Starter Website"
+                data-price="from £400"
+                data-desc="A clean one-page site for sole traders and simple businesses."
+                data-includes="1 page|Mobile-first layout|Basic design using your branding|Contact section (email or simple form)|Domain connection support"
+                data-guardrails="Price increases if: extra pages, copywriting, custom graphics, galleries/testimonials, maps/embeds, urgent turnaround."
+              >
+                <div class="price-top">
+                  <h3>Starter Website</h3>
+                  <div class="price-pill">from <strong>£400</strong></div>
+                </div>
+                <p class="muted">One-page site for a simple online presence.</p>
+                <div class="tap-hint">Click for details</div>
+              </article>
+
+              <article class="price-slide" tabindex="0"
+                data-title="Business Website"
+                data-price="from £1,200"
+                data-desc="Multi-page brochure site designed to generate enquiries and look credible."
+                data-includes="3–5 pages|Clear navigation|Basic SEO setup (titles + descriptions)|Performance optimisation|Mobile & tablet friendly|Contact page"
+                data-guardrails="Price increases if: more than 5 pages, CMS/blog, advanced forms, integrations, content creation, premium design iterations, urgent turnaround."
+              >
+                <div class="price-top">
+                  <h3>Business Website</h3>
+                  <div class="price-pill">from <strong>£1,200</strong></div>
+                </div>
+                <p class="muted">A proper business site with structure.</p>
+                <div class="tap-hint">Click for details</div>
+              </article>
+
+              <article class="price-slide" tabindex="0"
+                data-title="Advanced Website"
+                data-price="from £2,500"
+                data-desc="For businesses where the website is a serious part of revenue and growth."
+                data-includes="6+ pages or complex layout|Strategy-led structure|Analytics setup|More revision rounds|Priority delivery option"
+                data-guardrails="Price varies based on: page count, features, integrations, content needs, and turnaround time."
+              >
+                <div class="price-top">
+                  <h3>Advanced Website</h3>
+                  <div class="price-pill">from <strong>£2,500</strong></div>
+                </div>
+                <p class="muted">Custom builds with more depth.</p>
+                <div class="tap-hint">Click for details</div>
+              </article>
+
+              <article class="price-slide" tabindex="0"
+                data-title="Support & Updates"
+                data-price="from £50/month"
+                data-desc="Optional ongoing support — only if you want it. Cancel anytime."
+                data-includes="Content updates (fair use)|Minor layout tweaks|Advice & support|Priority email"
+                data-guardrails="Excludes: major redesigns, new page builds, feature development. Those are quoted separately."
+              >
+                <div class="price-top">
+                  <h3>Support & Updates</h3>
+                  <div class="price-pill">from <strong>£50/mo</strong></div>
+                </div>
+                <p class="muted">Optional. No lock-in.</p>
+                <div class="tap-hint">Click for details</div>
+              </article>
             </div>
 
-            <div class="price-card">
-              <div class="badge">Most popular</div>
-              <h3>Business Site</h3>
-              <div class="price">£349</div>
-              <p class="muted">Up to 5 pages, proper structure.</p>
-              <ul class="list">
-                <li>Up to 5 pages</li>
-                <li>Basic SEO setup</li>
-                <li>Performance tuned</li>
-                <li>Contact page</li>
-              </ul>
-            </div>
-
-            <div class="price-card">
-              <h3>Support (optional)</h3>
-              <div class="price">£25/mo</div>
-              <p class="muted">Only if you want it.</p>
-              <ul class="list">
-                <li>Content updates</li>
-                <li>Minor tweaks</li>
-                <li>Advice & support</li>
-                <li>Cancel anytime</li>
-              </ul>
-            </div>
+            <button class="car-btn" type="button" data-dir="1" aria-label="Next pricing option">›</button>
           </div>
 
           <p class="muted" style="margin:12px 0 0; font-weight:900;">
-            No forced subscriptions. You keep the site.
+            All prices are starting points. Final quote confirmed after a short email brief. No lock-in.
           </p>
         </div>
       </div>
@@ -414,7 +564,7 @@
         <div class="panel">
           <div class="panel-head">
             <h2>Get a quote</h2>
-            <p>Email us and we’ll respond with the best route + cost. No faff.</p>
+            <p>Email us and we’ll respond with the best route + a clear cost. No faff.</p>
           </div>
 
           <div class="contact-grid">
@@ -428,7 +578,7 @@
               </ul>
               <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
                 <a class="btn btn-green" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">PC quote</a>
-                <a class="btn email" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
+                <a class="btn" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
               </div>
             </div>
 
@@ -436,18 +586,18 @@
               <h3 style="margin:0 0 8px;">Websites</h3>
               <ul class="list">
                 <li>Business name + what you do</li>
-                <li>Pages you want (1 or up to 5)</li>
+                <li>Pages you want (1 or 3–5)</li>
                 <li>Any example sites you like</li>
                 <li>Budget + deadline</li>
               </ul>
               <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
                 <a class="btn btn-blue" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">Website quote</a>
-                <a class="btn email" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
+                <a class="btn" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
               </div>
             </div>
           </div>
 
-          <p class="muted" style="margin:14px 0 0; font-weight:800;">
+          <p class="muted" style="margin:14px 0 0; font-weight:850;">
             Reply time: as fast as we can — we’re not a call centre, we’re actually doing the work.
           </p>
         </div>
@@ -462,8 +612,111 @@
     </div>
   </footer>
 
+  <!-- Modal / bubble -->
+  <div class="modal" id="priceModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-close="1">✕</button>
+      <div class="modal-head">
+        <h3 id="mTitle" style="margin:0;">Title</h3>
+        <div class="modal-price" id="mPrice">from £0</div>
+      </div>
+      <p class="muted" id="mDesc" style="margin:10px 0 0;"></p>
+
+      <div class="modal-cols">
+        <div>
+          <h4>Includes</h4>
+          <ul id="mIncludes" class="modal-list"></ul>
+        </div>
+        <div>
+          <h4>Guardrails</h4>
+          <p class="muted" id="mGuard"></p>
+          <a class="btn btn-solid" style="width:100%; margin-top:10px;"
+             href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">
+            Get a website quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function(){
+      const carousel = document.getElementById("pricingCarousel");
+      const modal = document.getElementById("priceModal");
+
+      const mTitle = document.getElementById("mTitle");
+      const mPrice = document.getElementById("mPrice");
+      const mDesc = document.getElementById("mDesc");
+      const mIncludes = document.getElementById("mIncludes");
+      const mGuard = document.getElementById("mGuard");
+
+      function openModal(slide){
+        const title = slide.dataset.title || "";
+        const price = slide.dataset.price || "";
+        const desc = slide.dataset.desc || "";
+        const includes = (slide.dataset.includes || "").split("|").filter(Boolean);
+        const guard = slide.dataset.guardrails || "";
+
+        mTitle.textContent = title;
+        mPrice.textContent = price;
+        mDesc.textContent = desc;
+
+        mIncludes.innerHTML = "";
+        includes.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          mIncludes.appendChild(li);
+        });
+
+        mGuard.textContent = guard;
+
+        modal.setAttribute("aria-hidden","false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal(){
+        modal.setAttribute("aria-hidden","true");
+        document.body.style.overflow = "";
+      }
+
+      // Open modal
+      carousel.querySelectorAll(".price-slide").forEach(slide => {
+        slide.addEventListener("click", () => openModal(slide));
+        slide.addEventListener("keydown", (e) => {
+          if(e.key === "Enter" || e.key === " "){
+            e.preventDefault();
+            openModal(slide);
+          }
+        });
+      });
+
+      // Close modal (backdrop / close button)
+      modal.addEventListener("click", (e) => {
+        if(e.target && e.target.dataset && e.target.dataset.close){
+          closeModal();
+        }
+      });
+
+      // Close with Escape
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape" && modal.getAttribute("aria-hidden") === "false"){
+          closeModal();
+        }
+      });
+
+      // Carousel arrows (desktop)
+      document.querySelectorAll(".car-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const dir = parseInt(btn.dataset.dir, 10) || 0;
+          const slideWidth = carousel.querySelector(".price-slide")?.getBoundingClientRect().width || 360;
+          carousel.scrollBy({ left: dir * (slideWidth + 12), behavior: "smooth" });
+        });
+      });
+    })();
   </script>
 </body>
 </html>

@@ -243,36 +243,47 @@
       background: rgba(17,27,42,.72);
       border-color: rgba(255,255,255,.10);
     }
-    .panel-head{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      gap:6px;
-      margin-bottom:12px;
-    }
+    /* Recent work header: force full-width line under title */
+.panel-head{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  margin-bottom:14px;
+}
+
+.panel-head p{
+  width:100%;
+  max-width:none;     /* this is the key bit */
+  margin:0;
+}
     .panel-head h2{ margin:0; font-size:1.5rem; }
     .panel-head p{ margin:0; color:var(--muted); max-width: 75ch; }
     .muted{ color:var(--muted); }
 
     /* Proof / work */
     .proof-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top: 12px;
-    }
-    .work-card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius);
-      padding:14px;
-    }
-    .work-head{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom:10px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  margin-top: 12px;
+}
+
+.work-card{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  border-radius: var(--radius);
+  padding:14px;
+}
+
+.work-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
     }
     .tag{
       border:1px solid var(--line);
@@ -297,30 +308,68 @@
       text-align:center;
       padding: 12px;
     }
-    .work-meta{
-      margin-top: 10px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      color: var(--muted);
-      font-weight:800;
-      font-size: .92rem;
-    }
-    .work-img{
+    .work-pill{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.05);
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:.85rem;
+  white-space:nowrap;
+  opacity:.95;
+}
+
+.work-img{
   width:100%;
-  height:180px;
+  height:190px;
   object-fit:cover;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.03);
 }
 
+/* website screenshots usually look better like this */
 .work-img-contain{
   object-fit:contain;
   padding:10px;
   background: rgba(255,255,255,.06);
 }
 
+.work-meta{
+  margin-top: 10px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  color: var(--muted);
+  font-weight:800;
+  font-size: .92rem;
+}
+
+/* testimonials: supportive, not shouting */
+.testimonial{
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid rgba(53,208,127,.35);
+  background: rgba(0,0,0,.10);
+  border-radius: 12px;
+  color: rgba(233,238,245,.86);
+  font-style: italic;
+  font-weight: 650;
+  font-size: .98rem;
+  line-height: 1.5;
+}
+.testimonial .who{
+  display:block;
+  margin-top:6px;
+  color: rgba(169,180,195,.9);
+  font-style: normal;
+  font-weight: 800;
+  font-size: .9rem;
+}
+
+@media(max-width: 920px){
+  .proof-grid{ grid-template-columns: 1fr; }
+}
 
     /* Pricing carousel */
     .pricing-wrap{
@@ -638,7 +687,9 @@
     <div class="panel alt">
       <div class="panel-head">
         <h2>Recent work</h2>
-        <p>A couple of recent examples. If you want something similar, email us and we’ll quote it properly.</p>
+        <p class="muted">
+          A couple of recent examples. If you want something similar, email us and we’ll quote it properly.
+        </p>
       </div>
 
       <div class="proof-grid">
@@ -646,31 +697,34 @@
         <div class="work-card">
           <div class="work-head">
             <h3 style="margin:0;">PC builds & fixes</h3>
-            <span class="tag">⚙️</span>
+            <span class="work-pill">Media centre build</span>
           </div>
 
           <img
             class="work-img"
             src="pcbuild.jpg"
-            alt="Clean, compact PC build with improved airflow"
+            alt="Compact media centre PC build"
             loading="lazy"
           />
 
           <div class="work-meta">
             <span>• Clean, compact build</span>
-            <span>• Improved airflow & temps</span>
+            <span>• Quiet, living-room friendly</span>
             <span>• Upgrade-ready layout</span>
-            <p class="muted" style="margin-top:10px; font-style:italic;">
-  “Had a compact media centre built from scratch. Super quiet, tidy internals, and exactly the spec we needed. Looks great in the living room and just works.”
-</p>
           </div>
+
+          <p class="testimonial">
+            “Had a compact media centre built from scratch. Super quiet, tidy internals, and exactly the spec we needed.
+            Looks great in the living room and just works.”
+            <span class="who">— Home user</span>
+          </p>
         </div>
 
         <!-- WEBSITE WORK -->
         <div class="work-card">
           <div class="work-head">
             <h3 style="margin:0;">Websites</h3>
-            <span class="tag">🌐</span>
+            <span class="work-pill">Brochure website</span>
           </div>
 
           <img
@@ -684,16 +738,17 @@
             <span>• Modern brochure layout</span>
             <span>• Clear service sections</span>
             <span>• Mobile-friendly design</span>
-            <p class="muted" style="margin-top:10px; font-style:italic;">
-  “Fast, clean site with no monthly fees. Exactly what we needed.”
-</p>
           </div>
+
+          <p class="testimonial">
+            “Fast, clean site with no monthly fees — and it actually explains what we do clearly on mobile.”
+            <span class="who">— Small business owner</span>
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 
     <!-- PRICING -->
     <section class="pricing" id="pricing">

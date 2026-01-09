@@ -18,7 +18,6 @@
       --line2:rgba(255,255,255,.18);
       --green:#35d07f;
       --blue:#22c1ff;
-      --amber:#fbbf24;
       --radius:18px;
       --shadow:0 18px 55px rgba(0,0,0,.45);
       --max:1120px;
@@ -39,6 +38,7 @@
     a{ color:inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
     .container{ width:min(100% - 32px, var(--max)); margin-inline:auto; }
+    .muted{ color:var(--muted); }
 
     /* Sticky header */
     header{
@@ -48,9 +48,10 @@
       border-bottom:1px solid var(--line);
     }
 
+    /* This fixes the “nav not centred” issue */
     .topbar{
       display:flex;
-      align-items:center;     /* centres logo + nav + button */
+      align-items:center;
       justify-content:space-between;
       padding:14px 0;
       gap:16px;
@@ -87,7 +88,7 @@
       display:flex;
       align-items:center;
       gap:18px;
-      color:rgba(233,238,245,.78); /* slightly brighter than muted */
+      color:rgba(233,238,245,.78);
       font-weight:850;
     }
     nav a{
@@ -96,9 +97,7 @@
       outline:none;
     }
     nav a:hover{ color:var(--text); }
-    nav a:focus-visible{
-      box-shadow: 0 0 0 3px rgba(53,208,127,.22);
-    }
+    nav a:focus-visible{ box-shadow: 0 0 0 3px rgba(53,208,127,.22); }
 
     /* Buttons */
     .btn{
@@ -116,26 +115,21 @@
     }
     .btn-green{ background: rgba(53,208,127,.18); border-color: rgba(53,208,127,.35); }
     .btn-blue{ background: rgba(34,193,255,.16); border-color: rgba(34,193,255,.32); }
+    .btn-ghost{ background: transparent; border-color: var(--line); }
     .btn-solid{
       background: linear-gradient(135deg, rgba(53,208,127,.92), rgba(34,193,255,.65));
       border-color: transparent;
       color:#071018;
       box-shadow: var(--shadow);
     }
-    .btn-ghost{
-      background: transparent;
-      border-color: var(--line);
-    }
 
-    /* Layout + spacing (reduced) */
+    /* Layout spacing */
     main{ padding-bottom: 18px; }
     section{ padding: 32px 0; }
     #pc, #web, #proof, #pricing, #contact { scroll-margin-top: 92px; }
 
     /* Hero */
-    .hero{
-      padding-top: 34px;
-    }
+    .hero{ padding-top: 34px; }
     .hero-head{
       display:flex;
       flex-direction:column;
@@ -156,7 +150,7 @@
       max-width: 75ch;
     }
 
-    /* Split lanes */
+    /* Lanes */
     .lane-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -215,8 +209,8 @@
       position:absolute;
       left:0; right:0; top:0;
       height:3px;
-      opacity:.9;
       background: linear-gradient(90deg, rgba(53,208,127,.7), rgba(34,193,255,.55));
+      opacity:.9;
     }
     .step .num{
       display:inline-grid;
@@ -231,7 +225,7 @@
     .step h3{ margin:0 0 6px; font-size:1.05rem; }
     .step p{ margin:0; color:var(--muted); }
 
-    /* Generic panel */
+    /* Panels */
     .panel{
       background: rgba(15,22,33,.78);
       border:1px solid var(--line);
@@ -243,49 +237,48 @@
       background: rgba(17,27,42,.72);
       border-color: rgba(255,255,255,.10);
     }
-    /* Recent work header: force full-width line under title */
-.panel-head{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:8px;
-  margin-bottom:14px;
-}
 
-.panel-head p{
-  width:100%;
-  max-width:none;     /* this is the key bit */
-  margin:0;
-}
-    .panel-head h2{ margin:0; font-size:1.5rem; }
-    .panel-head p{ margin:0; color:var(--muted); max-width: 75ch; }
-    .muted{ color:var(--muted); }
-
-    /* Proof / work */
-    .proof-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:12px;
-  margin-top: 12px;
-}
-
-.work-card{
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  border-radius: var(--radius);
-  padding:14px;
-}
-
-.work-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:10px;
-}
-
+    /* IMPORTANT: header block clearly separated from grid */
+    .panel-head{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:10px;
+      padding-bottom:14px;
+      margin-bottom:16px;
+      border-bottom:1px solid rgba(255,255,255,.12); /* anchor line */
     }
-    .tag{
+    .panel-head h2{ margin:0; font-size:1.5rem; }
+    .panel-head p{
+      margin:0;
+      width:100%;
+      max-width: 70ch;  /* readable line length */
+    }
+
+    /* Recent work cards */
+    .proof-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top: 6px;
+    }
+
+    .work-card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:14px;
+    }
+
+    .work-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+
+    .work-pill{
       border:1px solid var(--line);
       background: rgba(255,255,255,.05);
       padding:6px 10px;
@@ -293,83 +286,53 @@
       font-weight:900;
       font-size:.85rem;
       white-space:nowrap;
+      opacity:.95;
     }
-    .placeholder{
-      height: 160px;
-      border-radius: 14px;
-      border:1px dashed rgba(255,255,255,.22);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+
+    .work-img{
+      width:100%;
+      height:190px;
+      object-fit:cover;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+    }
+    .work-img-contain{
+      object-fit:contain;
+      padding:10px;
+      background: rgba(255,255,255,.06);
+    }
+
+    .work-meta{
+      margin-top: 10px;
       display:flex;
-      align-items:center;
-      justify-content:center;
-      color: rgba(233,238,245,.7);
-      font-weight: 850;
-      text-align:center;
-      padding: 12px;
+      gap:10px;
+      flex-wrap:wrap;
+      color: var(--muted);
+      font-weight:800;
+      font-size: .92rem;
     }
-    .work-pill{
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.05);
-  padding:6px 10px;
-  border-radius:999px;
-  font-weight:900;
-  font-size:.85rem;
-  white-space:nowrap;
-  opacity:.95;
-}
 
-.work-img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.03);
-}
-
-/* website screenshots usually look better like this */
-.work-img-contain{
-  object-fit:contain;
-  padding:10px;
-  background: rgba(255,255,255,.06);
-}
-
-.work-meta{
-  margin-top: 10px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  color: var(--muted);
-  font-weight:800;
-  font-size: .92rem;
-}
-
-/* testimonials: supportive, not shouting */
-.testimonial{
-  margin: 12px 0 0;
-  padding: 10px 12px;
-  border-left: 3px solid rgba(53,208,127,.35);
-  background: rgba(0,0,0,.10);
-  border-radius: 12px;
-  color: rgba(233,238,245,.86);
-  font-style: italic;
-  font-weight: 650;
-  font-size: .98rem;
-  line-height: 1.5;
-}
-.testimonial .who{
-  display:block;
-  margin-top:6px;
-  color: rgba(169,180,195,.9);
-  font-style: normal;
-  font-weight: 800;
-  font-size: .9rem;
-}
-
-@media(max-width: 920px){
-  .proof-grid{ grid-template-columns: 1fr; }
-}
+    .testimonial{
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-left: 3px solid rgba(53,208,127,.35);
+      background: rgba(0,0,0,.10);
+      border-radius: 12px;
+      color: rgba(233,238,245,.86);
+      font-style: italic;
+      font-weight: 650;
+      font-size: .98rem;
+      line-height: 1.5;
+    }
+    .testimonial .who{
+      display:block;
+      margin-top:6px;
+      color: rgba(169,180,195,.9);
+      font-style: normal;
+      font-weight: 800;
+      font-size: .9rem;
+    }
 
     /* Pricing carousel */
     .pricing-wrap{
@@ -442,7 +405,6 @@
       font-size: .9rem;
     }
 
-    /* Carousel indicators */
     .carousel-meta{
       display:flex;
       align-items:center;
@@ -453,11 +415,7 @@
       font-weight: 850;
       font-size:.92rem;
     }
-    .dots{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
+    .dots{ display:flex; gap:8px; align-items:center; }
     .dot{
       width:8px; height:8px;
       border-radius:999px;
@@ -469,15 +427,7 @@
       border-color: rgba(53,208,127,.55);
     }
 
-    @media (max-width: 1100px){
-      .carousel-slide{ flex-basis: calc((100% - 12px) / 2); }
-    }
-    @media (max-width: 720px){
-      .carousel-slide{ flex-basis: 100%; }
-      .car-btn{ display:none; }
-    }
-
-    /* Modal bubble */
+    /* Modal */
     .modal{
       position:fixed;
       inset:0;
@@ -485,13 +435,11 @@
       z-index:999;
     }
     .modal[aria-hidden="false"]{ display:block; }
-
     .modal-backdrop{
       position:absolute;
       inset:0;
       background: rgba(0,0,0,.55);
     }
-
     .modal-card{
       position:relative;
       width: min(980px, calc(100% - 32px));
@@ -502,7 +450,6 @@
       box-shadow: var(--shadow);
       padding: 18px;
     }
-
     .modal-close{
       position:absolute;
       top: 12px;
@@ -517,7 +464,6 @@
       font-weight: 950;
       cursor:pointer;
     }
-
     .modal-head{
       display:flex;
       align-items:flex-start;
@@ -525,7 +471,6 @@
       gap:12px;
       padding-right: 46px;
     }
-
     .modal-price{
       border:1px solid var(--line);
       background: rgba(255,255,255,.05);
@@ -534,37 +479,25 @@
       font-weight: 950;
       white-space: nowrap;
     }
-
     .modal-cols{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:14px;
       margin-top: 14px;
     }
-
-    .modal-cols h4{
-      margin: 0 0 8px;
-      font-size: 1.05rem;
-    }
-
+    .modal-cols h4{ margin: 0 0 8px; font-size: 1.05rem; }
     .modal-list{
       margin:0;
       padding-left: 18px;
       color: var(--muted);
       font-weight: 780;
     }
-
     .mini-brief{
       margin-top:10px;
       border:1px solid var(--line);
       border-radius: 14px;
       padding: 12px;
       background: rgba(255,255,255,.04);
-    }
-
-    @media (max-width: 900px){
-      .modal-card{ margin: 10vh auto; }
-      .modal-cols{ grid-template-columns: 1fr; }
     }
 
     /* Contact */
@@ -594,10 +527,17 @@
     }
 
     /* Responsive */
-    @media(max-width: 920px){
+    @media (max-width: 1100px){
+      .carousel-slide{ flex-basis: calc((100% - 12px) / 2); }
+    }
+    @media (max-width: 920px){
       .lane-grid, .strip, .proof-grid, .contact-grid{ grid-template-columns:1fr; }
       nav{ display:none; }
       .nav-wrap{ justify-content:flex-end; }
+      .carousel-slide{ flex-basis: 100%; }
+      .car-btn{ display:none; }
+      .modal-cols{ grid-template-columns: 1fr; }
+      .modal-card{ margin: 10vh auto; }
     }
   </style>
 </head>
@@ -681,82 +621,68 @@
       </div>
     </section>
 
-    <!-- PROOF / RECENT WORK -->
-<section id="proof">
-  <div class="container">
-    <div class="panel alt">
-      <div class="panel-head">
-        <h2>Recent work</h2>
-        <p class="muted">
-          A couple of recent examples. If you want something similar, email us and we’ll quote it properly.
-        </p>
-      </div>
-
-      <div class="proof-grid">
-        <!-- PC WORK -->
-        <div class="work-card">
-          <div class="work-head">
-            <h3 style="margin:0;">PC builds & fixes</h3>
-            <span class="work-pill">Media centre build</span>
+    <!-- RECENT WORK -->
+    <section id="proof">
+      <div class="container">
+        <div class="panel alt">
+          <div class="panel-head">
+            <h2>Recent work</h2>
+            <p class="muted">Below are a couple of recent examples. If you want something similar, email us and we’ll quote it properly.</p>
           </div>
 
-          <img
-            class="work-img"
-            src="pcbuild.jpg"
-            alt="Compact media centre PC build"
-            loading="lazy"
-          />
+          <div class="proof-grid">
+            <div class="work-card">
+              <div class="work-head">
+                <h3 style="margin:0;">PC builds & fixes</h3>
+                <span class="work-pill">Media centre build</span>
+              </div>
 
-          <div class="work-meta">
-            <span>• Clean, compact build</span>
-            <span>• Quiet, living-room friendly</span>
-            <span>• Upgrade-ready layout</span>
+              <img class="work-img" src="pcbuild.jpg" alt="Compact media centre PC build" loading="lazy" />
+
+              <div class="work-meta">
+                <span>• Clean, compact build</span>
+                <span>• Quiet, living-room friendly</span>
+                <span>• Upgrade-ready layout</span>
+              </div>
+
+              <p class="testimonial">
+                “Had a compact media centre built from scratch. Super quiet, tidy internals, and exactly the spec we needed.
+                Looks great in the living room and just works.”
+                <span class="who">— Home user</span>
+              </p>
+            </div>
+
+            <div class="work-card">
+              <div class="work-head">
+                <h3 style="margin:0;">Websites</h3>
+                <span class="work-pill">Brochure website</span>
+              </div>
+
+              <img class="work-img work-img-contain" src="DataWorxsite.png" alt="Screenshot of a modern small business website" loading="lazy" />
+
+              <div class="work-meta">
+                <span>• Modern brochure layout</span>
+                <span>• Clear service sections</span>
+                <span>• Mobile-friendly design</span>
+              </div>
+
+              <p class="testimonial">
+                “Fast, clean site with no monthly fees — and it actually explains what we do clearly on mobile.”
+                <span class="who">— Small business owner</span>
+              </p>
+            </div>
           </div>
-
-          <p class="testimonial">
-            “Had a compact media centre built from scratch. Super quiet, tidy internals, and exactly the spec we needed.
-            Looks great in the living room and just works.”
-            <span class="who">— Home user</span>
-          </p>
-        </div>
-
-        <!-- WEBSITE WORK -->
-        <div class="work-card">
-          <div class="work-head">
-            <h3 style="margin:0;">Websites</h3>
-            <span class="work-pill">Brochure website</span>
-          </div>
-
-          <img
-            class="work-img work-img-contain"
-            src="DataWorxsite.png"
-            alt="Screenshot of a modern small business website"
-            loading="lazy"
-          />
-
-          <div class="work-meta">
-            <span>• Modern brochure layout</span>
-            <span>• Clear service sections</span>
-            <span>• Mobile-friendly design</span>
-          </div>
-
-          <p class="testimonial">
-            “Fast, clean site with no monthly fees — and it actually explains what we do clearly on mobile.”
-            <span class="who">— Small business owner</span>
-          </p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- PRICING -->
-    <section class="pricing" id="pricing">
+    <section id="pricing">
       <div class="container">
         <div class="panel">
           <div class="panel-head">
             <h2>Website pricing</h2>
-            <p>Starting prices with guardrails. Click a package for what’s included and what changes the price.</p>
+            <p class="muted">Starting prices with guardrails. Click a package for what’s included and what changes the price.</p>
           </div>
 
           <div class="pricing-wrap">
@@ -848,12 +774,12 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contact" id="contact">
+    <section id="contact">
       <div class="container">
         <div class="panel">
           <div class="panel-head">
             <h2>Get a quote</h2>
-            <p>Email us and we’ll respond with the best route + a clear cost. No faff.</p>
+            <p class="muted">Email us and we’ll respond with the best route + a clear cost. No faff.</p>
           </div>
 
           <div class="contact-grid">
@@ -901,7 +827,7 @@
     </div>
   </footer>
 
-  <!-- MODAL / BUBBLE -->
+  <!-- MODAL -->
   <div class="modal" id="priceModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-backdrop" data-close="1"></div>
     <div class="modal-card" role="document">
@@ -1011,7 +937,7 @@
 
       function visibleCount(){
         const w = window.innerWidth;
-        if (w <= 720) return 1;
+        if (w <= 920) return 1;
         if (w <= 1100) return 2;
         return 3;
       }
@@ -1033,7 +959,6 @@
         clampIndex();
         track.style.transform = `translateX(${-index * slideStep()}px)`;
 
-        // dots represent "positions", not slides
         const positions = maxIndex() + 1;
         if (dotsWrap.childElementCount !== positions){
           dotsWrap.innerHTML = "";
@@ -1053,14 +978,11 @@
             dotsWrap.appendChild(d);
           }
         } else {
-          Array.from(dotsWrap.children).forEach((d, i) => {
-            d.classList.toggle("active", i === index);
-          });
+          Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle("active", i === index));
         }
 
-        countEl.textContent = `${index + 1} of ${maxIndex() + 1}`;
+        countEl.textContent = `${index + 1} of ${positions}`;
 
-        // disable arrows at ends
         prevBtn.disabled = index === 0;
         nextBtn.disabled = index === maxIndex();
         prevBtn.style.opacity = prevBtn.disabled ? .45 : 1;
@@ -1081,7 +1003,6 @@
       });
 
       window.addEventListener("resize", () => {
-        // keep index valid when breakpoint changes
         if (index > maxIndex()) index = maxIndex();
         render();
       });

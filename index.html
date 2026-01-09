@@ -264,7 +264,7 @@
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:12px;
-      margin-top: 6px;
+      align-items:stretch;
     }
 
     .work-card{
@@ -272,11 +272,14 @@
       background: rgba(255,255,255,.04);
       border-radius: var(--radius);
       padding:14px;
+
+      display:flex;
+      flex-direction:column;
+      height:100%;
     }
     .work-card.pc .testimonial{
       border-left-color: rgba(53,208,127,.45);
     }
-
     .work-card.web .testimonial{
       border-left-color: rgba(34,193,255,.45);
     }
@@ -324,8 +327,8 @@
       filter: brightness(1);
     }
 
-    .testimonial{
-      margin: 12px 0 0;
+   .testimonial{
+      margin: 10px 0 0;
       padding: 10px 12px;
       border-left: 3px solid rgba(53,208,127,.35);
       background: rgba(0,0,0,.10);
@@ -334,8 +337,15 @@
       font-style: italic;
       font-weight: 600;
       font-size: .95rem;
-      line-height: 1.5;
+      line-height: 1.55;
+
+  /* equal height behaviour */
+      min-height: 120px;              /* bump this up so you SEE it */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
+
     .testimonial .who{
       display:block;
       margin-top:6px;
@@ -343,18 +353,6 @@
       font-style: normal;
       font-weight: 800;
       font-size: .9rem;
-    }
-    .testimonial{
-      margin-top: 10px;
-    }
-    .testimonial{
-      min-height: 96px;   /* adjust slightly if needed */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .testimonial{
-      line-height: 1.55;
     }
 
     /* Pricing carousel */

@@ -273,6 +273,13 @@
       border-radius: var(--radius);
       padding:14px;
     }
+    .work-card.pc .testimonial{
+      border-left-color: rgba(53,208,127,.45);
+    }
+
+    .work-card.web .testimonial{
+      border-left-color: rgba(34,193,255,.45);
+    }
 
     .work-head{
       display:flex;
@@ -339,6 +346,15 @@
     }
     .testimonial{
       margin-top: 10px;
+    }
+    .testimonial{
+      min-height: 96px;   /* adjust slightly if needed */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .testimonial{
+      line-height: 1.55;
     }
 
     /* Pricing carousel */
@@ -638,7 +654,7 @@
           </div>
 
           <div class="proof-grid">
-            <div class="work-card">
+            <div class="work-card pc">
               <div class="work-head">
                 <h3 style="margin:0;">PC builds & fixes</h3>
                 <span class="work-pill">Media centre build</span>
@@ -653,7 +669,7 @@
               </p>
             </div>
 
-            <div class="work-card">
+            <div class="work-card web">
               <div class="work-head">
                 <h3 style="margin:0;">Websites</h3>
                 <span class="work-pill">Brochure website</span>

@@ -46,14 +46,26 @@
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
+
+    /* THIS fixes your header alignment: everything centred vertically */
     .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0; gap:16px;
+      display:flex;
+      align-items:center;     /* <- centres logo + nav + button */
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+      min-height:64px;        /* <- keeps a consistent bar height */
     }
+
     .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:950; letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:950;
+      letter-spacing:.2px;
+      flex: 0 0 auto;
     }
+
     .logo{
       width:40px; height:40px;
       border-radius:14px;
@@ -62,16 +74,30 @@
       object-fit:contain;
       padding:6px;
     }
+
+    .nav-wrap{
+      display:flex;
+      align-items:center;     /* <- centres nav items within wrapper */
+      gap:18px;
+      flex: 1 1 auto;
+      justify-content:flex-end;
+    }
+
     nav{
-      display:flex; gap:16px; flex-wrap:wrap;
+      display:flex;
+      align-items:center;     /* <- centres nav items vertically */
+      gap:18px;
       color:var(--muted);
       font-weight:850;
     }
+    nav a{ padding:10px 4px; }
     nav a:hover{ color:var(--text); }
 
     /* Buttons */
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding:12px 16px;
       border-radius:999px;
       border:1px solid var(--line);
@@ -79,6 +105,7 @@
       font-weight:950;
       cursor:pointer;
       user-select:none;
+      white-space:nowrap;
     }
     .btn-green{ background: rgba(53,208,127,.18); border-color: rgba(53,208,127,.35); }
     .btn-blue{ background: rgba(34,193,255,.16); border-color: rgba(34,193,255,.32); }
@@ -89,13 +116,12 @@
       box-shadow: var(--shadow);
     }
 
-    /* Page layout */
+    /* Layout + spacing (reduced) */
     main{ padding-bottom: 18px; }
-    section{ padding: 52px 0; }
-    /* Sticky header anchor offset */
-    #pc, #web, #pricing, #contact { scroll-margin-top: 90px; }
+    section{ padding: 34px 0; } /* less spacing between sections */
+    #pc, #web, #pricing, #contact { scroll-margin-top: 92px; } /* anchor offset for sticky header */
 
-    /* Hero heading */
+    /* Hero */
     .hero-head{
       display:flex;
       flex-direction:column;
@@ -181,7 +207,7 @@
     .step h3{ margin:0 0 6px; font-size:1.05rem; }
     .step p{ margin:0; color:var(--muted); }
 
-    /* Generic panel */
+    /* Generic panel (title + subtitle UNDER it, not side-by-side) */
     .panel{
       background: rgba(15,22,33,.78);
       border:1px solid var(--line);
@@ -191,18 +217,16 @@
     }
     .panel-head{
       display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:16px;
-      flex-wrap:wrap;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
       margin-bottom:12px;
     }
     .panel-head h2{ margin:0; font-size:1.5rem; }
     .panel-head p{ margin:0; color:var(--muted); max-width: 75ch; }
-
     .muted{ color:var(--muted); }
 
-    /* PRICING CAROUSEL */
+    /* PRICING CAROUSEL (real carousel: no scrollbar) */
     .pricing-wrap{
       display:flex;
       align-items:center;
@@ -210,20 +234,34 @@
       margin-top: 12px;
     }
 
-    .pricing-carousel{
-      display:flex;
-      gap:12px;
-      overflow:auto;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding: 6px 2px 10px;
-      scrollbar-width: thin;
-      width:100%;
+    .car-btn{
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-size: 1.4rem;
+      font-weight: 950;
+      cursor:pointer;
+      flex: 0 0 auto;
     }
 
-    .price-slide{
-      flex: 0 0 min(360px, 85vw);
-      scroll-snap-align: start;
+    .carousel{
+      width:100%;
+      overflow:hidden;
+      border-radius: var(--radius);
+    }
+
+    .carousel-track{
+      display:flex;
+      gap:12px;
+      transition: transform .35s ease;
+      will-change: transform;
+    }
+
+    .carousel-slide{
+      flex: 0 0 calc((100% - 24px) / 3); /* 3 visible */
       background: rgba(255,255,255,.04);
       border:1px solid var(--line);
       border-radius: var(--radius);
@@ -232,14 +270,8 @@
       outline:none;
       position:relative;
     }
-
-    .price-slide:hover{
-      border-color: rgba(255,255,255,.18);
-    }
-
-    .price-slide:focus{
-      box-shadow: 0 0 0 3px rgba(53,208,127,.22);
-    }
+    .carousel-slide:hover{ border-color: rgba(255,255,255,.18); }
+    .carousel-slide:focus{ box-shadow: 0 0 0 3px rgba(53,208,127,.22); }
 
     .price-top{
       display:flex;
@@ -265,21 +297,12 @@
       font-size: .9rem;
     }
 
-    .car-btn{
-      width:42px;
-      height:42px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-size: 1.4rem;
-      font-weight: 950;
-      cursor:pointer;
-      flex: 0 0 auto;
+    @media (max-width: 1100px){
+      .carousel-slide{ flex-basis: calc((100% - 12px) / 2); } /* 2 visible */
     }
-
-    @media (max-width: 900px){
-      .car-btn{ display:none; } /* swipe on mobile */
+    @media (max-width: 720px){
+      .carousel-slide{ flex-basis: 100%; } /* 1 visible */
+      .car-btn{ display:none; }           /* swipe/trackpad friendly */
     }
 
     /* Modal bubble */
@@ -328,7 +351,7 @@
       align-items:flex-start;
       justify-content:space-between;
       gap:12px;
-      padding-right: 46px; /* space for close button */
+      padding-right: 46px;
     }
 
     .modal-price{
@@ -393,7 +416,8 @@
     /* Responsive */
     @media(max-width: 920px){
       .lane-grid, .strip, .contact-grid{ grid-template-columns:1fr; }
-      nav{ display:none; }
+      nav{ display:none; } /* keep header clean on mobile */
+      .nav-wrap{ justify-content:flex-end; }
     }
   </style>
 </head>
@@ -406,12 +430,14 @@
         <span>Byte My System</span>
       </a>
 
-      <nav aria-label="Primary navigation">
-        <a href="#pc">PC help</a>
-        <a href="#web">Websites</a>
-        <a href="#pricing">Pricing</a>
+      <div class="nav-wrap">
+        <nav aria-label="Primary navigation">
+          <a href="#pc">PC help</a>
+          <a href="#web">Websites</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
         <a class="btn btn-solid" href="#contact">Get a quote</a>
-      </nav>
+      </div>
     </div>
   </header>
 
@@ -474,7 +500,7 @@
       </div>
     </section>
 
-    <!-- PRICING (ID is on the SECTION) -->
+    <!-- PRICING -->
     <section class="pricing" id="pricing">
       <div class="container">
         <div class="panel">
@@ -484,71 +510,75 @@
           </div>
 
           <div class="pricing-wrap">
-            <button class="car-btn" type="button" data-dir="-1" aria-label="Previous pricing option">‹</button>
+            <button class="car-btn" type="button" id="pricePrev" aria-label="Previous pricing option">‹</button>
 
-            <div class="pricing-carousel" id="pricingCarousel" aria-label="Website pricing carousel">
-              <article class="price-slide" tabindex="0"
-                data-title="Starter Website"
-                data-price="from £400"
-                data-desc="A clean one-page site for sole traders and simple businesses."
-                data-includes="1 page|Mobile-first layout|Basic design using your branding|Contact section (email or simple form)|Domain connection support"
-                data-guardrails="Price increases if: extra pages, copywriting, custom graphics, galleries/testimonials, maps/embeds, urgent turnaround."
-              >
-                <div class="price-top">
-                  <h3>Starter Website</h3>
-                  <div class="price-pill">from <strong>£400</strong></div>
-                </div>
-                <p class="muted">One-page site for a simple online presence.</p>
-                <div class="tap-hint">Click for details</div>
-              </article>
+            <div class="carousel" aria-label="Website pricing carousel">
+              <div class="carousel-track" id="pricingTrack">
 
-              <article class="price-slide" tabindex="0"
-                data-title="Business Website"
-                data-price="from £1,200"
-                data-desc="Multi-page brochure site designed to generate enquiries and look credible."
-                data-includes="3–5 pages|Clear navigation|Basic SEO setup (titles + descriptions)|Performance optimisation|Mobile & tablet friendly|Contact page"
-                data-guardrails="Price increases if: more than 5 pages, CMS/blog, advanced forms, integrations, content creation, premium design iterations, urgent turnaround."
-              >
-                <div class="price-top">
-                  <h3>Business Website</h3>
-                  <div class="price-pill">from <strong>£1,200</strong></div>
-                </div>
-                <p class="muted">A proper business site with structure.</p>
-                <div class="tap-hint">Click for details</div>
-              </article>
+                <article class="carousel-slide" tabindex="0"
+                  data-title="Starter Website"
+                  data-price="from £400"
+                  data-desc="A clean one-page site for sole traders and simple businesses."
+                  data-includes="1 page|Mobile-first layout|Basic design using your branding|Contact section (email or simple form)|Domain connection support"
+                  data-guardrails="Price increases if: extra pages, copywriting, custom graphics, galleries/testimonials, maps/embeds, urgent turnaround."
+                >
+                  <div class="price-top">
+                    <h3>Starter Website</h3>
+                    <div class="price-pill">from <strong>£400</strong></div>
+                  </div>
+                  <p class="muted">One-page site for a simple online presence.</p>
+                  <div class="tap-hint">Click for details</div>
+                </article>
 
-              <article class="price-slide" tabindex="0"
-                data-title="Advanced Website"
-                data-price="from £2,500"
-                data-desc="For businesses where the website is a serious part of revenue and growth."
-                data-includes="6+ pages or complex layout|Strategy-led structure|Analytics setup|More revision rounds|Priority delivery option"
-                data-guardrails="Price varies based on: page count, features, integrations, content needs, and turnaround time."
-              >
-                <div class="price-top">
-                  <h3>Advanced Website</h3>
-                  <div class="price-pill">from <strong>£2,500</strong></div>
-                </div>
-                <p class="muted">Custom builds with more depth.</p>
-                <div class="tap-hint">Click for details</div>
-              </article>
+                <article class="carousel-slide" tabindex="0"
+                  data-title="Business Website"
+                  data-price="from £1,200"
+                  data-desc="Multi-page brochure site designed to generate enquiries and look credible."
+                  data-includes="3–5 pages|Clear navigation|Basic SEO setup (titles + descriptions)|Performance optimisation|Mobile & tablet friendly|Contact page"
+                  data-guardrails="Price increases if: more than 5 pages, CMS/blog, advanced forms, integrations, content creation, premium design iterations, urgent turnaround."
+                >
+                  <div class="price-top">
+                    <h3>Business Website</h3>
+                    <div class="price-pill">from <strong>£1,200</strong></div>
+                  </div>
+                  <p class="muted">A proper business site with structure.</p>
+                  <div class="tap-hint">Click for details</div>
+                </article>
 
-              <article class="price-slide" tabindex="0"
-                data-title="Support & Updates"
-                data-price="from £50/month"
-                data-desc="Optional ongoing support — only if you want it. Cancel anytime."
-                data-includes="Content updates (fair use)|Minor layout tweaks|Advice & support|Priority email"
-                data-guardrails="Excludes: major redesigns, new page builds, feature development. Those are quoted separately."
-              >
-                <div class="price-top">
-                  <h3>Support & Updates</h3>
-                  <div class="price-pill">from <strong>£50/mo</strong></div>
-                </div>
-                <p class="muted">Optional. No lock-in.</p>
-                <div class="tap-hint">Click for details</div>
-              </article>
+                <article class="carousel-slide" tabindex="0"
+                  data-title="Advanced Website"
+                  data-price="from £2,500"
+                  data-desc="For businesses where the website is a serious part of revenue and growth."
+                  data-includes="6+ pages or complex layout|Strategy-led structure|Analytics setup|More revision rounds|Priority delivery option"
+                  data-guardrails="Price varies based on: page count, features, integrations, content needs, and turnaround time."
+                >
+                  <div class="price-top">
+                    <h3>Advanced Website</h3>
+                    <div class="price-pill">from <strong>£2,500</strong></div>
+                  </div>
+                  <p class="muted">Custom builds with more depth.</p>
+                  <div class="tap-hint">Click for details</div>
+                </article>
+
+                <article class="carousel-slide" tabindex="0"
+                  data-title="Support & Updates"
+                  data-price="from £50/month"
+                  data-desc="Optional ongoing support — only if you want it. Cancel anytime."
+                  data-includes="Content updates (fair use)|Minor layout tweaks|Advice & support|Priority email"
+                  data-guardrails="Excludes: major redesigns, new page builds, feature development. Those are quoted separately."
+                >
+                  <div class="price-top">
+                    <h3>Support & Updates</h3>
+                    <div class="price-pill">from <strong>£50/mo</strong></div>
+                  </div>
+                  <p class="muted">Optional. No lock-in.</p>
+                  <div class="tap-hint">Click for details</div>
+                </article>
+
+              </div>
             </div>
 
-            <button class="car-btn" type="button" data-dir="1" aria-label="Next pricing option">›</button>
+            <button class="car-btn" type="button" id="priceNext" aria-label="Next pricing option">›</button>
           </div>
 
           <p class="muted" style="margin:12px 0 0; font-weight:900;">
@@ -558,7 +588,7 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section class="contact" id="contact">
       <div class="container">
         <div class="panel">
@@ -612,15 +642,17 @@
     </div>
   </footer>
 
-  <!-- Modal / bubble -->
+  <!-- MODAL / BUBBLE -->
   <div class="modal" id="priceModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-backdrop" data-close="1"></div>
     <div class="modal-card" role="document">
       <button class="modal-close" type="button" aria-label="Close" data-close="1">✕</button>
+
       <div class="modal-head">
         <h3 id="mTitle" style="margin:0;">Title</h3>
         <div class="modal-price" id="mPrice">from £0</div>
       </div>
+
       <p class="muted" id="mDesc" style="margin:10px 0 0;"></p>
 
       <div class="modal-cols">
@@ -641,13 +673,12 @@
   </div>
 
   <script>
-    // Footer year
+    // footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
     (function(){
-      const carousel = document.getElementById("pricingCarousel");
+      // Modal bits
       const modal = document.getElementById("priceModal");
-
       const mTitle = document.getElementById("mTitle");
       const mPrice = document.getElementById("mPrice");
       const mDesc = document.getElementById("mDesc");
@@ -683,8 +714,52 @@
         document.body.style.overflow = "";
       }
 
-      // Open modal
-      carousel.querySelectorAll(".price-slide").forEach(slide => {
+      modal.addEventListener("click", (e) => {
+        if(e.target && e.target.dataset && e.target.dataset.close){
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape" && modal.getAttribute("aria-hidden") === "false"){
+          closeModal();
+        }
+      });
+
+      // Carousel logic
+      const track = document.getElementById("pricingTrack");
+      const slides = Array.from(track.querySelectorAll(".carousel-slide"));
+      const prevBtn = document.getElementById("pricePrev");
+      const nextBtn = document.getElementById("priceNext");
+
+      let index = 0;
+
+      function visibleCount(){
+        const w = window.innerWidth;
+        if (w <= 720) return 1;
+        if (w <= 1100) return 2;
+        return 3;
+      }
+
+      function clampIndex(){
+        const maxIndex = Math.max(0, slides.length - visibleCount());
+        index = Math.max(0, Math.min(index, maxIndex));
+      }
+
+      function slideStep(){
+        const rect = slides[0].getBoundingClientRect();
+        return rect.width + 12; // slide width + gap
+      }
+
+      function render(){
+        clampIndex();
+        track.style.transform = `translateX(${-index * slideStep()}px)`;
+      }
+
+      prevBtn.addEventListener("click", () => { index -= 1; render(); });
+      nextBtn.addEventListener("click", () => { index += 1; render(); });
+
+      slides.forEach(slide => {
         slide.addEventListener("click", () => openModal(slide));
         slide.addEventListener("keydown", (e) => {
           if(e.key === "Enter" || e.key === " "){
@@ -694,28 +769,8 @@
         });
       });
 
-      // Close modal (backdrop / close button)
-      modal.addEventListener("click", (e) => {
-        if(e.target && e.target.dataset && e.target.dataset.close){
-          closeModal();
-        }
-      });
-
-      // Close with Escape
-      document.addEventListener("keydown", (e) => {
-        if(e.key === "Escape" && modal.getAttribute("aria-hidden") === "false"){
-          closeModal();
-        }
-      });
-
-      // Carousel arrows (desktop)
-      document.querySelectorAll(".car-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const dir = parseInt(btn.dataset.dir, 10) || 0;
-          const slideWidth = carousel.querySelector(".price-slide")?.getBoundingClientRect().width || 360;
-          carousel.scrollBy({ left: dir * (slideWidth + 12), behavior: "smooth" });
-        });
-      });
+      window.addEventListener("resize", () => render());
+      render();
     })();
   </script>
 </body>

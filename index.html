@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Byte My System | PC Help & Small Business Websites</title>
-  <meta name="description" content="PC builds, repairs and upgrades — plus clean, fast small business websites. Transparent starting prices and clear scope." />
+  <meta name="description" content="PC builds, repairs and upgrades — plus clean, fast small business websites. Honest advice. Clear pricing. No lock-in." />
   <meta name="theme-color" content="#0b0f14" />
 
   <style>
@@ -15,6 +15,7 @@
       --text:#e9eef5;
       --muted:#a9b4c3;
       --line:rgba(255,255,255,.12);
+      --line2:rgba(255,255,255,.18);
       --green:#35d07f;
       --blue:#22c1ff;
       --amber:#fbbf24;
@@ -47,14 +48,13 @@
       border-bottom:1px solid var(--line);
     }
 
-    /* THIS fixes your header alignment: everything centred vertically */
     .topbar{
       display:flex;
-      align-items:center;     /* <- centres logo + nav + button */
+      align-items:center;     /* centres logo + nav + button */
       justify-content:space-between;
       padding:14px 0;
       gap:16px;
-      min-height:64px;        /* <- keeps a consistent bar height */
+      min-height:64px;
     }
 
     .brand{
@@ -77,7 +77,7 @@
 
     .nav-wrap{
       display:flex;
-      align-items:center;     /* <- centres nav items within wrapper */
+      align-items:center;
       gap:18px;
       flex: 1 1 auto;
       justify-content:flex-end;
@@ -85,13 +85,20 @@
 
     nav{
       display:flex;
-      align-items:center;     /* <- centres nav items vertically */
+      align-items:center;
       gap:18px;
-      color:var(--muted);
+      color:rgba(233,238,245,.78); /* slightly brighter than muted */
       font-weight:850;
     }
-    nav a{ padding:10px 4px; }
+    nav a{
+      padding:10px 4px;
+      border-radius:10px;
+      outline:none;
+    }
     nav a:hover{ color:var(--text); }
+    nav a:focus-visible{
+      box-shadow: 0 0 0 3px rgba(53,208,127,.22);
+    }
 
     /* Buttons */
     .btn{
@@ -115,13 +122,20 @@
       color:#071018;
       box-shadow: var(--shadow);
     }
+    .btn-ghost{
+      background: transparent;
+      border-color: var(--line);
+    }
 
     /* Layout + spacing (reduced) */
     main{ padding-bottom: 18px; }
-    section{ padding: 34px 0; } /* less spacing between sections */
-    #pc, #web, #pricing, #contact { scroll-margin-top: 92px; } /* anchor offset for sticky header */
+    section{ padding: 32px 0; }
+    #pc, #web, #proof, #pricing, #contact { scroll-margin-top: 92px; }
 
     /* Hero */
+    .hero{
+      padding-top: 34px;
+    }
     .hero-head{
       display:flex;
       flex-direction:column;
@@ -193,6 +207,16 @@
       border:1px solid var(--line);
       border-radius: var(--radius);
       padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .step:after{
+      content:"";
+      position:absolute;
+      left:0; right:0; top:0;
+      height:3px;
+      opacity:.9;
+      background: linear-gradient(90deg, rgba(53,208,127,.7), rgba(34,193,255,.55));
     }
     .step .num{
       display:inline-grid;
@@ -207,13 +231,17 @@
     .step h3{ margin:0 0 6px; font-size:1.05rem; }
     .step p{ margin:0; color:var(--muted); }
 
-    /* Generic panel (title + subtitle UNDER it, not side-by-side) */
+    /* Generic panel */
     .panel{
       background: rgba(15,22,33,.78);
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding:18px;
+    }
+    .panel.alt{
+      background: rgba(17,27,42,.72);
+      border-color: rgba(255,255,255,.10);
     }
     .panel-head{
       display:flex;
@@ -226,7 +254,60 @@
     .panel-head p{ margin:0; color:var(--muted); max-width: 75ch; }
     .muted{ color:var(--muted); }
 
-    /* PRICING CAROUSEL (real carousel: no scrollbar) */
+    /* Proof / work */
+    .proof-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top: 12px;
+    }
+    .work-card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:14px;
+    }
+    .work-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .tag{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.85rem;
+      white-space:nowrap;
+    }
+    .placeholder{
+      height: 160px;
+      border-radius: 14px;
+      border:1px dashed rgba(255,255,255,.22);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(233,238,245,.7);
+      font-weight: 850;
+      text-align:center;
+      padding: 12px;
+    }
+    .work-meta{
+      margin-top: 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color: var(--muted);
+      font-weight:800;
+      font-size: .92rem;
+    }
+
+    /* Pricing carousel */
     .pricing-wrap{
       display:flex;
       align-items:center;
@@ -261,7 +342,7 @@
     }
 
     .carousel-slide{
-      flex: 0 0 calc((100% - 24px) / 3); /* 3 visible */
+      flex: 0 0 calc((100% - 24px) / 3);
       background: rgba(255,255,255,.04);
       border:1px solid var(--line);
       border-radius: var(--radius);
@@ -270,7 +351,7 @@
       outline:none;
       position:relative;
     }
-    .carousel-slide:hover{ border-color: rgba(255,255,255,.18); }
+    .carousel-slide:hover{ border-color: var(--line2); }
     .carousel-slide:focus{ box-shadow: 0 0 0 3px rgba(53,208,127,.22); }
 
     .price-top{
@@ -297,12 +378,39 @@
       font-size: .9rem;
     }
 
+    /* Carousel indicators */
+    .carousel-meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-weight: 850;
+      font-size:.92rem;
+    }
+    .dots{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .dot{
+      width:8px; height:8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+    }
+    .dot.active{
+      background: rgba(53,208,127,.75);
+      border-color: rgba(53,208,127,.55);
+    }
+
     @media (max-width: 1100px){
-      .carousel-slide{ flex-basis: calc((100% - 12px) / 2); } /* 2 visible */
+      .carousel-slide{ flex-basis: calc((100% - 12px) / 2); }
     }
     @media (max-width: 720px){
-      .carousel-slide{ flex-basis: 100%; } /* 1 visible */
-      .car-btn{ display:none; }           /* swipe/trackpad friendly */
+      .carousel-slide{ flex-basis: 100%; }
+      .car-btn{ display:none; }
     }
 
     /* Modal bubble */
@@ -322,7 +430,7 @@
 
     .modal-card{
       position:relative;
-      width: min(920px, calc(100% - 32px));
+      width: min(980px, calc(100% - 32px));
       margin: 6vh auto;
       background: rgba(15,22,33,.94);
       border:1px solid var(--line);
@@ -365,7 +473,7 @@
 
     .modal-cols{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1fr 1fr;
       gap:14px;
       margin-top: 14px;
     }
@@ -380,6 +488,14 @@
       padding-left: 18px;
       color: var(--muted);
       font-weight: 780;
+    }
+
+    .mini-brief{
+      margin-top:10px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(255,255,255,.04);
     }
 
     @media (max-width: 900px){
@@ -415,8 +531,8 @@
 
     /* Responsive */
     @media(max-width: 920px){
-      .lane-grid, .strip, .contact-grid{ grid-template-columns:1fr; }
-      nav{ display:none; } /* keep header clean on mobile */
+      .lane-grid, .strip, .proof-grid, .contact-grid{ grid-template-columns:1fr; }
+      nav{ display:none; }
       .nav-wrap{ justify-content:flex-end; }
     }
   </style>
@@ -434,6 +550,7 @@
         <nav aria-label="Primary navigation">
           <a href="#pc">PC help</a>
           <a href="#web">Websites</a>
+          <a href="#proof">Work</a>
           <a href="#pricing">Pricing</a>
         </nav>
         <a class="btn btn-solid" href="#contact">Get a quote</a>
@@ -447,7 +564,7 @@
       <div class="container">
         <div class="hero-head">
           <h1>Pick a lane: PC help or a business website.</h1>
-          <p class="lead">Same rule for both: we do it properly, price it clearly, and we won’t sell you nonsense.</p>
+          <p class="lead">Fast fixes, honest advice, clear pricing. No lock-in. No upsells. No nonsense.</p>
         </div>
 
         <div class="lane-grid" aria-label="Primary services">
@@ -461,13 +578,13 @@
             </ul>
             <div class="actions">
               <a class="btn btn-green" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">PC quote</a>
-              <a class="btn" href="#contact">What to include</a>
+              <a class="btn btn-ghost" href="#contact">What to include</a>
             </div>
           </div>
 
           <div class="lane web" id="web">
             <h2>🌐 Small Business Websites</h2>
-            <p>Fast, clean websites that don’t trap you in subscriptions. You own the site.</p>
+            <p>Fast, clean websites built on modern static hosting — no subscription builder lock-in.</p>
             <ul>
               <li>One-page or up to 5 pages</li>
               <li>Domain setup + mobile-first layout</li>
@@ -475,7 +592,7 @@
             </ul>
             <div class="actions">
               <a class="btn btn-blue" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">Website quote</a>
-              <a class="btn" href="#pricing">See pricing</a>
+              <a class="btn btn-ghost" href="#pricing">See pricing</a>
             </div>
           </div>
         </div>
@@ -496,6 +613,50 @@
             <h3>We deliver</h3>
             <p>Clean build / proper fix / fast website. No lock-in. No mystery fees.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF / WORK -->
+    <section id="proof">
+      <div class="container">
+        <div class="panel alt">
+          <div class="panel-head">
+            <h2>Recent work</h2>
+            <p>Add real examples here when you’re ready — this is the trust section that converts “maybe” into “email sent”.</p>
+          </div>
+
+          <div class="proof-grid">
+            <div class="work-card">
+              <div class="work-head">
+                <h3 style="margin:0;">PC builds & fixes</h3>
+                <span class="tag">⚙️ Proof</span>
+              </div>
+              <div class="placeholder">Drop a photo here later<br>(before/after, tidy cable management, etc.)</div>
+              <div class="work-meta">
+                <span>• Example: Overheating fix</span>
+                <span>• Example: Budget gaming build</span>
+                <span>• Example: SSD + RAM upgrade</span>
+              </div>
+            </div>
+
+            <div class="work-card">
+              <div class="work-head">
+                <h3 style="margin:0;">Websites</h3>
+                <span class="tag">🌐 Proof</span>
+              </div>
+              <div class="placeholder">Drop a screenshot here later<br>(homepage + mobile view)</div>
+              <div class="work-meta">
+                <span>• Example: Tutor site</span>
+                <span>• Example: Trades site</span>
+                <span>• Example: Small business brochure</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="muted" style="margin:12px 0 0; font-weight:850;">
+            Tip: even 2 real screenshots and 2 short testimonials will massively improve enquiries.
+          </p>
         </div>
       </div>
     </section>
@@ -521,6 +682,7 @@
                   data-desc="A clean one-page site for sole traders and simple businesses."
                   data-includes="1 page|Mobile-first layout|Basic design using your branding|Contact section (email or simple form)|Domain connection support"
                   data-guardrails="Price increases if: extra pages, copywriting, custom graphics, galleries/testimonials, maps/embeds, urgent turnaround."
+                  data-brief="Business name + what you do|Logo/colours (or we’ll keep it simple)|Any example sites you like|Your deadline"
                 >
                   <div class="price-top">
                     <h3>Starter Website</h3>
@@ -536,6 +698,7 @@
                   data-desc="Multi-page brochure site designed to generate enquiries and look credible."
                   data-includes="3–5 pages|Clear navigation|Basic SEO setup (titles + descriptions)|Performance optimisation|Mobile & tablet friendly|Contact page"
                   data-guardrails="Price increases if: more than 5 pages, CMS/blog, advanced forms, integrations, content creation, premium design iterations, urgent turnaround."
+                  data-brief="Business name + services|Pages you want (3–5)|Any copy you already have|Example sites + colours|Deadline"
                 >
                   <div class="price-top">
                     <h3>Business Website</h3>
@@ -551,6 +714,7 @@
                   data-desc="For businesses where the website is a serious part of revenue and growth."
                   data-includes="6+ pages or complex layout|Strategy-led structure|Analytics setup|More revision rounds|Priority delivery option"
                   data-guardrails="Price varies based on: page count, features, integrations, content needs, and turnaround time."
+                  data-brief="Full page list + goals|Any integrations needed|Content status (ready/not ready)|Deadline + priorities"
                 >
                   <div class="price-top">
                     <h3>Advanced Website</h3>
@@ -566,6 +730,7 @@
                   data-desc="Optional ongoing support — only if you want it. Cancel anytime."
                   data-includes="Content updates (fair use)|Minor layout tweaks|Advice & support|Priority email"
                   data-guardrails="Excludes: major redesigns, new page builds, feature development. Those are quoted separately."
+                  data-brief="What you want updated + how often|Any seasonal changes|Preferred turnaround time"
                 >
                   <div class="price-top">
                     <h3>Support & Updates</h3>
@@ -581,7 +746,12 @@
             <button class="car-btn" type="button" id="priceNext" aria-label="Next pricing option">›</button>
           </div>
 
-          <p class="muted" style="margin:12px 0 0; font-weight:900;">
+          <div class="carousel-meta">
+            <div class="dots" id="priceDots" aria-label="Carousel position"></div>
+            <div id="priceCount">1 of 4</div>
+          </div>
+
+          <p class="muted" style="margin:10px 0 0; font-weight:900;">
             All prices are starting points. Final quote confirmed after a short email brief. No lock-in.
           </p>
         </div>
@@ -608,7 +778,7 @@
               </ul>
               <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
                 <a class="btn btn-green" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">PC quote</a>
-                <a class="btn" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
+                <a class="btn btn-ghost" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
               </div>
             </div>
 
@@ -622,7 +792,7 @@
               </ul>
               <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
                 <a class="btn btn-blue" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">Website quote</a>
-                <a class="btn" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
+                <a class="btn btn-ghost" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
               </div>
             </div>
           </div>
@@ -659,7 +829,13 @@
         <div>
           <h4>Includes</h4>
           <ul id="mIncludes" class="modal-list"></ul>
+
+          <div class="mini-brief">
+            <h4 style="margin:0 0 8px;">What we need from you</h4>
+            <ul id="mBrief" class="modal-list" style="margin:0;"></ul>
+          </div>
         </div>
+
         <div>
           <h4>Guardrails</h4>
           <p class="muted" id="mGuard"></p>
@@ -673,17 +849,17 @@
   </div>
 
   <script>
-    // footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
     (function(){
-      // Modal bits
+      // Modal
       const modal = document.getElementById("priceModal");
       const mTitle = document.getElementById("mTitle");
       const mPrice = document.getElementById("mPrice");
       const mDesc = document.getElementById("mDesc");
       const mIncludes = document.getElementById("mIncludes");
       const mGuard = document.getElementById("mGuard");
+      const mBrief = document.getElementById("mBrief");
 
       function openModal(slide){
         const title = slide.dataset.title || "";
@@ -691,6 +867,7 @@
         const desc = slide.dataset.desc || "";
         const includes = (slide.dataset.includes || "").split("|").filter(Boolean);
         const guard = slide.dataset.guardrails || "";
+        const brief = (slide.dataset.brief || "").split("|").filter(Boolean);
 
         mTitle.textContent = title;
         mPrice.textContent = price;
@@ -701,6 +878,13 @@
           const li = document.createElement("li");
           li.textContent = item;
           mIncludes.appendChild(li);
+        });
+
+        mBrief.innerHTML = "";
+        brief.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          mBrief.appendChild(li);
         });
 
         mGuard.textContent = guard;
@@ -726,11 +910,13 @@
         }
       });
 
-      // Carousel logic
+      // Carousel
       const track = document.getElementById("pricingTrack");
       const slides = Array.from(track.querySelectorAll(".carousel-slide"));
       const prevBtn = document.getElementById("pricePrev");
       const nextBtn = document.getElementById("priceNext");
+      const dotsWrap = document.getElementById("priceDots");
+      const countEl = document.getElementById("priceCount");
 
       let index = 0;
 
@@ -741,19 +927,55 @@
         return 3;
       }
 
+      function maxIndex(){
+        return Math.max(0, slides.length - visibleCount());
+      }
+
       function clampIndex(){
-        const maxIndex = Math.max(0, slides.length - visibleCount());
-        index = Math.max(0, Math.min(index, maxIndex));
+        index = Math.max(0, Math.min(index, maxIndex()));
       }
 
       function slideStep(){
         const rect = slides[0].getBoundingClientRect();
-        return rect.width + 12; // slide width + gap
+        return rect.width + 12;
       }
 
       function render(){
         clampIndex();
         track.style.transform = `translateX(${-index * slideStep()}px)`;
+
+        // dots represent "positions", not slides
+        const positions = maxIndex() + 1;
+        if (dotsWrap.childElementCount !== positions){
+          dotsWrap.innerHTML = "";
+          for(let i=0;i<positions;i++){
+            const d = document.createElement("span");
+            d.className = "dot" + (i === index ? " active" : "");
+            d.setAttribute("role","button");
+            d.setAttribute("tabindex","0");
+            d.setAttribute("aria-label", `Go to position ${i+1}`);
+            d.addEventListener("click", () => { index = i; render(); });
+            d.addEventListener("keydown", (e) => {
+              if (e.key === "Enter" || e.key === " "){
+                e.preventDefault();
+                index = i; render();
+              }
+            });
+            dotsWrap.appendChild(d);
+          }
+        } else {
+          Array.from(dotsWrap.children).forEach((d, i) => {
+            d.classList.toggle("active", i === index);
+          });
+        }
+
+        countEl.textContent = `${index + 1} of ${maxIndex() + 1}`;
+
+        // disable arrows at ends
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === maxIndex();
+        prevBtn.style.opacity = prevBtn.disabled ? .45 : 1;
+        nextBtn.style.opacity = nextBtn.disabled ? .45 : 1;
       }
 
       prevBtn.addEventListener("click", () => { index -= 1; render(); });
@@ -769,7 +991,12 @@
         });
       });
 
-      window.addEventListener("resize", () => render());
+      window.addEventListener("resize", () => {
+        // keep index valid when breakpoint changes
+        if (index > maxIndex()) index = maxIndex();
+        render();
+      });
+
       render();
     })();
   </script>

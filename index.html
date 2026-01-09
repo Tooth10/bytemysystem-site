@@ -3,468 +3,448 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Byte My System | PC Builds, Repairs, Upgrades & Websites</title>
-  <meta name="description" content="PC builds, repairs and upgrades, plus fast small business websites. Honest advice, transparent pricing." />
-  <meta name="theme-color" content="#0f172a" />
+  <title>Byte My System | PC Help & Small Business Websites</title>
+  <meta name="description" content="PC builds, repairs and upgrades — plus clean, fast small business websites. Transparent pricing. No lock-in." />
+  <meta name="theme-color" content="#0b0f14" />
 
   <style>
     :root{
-      --bg:#f7f8fb;
-      --paper:#ffffff;
-      --ink:#0f172a;
-      --muted:#475569;
-      --line:#e2e8f0;
-      --accent:#16a34a; /* workshop green */
-      --accent2:#111827; /* near-black */
-      --warn:#f59e0b;
+      --bg:#0b0f14;
+      --paper:#0f1621;
+      --paper2:#111b2a;
+      --text:#e9eef5;
+      --muted:#a9b4c3;
+      --line:rgba(255,255,255,.12);
+      --green:#35d07f;
+      --blue:#22c1ff;
+      --amber:#fbbf24;
       --radius:18px;
-      --shadow:0 14px 34px rgba(2, 6, 23, .10);
+      --shadow:0 18px 55px rgba(0,0,0,.45);
       --max:1120px;
     }
-
     *{ box-sizing:border-box; }
     html,body{ margin:0; padding:0; }
     body{
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
-      color:var(--ink);
+      color:var(--text);
       background:
-        linear-gradient(0deg, rgba(22,163,74,.06), rgba(22,163,74,.06)),
-        repeating-linear-gradient(90deg, rgba(15,23,42,.04), rgba(15,23,42,.04) 1px, transparent 1px, transparent 120px),
+        radial-gradient(900px 520px at 15% 10%, rgba(53,208,127,.18), transparent 60%),
+        radial-gradient(900px 520px at 85% 15%, rgba(34,193,255,.14), transparent 60%),
         var(--bg);
       line-height:1.55;
     }
-
     a{ color:inherit; text-decoration:none; }
     .container{ width:min(100% - 32px, var(--max)); margin-inline:auto; }
 
     /* Header */
-    .header{
-      position:sticky;
-      top:0;
-      z-index:10;
-      background:rgba(247,248,251,.85);
+    header{
+      position:sticky; top:0; z-index:10;
+      background: rgba(11,15,20,.72);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
-    .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:16px;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:900;
-      letter-spacing:.2px;
+      display:flex; align-items:center; gap:12px;
+      font-weight:950; letter-spacing:.2px;
     }
     .logo{
-      width:40px;
-      height:40px;
+      width:40px; height:40px;
       border-radius:14px;
-      background:var(--paper);
       border:1px solid var(--line);
-      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.05);
       object-fit:contain;
       padding:6px;
     }
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      font-weight:700;
+    nav{
+      display:flex; gap:16px; flex-wrap:wrap;
       color:var(--muted);
+      font-weight:800;
     }
-    .nav a:hover{ color:var(--ink); }
+    nav a:hover{ color:var(--text); }
 
     /* Buttons */
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
+      display:inline-flex; align-items:center; justify-content:center;
       padding:12px 16px;
       border-radius:999px;
       border:1px solid var(--line);
-      background:var(--paper);
-      color:var(--ink);
-      font-weight:900;
+      background: rgba(255,255,255,.06);
+      font-weight:950;
+      cursor:pointer;
+    }
+    .btn-green{ background: rgba(53,208,127,.18); border-color: rgba(53,208,127,.35); }
+    .btn-blue{ background: rgba(34,193,255,.16); border-color: rgba(34,193,255,.32); }
+    .btn-solid{
+      background: linear-gradient(135deg, rgba(53,208,127,.9), rgba(34,193,255,.65));
+      border-color: transparent;
+      color:#071018;
       box-shadow: var(--shadow);
     }
-    .btn-primary{
-      background:var(--accent);
-      border-color:rgba(22,163,74,.35);
-      color:white;
-    }
-    .btn-ghost{
-      background:transparent;
-      box-shadow:none;
-    }
-    .btn-small{ padding:10px 14px; }
 
-    /* Hero */
+    /* Hero split */
     .hero{
-      padding: 56px 0 22px;
+      padding:52px 0 26px;
     }
-    .hero-grid{
+    .hero-head{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.75);
-      color:var(--muted);
-      font-weight:800;
-      font-size:.9rem;
+      grid-template-columns: 1.1fr .9fr;
+      gap:20px;
+      align-items:end;
+      margin-bottom:18px;
     }
     h1{
-      margin:14px 0 10px;
-      font-size: clamp(2.2rem, 4vw, 3.3rem);
-      line-height:1.06;
+      margin:0;
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      line-height:1.05;
       letter-spacing:-.02em;
     }
     .lead{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:1.06rem;
-      max-width: 60ch;
-    }
-    .cta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin: 10px 0 18px;
-    }
-    .bullets{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px 14px;
-      padding:0;
-      list-style:none;
       margin:0;
       color:var(--muted);
-      font-weight:800;
-    }
-    .bullets li{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.7);
-      padding:8px 10px;
-      border-radius:999px;
+      font-size:1.08rem;
+      max-width: 70ch;
     }
 
-    /* Right panel */
-    .panel{
-      background:var(--paper);
+    .lane-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .lane{
+      background: rgba(15,22,33,.78);
       border:1px solid var(--line);
-      border-radius:var(--radius);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding:18px;
       position:relative;
       overflow:hidden;
+      min-height: 220px;
     }
-    .panel:before{
+    .lane:before{
       content:"";
       position:absolute;
-      inset:-60px -80px auto auto;
-      width:220px;
-      height:220px;
-      background: radial-gradient(circle at 30% 30%, rgba(22,163,74,.22), transparent 60%);
+      inset:-90px -120px auto auto;
+      width:260px; height:260px;
+      border-radius:50%;
+      filter: blur(0px);
+      opacity:.9;
       transform: rotate(12deg);
     }
-    .panel h2{ margin:0 0 8px; font-size:1.2rem; }
-    .panel p{ margin:0 0 12px; color:var(--muted); }
-    .chips{ display:flex; flex-wrap:wrap; gap:8px; }
-    .chip{
-      font-weight:900;
-      font-size:.9rem;
-      border:1px solid var(--line);
-      background: #f8fafc;
-      padding:8px 10px;
-      border-radius: 12px;
+    .lane.pc:before{
+      background: radial-gradient(circle at 30% 30%, rgba(53,208,127,.22), transparent 65%);
     }
-
-    /* Sections */
-    .section{ padding: 38px 0; }
-    .section-title{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:16px;
+    .lane.web:before{
+      background: radial-gradient(circle at 30% 30%, rgba(34,193,255,.20), transparent 65%);
     }
-    .section-title h2{
-      margin:0;
-      font-size:1.65rem;
-      letter-spacing:-.01em;
-    }
-    .section-title p{
-      margin:0;
+    .lane h2{ margin:0 0 6px; font-size:1.3rem; }
+    .lane p{ margin:0 0 12px; color:var(--muted); }
+    .lane ul{
+      margin:0 0 14px;
+      padding-left:18px;
       color:var(--muted);
-      max-width: 62ch;
+      font-weight:700;
     }
+    .lane .actions{ display:flex; gap:10px; flex-wrap:wrap; }
 
-    .grid{
+    /* How it works */
+    .strip{
+      margin-top:14px;
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:12px;
     }
-    .box{
-      background:var(--paper);
+    .step{
+      background: rgba(17,27,42,.65);
       border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      padding:16px;
+      border-radius: var(--radius);
+      padding:14px;
     }
-    .box h3{
-      margin:0 0 6px;
-      font-size:1.05rem;
-      letter-spacing:-.01em;
+    .step .num{
+      display:inline-grid;
+      place-items:center;
+      width:32px; height:32px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      font-weight:950;
+      margin-bottom:10px;
     }
-    .box p{ margin:0; color:var(--muted); }
+    .step h3{ margin:0 0 6px; font-size:1.05rem; }
+    .step p{ margin:0; color:var(--muted); }
 
-    /* Pricing */
+    /* Website pricing block */
     .pricing{
+      padding:30px 0;
+    }
+    .panel{
+      background: rgba(15,22,33,.78);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .panel-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .panel-head h2{ margin:0; font-size:1.5rem; }
+    .panel-head p{ margin:0; color:var(--muted); max-width: 70ch; }
+
+    .price-grid{
       display:grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap:12px;
+      margin-top:12px;
     }
-    .price-card{ position:relative; }
-    .price{
-      font-weight:1000;
-      font-size:2rem;
-      margin:10px 0 8px;
+    .price-card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:14px;
+      background: rgba(255,255,255,.04);
+      position:relative;
     }
-    .ribbon{
-      position:absolute;
-      top:14px;
-      right:14px;
-      background: var(--warn);
-      color: #111827;
-      font-weight:1000;
+    .badge{
+      position:absolute; top:12px; right:12px;
+      background: rgba(251,191,36,.18);
+      border:1px solid rgba(251,191,36,.35);
+      color: #ffe8a3;
+      font-weight:950;
       font-size:.78rem;
       padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(0,0,0,.08);
     }
-    .list{ margin:0; padding-left:18px; color:var(--muted); }
+    .price{
+      font-weight:1000;
+      font-size:2rem;
+      margin:6px 0 8px;
+    }
+    .muted{ color:var(--muted); }
+    .list{ margin:0; padding-left:18px; color:var(--muted); font-weight:700; }
 
     /* Contact */
     .contact{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:12px;
-      align-items:start;
+      padding: 30px 0 52px;
     }
-    .note{
-      color:var(--muted);
-      margin-top:10px;
-      font-weight:700;
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:12px;
+    }
+    .mini{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:14px;
+      background: rgba(255,255,255,.04);
     }
     .email{
-      font-weight:1000;
-      font-size:1.05rem;
-      border:1px solid rgba(22,163,74,.35);
-      background: rgba(22,163,74,.08);
+      font-weight:950;
+      border-color: rgba(53,208,127,.35);
+      background: rgba(53,208,127,.12);
     }
 
-    /* Footer */
     footer{
       border-top:1px solid var(--line);
       padding:18px 0;
       color:var(--muted);
-      font-weight:700;
+      font-weight:750;
     }
     .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
     }
 
-    /* Mobile */
-    @media (max-width: 920px){
-      .hero-grid,
-      .grid,
-      .pricing,
-      .contact{ grid-template-columns:1fr; }
-      .nav{ display:none; } /* keep it simple for now */
+    @media(max-width: 920px){
+      .hero-head{ grid-template-columns:1fr; }
+      .lane-grid, .strip, .price-grid, .contact-grid{ grid-template-columns:1fr; }
+      nav{ display:none; }
     }
   </style>
 </head>
 
 <body>
-  <header class="header">
-    <div class="container header-inner">
+  <header>
+    <div class="container topbar">
       <a class="brand" href="#top" aria-label="Byte My System home">
         <img class="logo" src="logo.png" alt="Byte My System logo" />
         <span>Byte My System</span>
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#websites">Websites</a>
+      <nav aria-label="Primary navigation">
+        <a href="#pc">PC help</a>
+        <a href="#web">Websites</a>
         <a href="#pricing">Pricing</a>
-        <a href="#contact" class="btn btn-small btn-primary">Get a quote</a>
+        <a class="btn btn-solid" href="#contact">Get a quote</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
+    <!-- Split hero: choose a lane -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="tag">⚙️ PC workshop + 🌐 small business websites</span>
-          <h1>Tech help that actually fixes the problem.</h1>
+      <div class="container">
+        <div class="hero-head">
+          <h1>Pick a lane: PC help or a business website.</h1>
           <p class="lead">
-            PC builds, repairs, upgrades — and clean business websites that don’t trap you in monthly fees.
-            If it’s slow, broken, overheating, or online-looking-rough… we sort it.
+            Same rule for both: we do it properly, price it clearly, and we won’t sell you nonsense.
           </p>
-
-          <div class="cta">
-            <a class="btn btn-primary" href="#contact">Get a quote</a>
-            <a class="btn btn-ghost" href="#pricing">See website pricing</a>
-            <a class="btn btn-ghost" href="mailto:bytemysystem@gmail.com?subject=General%20quote%20-%20Byte%20My%20System">Email</a>
-          </div>
-
-          <ul class="bullets" aria-label="Highlights">
-            <li>Transparent pricing</li>
-            <li>Honest advice</li>
-            <li>No lock-in websites</li>
-            <li>UK-friendly setup</li>
-          </ul>
         </div>
 
-        <aside class="panel">
-          <h2>What we do</h2>
-          <p>Quick summary — you tell us the goal and budget, we’ll recommend the best route.</p>
-          <div class="chips">
-            <span class="chip">Custom builds</span>
-            <span class="chip">Repairs</span>
-            <span class="chip">Upgrades</span>
-            <span class="chip">Diagnostics</span>
-            <span class="chip">Windows setup</span>
-            <span class="chip">Websites</span>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>PC services</h2>
-          <p>Builds, repairs, upgrades and the boring maintenance that stops your PC turning into a toaster.</p>
-        </div>
-
-        <div class="grid">
-          <div class="box"><h3>Custom PC Builds</h3><p>Gaming rigs, workstations, creator machines — built to budget.</p></div>
-          <div class="box"><h3>Repairs & Diagnostics</h3><p>No boot, crashes, overheating, weird noises — we find the cause.</p></div>
-          <div class="box"><h3>Upgrades</h3><p>SSD, RAM, GPU/CPU upgrades, cooling improvements, performance tuning.</p></div>
-          <div class="box"><h3>Windows Setup</h3><p>Fresh installs, drivers, updates, backup/restore, clean optimisation.</p></div>
-          <div class="box"><h3>Maintenance</h3><p>Cleaning, thermal paste, fan curves, cable management (yes, it matters).</p></div>
-          <div class="box"><h3>Advice & Parts</h3><p>We’ll stop you buying nonsense and spec the best value parts.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="websites" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Websites</h2>
-          <p>Fast, clean sites for small businesses. No page builders, no subscriptions, no hostage situation.</p>
-        </div>
-
-        <div class="grid">
-          <div class="box"><h3>One-page sites</h3><p>Perfect for trades, tutors, freelancers. Clear message + contact.</p></div>
-          <div class="box"><h3>Business sites (multi-page)</h3><p>Up to 5 pages: services, about, contact, gallery/testimonials if needed.</p></div>
-          <div class="box"><h3>Setup & SEO basics</h3><p>Domain connection, mobile-first layout, performance and basic SEO setup.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Website pricing</h2>
-          <p>Clear pricing. You own your site. Hosting can be free (GitHub Pages) if you want it.</p>
-        </div>
-
-        <div class="pricing">
-          <div class="box price-card">
-            <h3>Starter Site</h3>
-            <div class="price">£199</div>
-            <ul class="list">
-              <li>One-page site</li>
-              <li>Custom design</li>
-              <li>Mobile-first</li>
-              <li>Domain setup support</li>
+        <div class="lane-grid" aria-label="Primary services">
+          <div class="lane pc" id="pc">
+            <h2>⚙️ PC Builds, Repairs & Upgrades</h2>
+            <p>From “it won’t turn on” to “why is my GPU trying to cook itself?” — we fix and optimise.</p>
+            <ul>
+              <li>Custom builds (work, gaming, creator)</li>
+              <li>Diagnostics, crashes, overheating</li>
+              <li>Upgrades: SSD/RAM/GPU/airflow</li>
             </ul>
+            <div class="actions">
+              <a class="btn btn-green" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">PC quote</a>
+              <a class="btn" href="#contact">What to include</a>
+            </div>
           </div>
 
-          <div class="box price-card">
-            <div class="ribbon">Most popular</div>
-            <h3>Business Site</h3>
-            <div class="price">£349</div>
-            <ul class="list">
-              <li>Up to 5 pages</li>
-              <li>Basic SEO setup</li>
-              <li>Performance tuned</li>
-              <li>Contact page</li>
+          <div class="lane web" id="web">
+            <h2>🌐 Small Business Websites</h2>
+            <p>Fast, clean websites that don’t trap you in subscriptions. You own the site.</p>
+            <ul>
+              <li>One-page or up to 5 pages</li>
+              <li>Domain setup + mobile-first layout</li>
+              <li>Basic SEO + performance</li>
             </ul>
-          </div>
-
-          <div class="box price-card">
-            <h3>Support (optional)</h3>
-            <div class="price">£25/mo</div>
-            <ul class="list">
-              <li>Content updates</li>
-              <li>Minor tweaks</li>
-              <li>Advice & support</li>
-              <li>Cancel anytime</li>
-            </ul>
+            <div class="actions">
+              <a class="btn btn-blue" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">Website quote</a>
+              <a class="btn" href="#pricing">See pricing</a>
+            </div>
           </div>
         </div>
 
-        <p style="margin-top:12px; color:var(--muted); font-weight:800;">
-          No forced subscriptions. No lock-in. You keep the site.
-        </p>
+        <div class="strip" aria-label="How it works">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>You message</h3>
+            <p>Tell us what you need + budget. For PCs, include specs. For websites, include what you do.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>We recommend</h3>
+            <p>Best value route, plus alternatives. If the right answer is “don’t upgrade yet”, we’ll say it.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>We deliver</h3>
+            <p>Clean build / proper fix / fast website. No lock-in. No mystery fees.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="container contact">
-        <div class="box">
-          <h2 style="margin:0 0 8px;">Get a quote</h2>
-          <p style="margin:0 0 14px; color:var(--muted);">
-            Email us what you need + budget. For websites, include your business name and any example sites you like.
+    <!-- Website pricing as a product panel -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Website pricing</h2>
+            <p>Clear pricing, no lock-in. Hosting can be free (GitHub Pages) if you want it.</p>
+          </div>
+
+          <div class="price-grid">
+            <div class="price-card">
+              <h3>Starter Site</h3>
+              <div class="price">£199</div>
+              <p class="muted">One-page site for sole traders.</p>
+              <ul class="list">
+                <li>One page</li>
+                <li>Mobile-first</li>
+                <li>Domain setup support</li>
+                <li>Email CTA</li>
+              </ul>
+            </div>
+
+            <div class="price-card">
+              <div class="badge">Most popular</div>
+              <h3>Business Site</h3>
+              <div class="price">£349</div>
+              <p class="muted">Up to 5 pages, proper structure.</p>
+              <ul class="list">
+                <li>Up to 5 pages</li>
+                <li>Basic SEO setup</li>
+                <li>Performance tuned</li>
+                <li>Contact page</li>
+              </ul>
+            </div>
+
+            <div class="price-card">
+              <h3>Support (optional)</h3>
+              <div class="price">£25/mo</div>
+              <p class="muted">Only if you want it.</p>
+              <ul class="list">
+                <li>Content updates</li>
+                <li>Minor tweaks</li>
+                <li>Advice & support</li>
+                <li>Cancel anytime</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="muted" style="margin:12px 0 0; font-weight:900;">
+            No forced subscriptions. You keep the site.
           </p>
+        </div>
+      </div>
+    </section>
 
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="mailto:bytemysystem@gmail.com?subject=General%20quote%20-%20Byte%20My%20System">General quote</a>
-            <a class="btn email" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">Website quote</a>
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Get a quote</h2>
+            <p>Email us and we’ll respond with the best route + cost. No faff.</p>
           </div>
 
-          <p class="note">Email: <strong>bytemysystem@gmail.com</strong></p>
-        </div>
+          <div class="contact-grid">
+            <div class="mini">
+              <h3 style="margin:0 0 8px;">PC jobs</h3>
+              <ul class="list">
+                <li>Current specs (CPU/GPU/RAM/SSD)</li>
+                <li>What you use it for</li>
+                <li>What’s wrong (if repair)</li>
+                <li>Budget range</li>
+              </ul>
+              <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn btn-green" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">PC quote</a>
+                <a class="btn email" href="mailto:bytemysystem@gmail.com?subject=PC%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
+              </div>
+            </div>
 
-        <aside class="box">
-          <h3 style="margin:0 0 8px;">What to include</h3>
-          <ul class="list">
-            <li>PC: current specs + what’s going wrong</li>
-            <li>Website: what you do + pages you want</li>
-            <li>Your budget range</li>
-            <li>Any deadlines</li>
-          </ul>
-        </aside>
+            <div class="mini">
+              <h3 style="margin:0 0 8px;">Websites</h3>
+              <ul class="list">
+                <li>Business name + what you do</li>
+                <li>Pages you want (1 or up to 5)</li>
+                <li>Any example sites you like</li>
+                <li>Budget + deadline</li>
+              </ul>
+              <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn btn-blue" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">Website quote</a>
+                <a class="btn email" href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">bytemysystem@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <p class="muted" style="margin:14px 0 0; font-weight:800;">
+            Reply time: as fast as we can — we’re not a call centre, we’re actually doing the work.
+          </p>
+        </div>
       </div>
     </section>
   </main>

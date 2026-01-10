@@ -48,8 +48,6 @@
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
-
-    /* This fixes the “nav not centred” issue */
     .topbar{
       display:flex;
       align-items:center;
@@ -58,7 +56,6 @@
       gap:16px;
       min-height:64px;
     }
-
     .brand{
       display:flex;
       align-items:center;
@@ -67,7 +64,6 @@
       letter-spacing:.2px;
       flex: 0 0 auto;
     }
-
     .logo{
       width:40px; height:40px;
       border-radius:14px;
@@ -76,7 +72,6 @@
       object-fit:contain;
       padding:6px;
     }
-
     .nav-wrap{
       display:flex;
       align-items:center;
@@ -84,7 +79,6 @@
       flex: 1 1 auto;
       justify-content:flex-end;
     }
-
     nav{
       display:flex;
       align-items:center;
@@ -239,7 +233,6 @@
       border-color: rgba(255,255,255,.10);
     }
 
-    /* IMPORTANT: header block clearly separated from grid */
     .panel-head{
       display:flex;
       flex-direction:column;
@@ -247,46 +240,36 @@
       gap:10px;
       padding-bottom:14px;
       margin-bottom:16px;
-      border-bottom:1px solid rgba(255,255,255,.12); /* anchor line */
+      border-bottom:1px solid rgba(255,255,255,.12);
     }
     .panel-head h2{ margin:0; font-size:1.5rem; }
     .panel-head p{
       margin:0;
       width:100%;
-      max-width: none;  /* readable line length */
-    }
-    .panel-head p{
+      max-width:none;
       line-height: 1.6;
       font-size: 1.02rem;
     }
 
-    /* Recent work cards */
+    /* Our work cards */
     .proof-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:12px;
       align-items:stretch;
     }
-
     .work-card{
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
       border-radius: var(--radius);
       padding:14px;
-
       display:flex;
       flex-direction:column;
       height:100%;
     }
-    .work-card.pc .testimonial{
-      border-left-color: rgba(53,208,127,.45);
-    }
-    .work-card.web .testimonial{
-      border-left-color: rgba(34,193,255,.45);
-    }
-    .work-card.web .work-img{
-      filter: brightness(0.86);
-    }
+    .work-card.pc .testimonial{ border-left-color: rgba(53,208,127,.45); }
+    .work-card.web .testimonial{ border-left-color: rgba(34,193,255,.45); }
+    .work-card.web .work-img{ filter: brightness(0.86); }
 
     .work-head{
       display:flex;
@@ -295,7 +278,6 @@
       gap:10px;
       margin-bottom:10px;
     }
-
     .work-pill{
       border:1px solid var(--line);
       background: rgba(255,255,255,.05);
@@ -306,7 +288,6 @@
       white-space:nowrap;
       opacity:.95;
     }
-
     .work-img{
       width:100%;
       height:190px;
@@ -316,22 +297,9 @@
       background: rgba(255,255,255,.03);
       filter: brightness(0.92);
     }
+    .work-card:hover .work-img{ filter: brightness(1); }
 
-    .work-meta{
-      margin-top: 10px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      color: var(--muted);
-      font-weight:800;
-      font-size: .92rem;
-    }
-
-    .work-card:hover .work-img{
-      filter: brightness(1);
-    }
-
-   .testimonial{
+    .testimonial{
       margin: 10px 0 0;
       padding: 10px 12px;
       border-left: 3px solid rgba(53,208,127,.35);
@@ -342,14 +310,11 @@
       font-weight: 600;
       font-size: .95rem;
       line-height: 1.55;
-
-  /* equal height behaviour */
-      min-height: 120px;              /* bump this up so you SEE it */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      min-height: 120px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
     }
-
     .testimonial .who{
       display:block;
       margin-top:6px;
@@ -359,24 +324,34 @@
       font-size: .9rem;
     }
 
-    /* Pricing carousel */
+    /* =========================
+       PRICING (FIXED)
+       ========================= */
+
     .pricing-wrap{
-  position:relative;
-}
+      position:relative;
+      padding: 0 52px;         /* space so arrows don't overlap cards */
+    }
 
-.car-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:3;
-}
-#pricePrev{ left:-6px; }
-#priceNext{ right:-6px; }
+    .car-btn{
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-size: 1.4rem;
+      font-weight: 950;
+      cursor:pointer;
+      user-select:none;
 
-@media (max-width: 920px){
-  .car-btn{ display:none; }
-}
-
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:3;
+    }
+    #pricePrev{ left:10px; }
+    #priceNext{ right:10px; }
 
     .carousel{
       width:100%;
@@ -392,45 +367,38 @@
     }
 
     .carousel-slide{
-  display:flex;
-  flex-direction:column;
-  min-height: 170px;              /* keeps cards consistent height */
-}
+      flex: 0 0 calc((100% - 24px) / 3);
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:16px;
+      cursor:pointer;
+      outline:none;
 
-.carousel-slide .tap-hint{
-  margin-top:auto;                /* pushes it to the bottom */
-  padding-top:12px;
-  font-weight:850;
-}
-
+      display:flex;              /* key for consistent layout */
+      flex-direction:column;
+      min-height: 172px;
     }
     .carousel-slide:hover{ border-color: var(--line2); }
     .carousel-slide:focus{ box-shadow: 0 0 0 3px rgba(53,208,127,.22); }
-    /* Pricing cards: consistent header row */
-    .carousel-slide h3{
-    margin:0;
-    line-height:1.15;
-    min-height: 2.3em;              /* forces consistent 2-line space */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    }
-
-    .price-top{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:10px;
-    margin-bottom:10px;             /* a bit more breathing room */
-    }
 
     .price-top{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap:10px;
-      margin-bottom:6px;
+      margin-bottom:10px;
+    }
+
+    /* Force consistent title block height so price pills align */
+    .carousel-slide h3{
+      margin:0;
+      line-height:1.15;
+      min-height: 2.3em;         /* consistent 2-line space */
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
     }
 
     .price-pill{
@@ -440,10 +408,12 @@
       border-radius: 999px;
       font-weight: 950;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .tap-hint{
-      margin-top: 12px;
+      margin-top:auto;           /* pins to bottom */
+      padding-top:12px;
       color: var(--muted);
       font-weight: 850;
       font-size: .9rem;
@@ -451,15 +421,11 @@
 
     .carousel-meta{
       display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+      justify-content:center;    /* dots centred */
       margin-top: 10px;
-      color: var(--muted);
-      font-weight: 850;
-      font-size:.92rem;
     }
-    .dots{ display:flex; gap:8px; align-items:center; }
+
+    .dots{ display:flex; gap:8px; align-items:center; justify-content:center; }
     .dot{
       width:8px; height:8px;
       border-radius:999px;
@@ -492,7 +458,7 @@
       border:1px solid var(--line);
       border-radius: 22px;
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding: 16px;
     }
     .modal-close{
       position:absolute;
@@ -523,19 +489,42 @@
       font-weight: 950;
       white-space: nowrap;
     }
-    .modal-cols > div:last-child{
-  display:flex;
-  flex-direction:column;
-}
 
-.modal-cols > div:last-child a.btn{
-  margin-top:auto;                /* pushes button to bottom */
-}
-.modal-card{
-  padding:16px;                   /* was 18px */
-}
-
+    .modal-cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top: 14px;
     }
+
+    .modal-list{
+      margin:0;
+      padding-left:18px;
+      color: var(--muted);
+      font-weight: 780;
+    }
+
+    /* Make right column tight + remove dead whitespace under button */
+    .modal-cols > div:last-child{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .modal-cols > div:last-child a.btn{
+      margin-top:auto;
+    }
+
+    /* Make the "price changes when" text feel like a callout */
+    #mGuard{
+      margin:0;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight: 760;
+    }
+
     .mini-brief{
       margin-top:10px;
       border:1px solid var(--line);
@@ -580,6 +569,7 @@
       .nav-wrap{ justify-content:flex-end; }
       .carousel-slide{ flex-basis: 100%; }
       .car-btn{ display:none; }
+      .pricing-wrap{ padding:0; }
       .modal-cols{ grid-template-columns: 1fr; }
       .modal-card{ margin: 10vh auto; }
     }
@@ -665,7 +655,7 @@
       </div>
     </section>
 
-    <!-- RECENT WORK -->
+    <!-- OUR WORK -->
     <section id="proof">
       <div class="container">
         <div class="panel alt">
@@ -696,7 +686,7 @@
                 <span class="work-pill">Brochure website</span>
               </div>
 
-              <img class="work-img work-img-contain" src="DataWorxsite.png" alt="Screenshot of a modern small business website" loading="lazy" />
+              <img class="work-img" src="DataWorxsite.png" alt="Screenshot of a modern small business website" loading="lazy" />
 
               <p class="testimonial">
                 “Fast, clean site with no monthly fees — and it actually explains what we do clearly on mobile.”
@@ -794,7 +784,7 @@
           </div>
 
           <div class="carousel-meta">
-            <div class="dots" id="priceDots" aria-label="Carousel position"></div
+            <div class="dots" id="priceDots" aria-label="Carousel position"></div>
           </div>
 
           <p class="muted" style="margin:10px 0 0; font-weight:900;">
@@ -873,7 +863,7 @@
 
       <div class="modal-cols">
         <div>
-          <h4>Includes</h4>
+          <h4 style="margin:0 0 8px;">Includes</h4>
           <ul id="mIncludes" class="modal-list"></ul>
 
           <div class="mini-brief">
@@ -883,9 +873,9 @@
         </div>
 
         <div>
-          <h4>Price changes when</h4>
-          <p class="muted" id="mGuard"></p>
-          <a class="btn btn-solid" style="width:100%; margin-top:10px;"
+          <h4 style="margin:0;">Price changes when</h4>
+          <p id="mGuard"></p>
+          <a class="btn btn-solid" style="width:100%;"
              href="mailto:bytemysystem@gmail.com?subject=Website%20quote%20-%20Byte%20My%20System">
             Get a website quote
           </a>
@@ -962,7 +952,6 @@
       const prevBtn = document.getElementById("pricePrev");
       const nextBtn = document.getElementById("priceNext");
       const dotsWrap = document.getElementById("priceDots");
-      const countEl = document.getElementById("priceCount");
 
       let index = 0;
 
@@ -991,6 +980,7 @@
         track.style.transform = `translateX(${-index * slideStep()}px)`;
 
         const positions = maxIndex() + 1;
+
         if (dotsWrap.childElementCount !== positions){
           dotsWrap.innerHTML = "";
           for(let i=0;i<positions;i++){
@@ -1011,8 +1001,6 @@
         } else {
           Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle("active", i === index));
         }
-
-        countEl.textContent = `${index + 1} of ${positions}`;
 
         prevBtn.disabled = index === 0;
         nextBtn.disabled = index === maxIndex();

@@ -522,6 +522,59 @@
       grid-template-columns: 1fr 1fr;
       gap:12px;
     }
+
+    .segmented{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .seg{
+      flex:1 1 240px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:12px 14px;
+      cursor:pointer;
+      font-weight:900;
+      user-select:none;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .seg input{
+      appearance:none;
+      width:18px;
+      height:18px;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,.25);
+      background: transparent;
+      position:relative;
+      flex:0 0 auto;
+    }
+
+    .seg input:checked{
+      border-color: rgba(53,208,127,.75);
+    }
+
+    .seg input:checked::after{
+      content:"";
+      position:absolute;
+      inset:3px;
+      border-radius:999px;
+      background: rgba(53,208,127,.9);
+    }
+
+    .seg:has(input:checked){
+      border-color: rgba(53,208,127,.45);
+      box-shadow: 0 0 0 3px rgba(53,208,127,.14);
+    }
+
+    .seg:focus-within{
+      box-shadow: 0 0 0 3px rgba(53,208,127,.18);
+    }
+    
     .quote-form label{
       font-weight: 900;
       font-size: .92rem;
@@ -762,10 +815,26 @@
                   <p class="muted">Custom builds with more depth.</p>
                   <div class="tap-hint">Click for details</div>
                 </article>
+                
+                <article class="carousel-slide" tabindex="0"
+                  data-title="Ecommerce Website"
+                  data-price="quote only"
+                  data-desc="Online selling + payments needs a bespoke quote. We’ll recommend the best route and price it properly."
+                  data-includes="Payments setup (Stripe/Shopify)|Platform recommendation|Checkout flow setup|Guidance on products/shipping/tax|Analytics basics"
+                  data-guardrails="Quote depends on: number of products/variants, shipping & tax rules, integrations, and whether you need accounts/subscriptions."
+                  data-brief="What are you selling?|Approx product count + variants|Do you need shipping?|Any platforms you prefer (Shopify/Woo)|Deadline + budget range"
+                >
+                  <div class="price-top">
+                    <h3>Ecommerce<br>Website</h3>
+                    <div class="price-pill"><strong>Quote only</strong></div>
+                  </div>
+                  <p class="muted">Payments, products, shipping — quoted to spec.</p>
+                  <div class="tap-hint">Click for details</div>
+                </article>
 
                 <article class="carousel-slide" tabindex="0"
                   data-title="Support & Updates"
-                  data-price="from £50/month"
+                  data-price="from £50/ph"
                   data-desc="Optional ongoing support — only if you want it. Cancel anytime."
                   data-includes="Content updates (fair use)|Minor layout tweaks|Advice & support|Priority email"
                   data-guardrails="Excludes: major redesigns, new page builds, feature development. Those are quoted separately."
@@ -805,10 +874,11 @@
             <p class="muted">Fill in the form and we’ll come back with the best route + a clear cost. No faff.</p>
           </div>
 
-          <!-- Replace YOUR_FORM_ID with your Formspree ID -->
           <form class="quote-form" id="quoteForm"
-                action="https://formspree.io/f/YOUR_FORM_ID"
+                action="https://formspree.io/f/xeeejvrw"
                 method="POST">
+            
+          <input type="hidden" name="service_detail" id="serviceDetail" value="">
 
             <div class="form-grid">
               <div>
@@ -822,13 +892,20 @@
               </div>
             </div>
 
-            <div>
-              <label for="qService">What do you need help with?</label>
-              <select id="qService" name="service" required>
-                <option value="">Select one…</option>
-                <option value="PC help">PC build / repair / upgrade</option>
-                <option value="Website">Website</option>
-              </select>
+           <div>
+              <label>What do you need help with?</label>
+            
+              <div class="segmented" role="radiogroup" aria-label="Service">
+                <label class="seg">
+                  <input type="radio" name="service" value="PC help" required>
+                  <span>PC build / repair / upgrade</span>
+                </label>
+            
+                <label class="seg">
+                  <input type="radio" name="service" value="Website" required>
+                  <span>Website</span>
+                </label>
+              </div>
             </div>
 
             <div>
@@ -903,6 +980,14 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     (function(){
+
+      function setService(value){
+        const radios = document.querySelectorAll('input[name="service"]');
+        radios.forEach(r => {
+          r.checked = (r.value === value);
+        });
+      }
+
       // ===== Service preselect helpers (buttons set the form dropdown) =====
       const serviceSelect = document.getElementById("qService");
       const messageBox = document.getElementById("qMessage");
@@ -965,6 +1050,13 @@
           mBrief.appendChild(li);
         });
 
+        const detailField = document.getElementById("serviceDetail");
+        if (detailField) {
+          detailField.value = title.toLowerCase().includes("ecommerce")
+          ? "ecommerce"
+          : "";
+        }
+        
         mGuard.textContent = guard;
 
         // Modal CTA always selects Website in the form (makes sense for this modal)

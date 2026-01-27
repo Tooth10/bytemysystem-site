@@ -517,6 +517,9 @@
       gap:12px;
       max-width: 920px;
     }
+    .quote-form .segmented{
+      grid-column: 1 / -1; /* 👈 full width */
+    }
     .form-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -525,39 +528,41 @@
 
     .segmented{
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+      gap:12px;
     }
-
+    
     .seg{
-      flex:1 1 240px;
+      flex:1;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
       border-radius:14px;
-      padding:12px 14px;
+      padding:14px 16px;
+    
       cursor:pointer;
       font-weight:900;
-      user-select:none;
-      display:flex;
-      align-items:center;
-      gap:10px;
     }
-
+    
+    .seg span{
+      white-space:nowrap; /* 👈 stops vertical stacking */
+    }
+    
     .seg input{
       appearance:none;
       width:18px;
       height:18px;
       border-radius:999px;
-      border:2px solid rgba(255,255,255,.25);
-      background: transparent;
+      border:2px solid rgba(255,255,255,.35);
       position:relative;
-      flex:0 0 auto;
     }
-
+    
     .seg input:checked{
       border-color: rgba(53,208,127,.75);
     }
-
+    
     .seg input:checked::after{
       content:"";
       position:absolute;
@@ -565,11 +570,12 @@
       border-radius:999px;
       background: rgba(53,208,127,.9);
     }
-
+    
     .seg:has(input:checked){
       border-color: rgba(53,208,127,.45);
       box-shadow: 0 0 0 3px rgba(53,208,127,.14);
     }
+
 
     .seg:focus-within{
       box-shadow: 0 0 0 3px rgba(53,208,127,.18);

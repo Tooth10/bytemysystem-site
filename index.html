@@ -17,8 +17,6 @@
       --line2:rgba(255,255,255,.18);
       --green:#35d07f;
       --blue:#22c1ff;
-      --soft:#f2d9e2;
-      --soft-line:rgba(255,255,255,.08);
       --radius:18px;
       --shadow:0 18px 55px rgba(0,0,0,.45);
       --max:1120px;
@@ -61,7 +59,7 @@
       gap:12px;
       font-weight:950;
       letter-spacing:.2px;
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
     .logo{
       width:40px; height:40px;
@@ -75,7 +73,7 @@
       display:flex;
       align-items:center;
       gap:18px;
-      flex: 1 1 auto;
+      flex:1 1 auto;
       justify-content:flex-end;
     }
     nav{
@@ -85,13 +83,8 @@
       color:rgba(233,238,245,.78);
       font-weight:850;
     }
-    nav a{
-      padding:10px 4px;
-      border-radius:10px;
-      outline:none;
-    }
+    nav a{ padding:10px 4px; border-radius:10px; }
     nav a:hover{ color:var(--text); }
-    nav a:focus-visible{ box-shadow: 0 0 0 3px rgba(53,208,127,.22); }
 
     .btn{
       display:inline-flex;
@@ -103,17 +96,11 @@
       background: rgba(255,255,255,.06);
       font-weight:950;
       cursor:pointer;
-      user-select:none;
       white-space:nowrap;
     }
     .btn-green{ background: rgba(53,208,127,.18); border-color: rgba(53,208,127,.35); }
     .btn-blue{ background: rgba(34,193,255,.16); border-color: rgba(34,193,255,.32); }
     .btn-ghost{ background: transparent; border-color: var(--line); }
-    .btn-soft{
-      background: rgba(242,217,226,.12);
-      border-color: rgba(242,217,226,.28);
-      color: var(--text);
-    }
     .btn-solid{
       background: linear-gradient(135deg, rgba(53,208,127,.92), rgba(34,193,255,.65));
       border-color: transparent;
@@ -121,11 +108,11 @@
       box-shadow: var(--shadow);
     }
 
-    main{ padding-bottom: 18px; }
-    section{ padding: 32px 0; }
-    #pc, #web, #proof, #pricing, #connect, #contact { scroll-margin-top: 92px; }
+    main{ padding-bottom:18px; }
+    section{ padding:32px 0; }
+    #pc, #web, #proof, #pricing, #connect, #contact { scroll-margin-top:92px; }
 
-    .hero{ padding-top: 34px; }
+    .hero{ padding-top:34px; }
     .hero-head{
       display:flex;
       flex-direction:column;
@@ -143,7 +130,7 @@
       margin:0;
       color:var(--muted);
       font-size:1.08rem;
-      max-width: 75ch;
+      max-width:75ch;
     }
 
     .lane-grid{
@@ -160,7 +147,7 @@
       padding:18px;
       position:relative;
       overflow:hidden;
-      min-height: 230px;
+      min-height:230px;
     }
     .lane:before{
       content:"";
@@ -173,7 +160,6 @@
     }
     .lane.pc:before{ background: radial-gradient(circle at 30% 30%, rgba(53,208,127,.22), transparent 65%); }
     .lane.web:before{ background: radial-gradient(circle at 30% 30%, rgba(34,193,255,.20), transparent 65%); }
-
     .lane h2{ margin:0 0 6px; font-size:1.3rem; }
     .lane p{ margin:0 0 12px; color:var(--muted); }
     .lane ul{
@@ -226,15 +212,7 @@
       box-shadow: var(--shadow);
       padding:18px;
     }
-    .panel.alt{
-      background: rgba(17,27,42,.72);
-      border-color: rgba(255,255,255,.10);
-    }
-    .panel.soft{
-      background: linear-gradient(180deg, rgba(242,217,226,.08), rgba(255,255,255,.03));
-      border-color: rgba(242,217,226,.18);
-    }
-
+    .panel.alt{ background: rgba(17,27,42,.72); border-color: rgba(255,255,255,.10); }
     .panel-head{
       display:flex;
       flex-direction:column;
@@ -245,111 +223,72 @@
       border-bottom:1px solid rgba(255,255,255,.12);
     }
     .panel-head h2{ margin:0; font-size:1.5rem; }
-    .panel-head p{
-      margin:0;
-      width:100%;
-      max-width:none;
-      line-height: 1.6;
-      font-size: 1.02rem;
-    }
+    .panel-head p{ margin:0; width:100%; max-width:none; line-height:1.6; font-size:1.02rem; }
 
     .proof-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-      align-items:start;
-    }
-    .showcase-card{
-      border:1px solid var(--soft-line);
-      background: rgba(255,255,255,.04);
-      border-radius: 22px;
-      overflow:hidden;
-    }
-    .showcase-top{
-      background: linear-gradient(180deg, rgba(242,217,226,.95), rgba(242,217,226,.82));
-      padding:22px 24px 16px;
-      border-bottom:1px solid rgba(0,0,0,.05);
-    }
-    .showcase-kicker{
-      font-size:.82rem;
-      font-weight:900;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color: rgba(37,28,31,.65);
-      margin-bottom:8px;
-    }
-    .showcase-top h3{
-      margin:0;
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      color:#5b3e47;
-      line-height:1.05;
-    }
-    .showcase-top p{
-      margin:10px 0 0;
-      color: rgba(58,44,49,.8);
-      max-width: 65ch;
-    }
-    .showcase-media{
-      padding:18px;
-    }
-    .showcase-media img{
-      width:100%;
-      height:360px;
-      object-fit:cover;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-    }
-    .showcase-body{
-      padding:0 18px 18px;
-    }
-    .showcase-metrics{
-      display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:10px;
-      margin-top:14px;
-    }
-    .metric{
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      border-radius:14px;
-      padding:12px;
-    }
-    .metric strong{
-      display:block;
-      font-size:1rem;
-      margin-bottom:4px;
-    }
-    .metric span{
-      color:var(--muted);
-      font-size:.92rem;
-    }
-
-    .side-stack{
-      display:grid;
       gap:12px;
+      align-items:stretch;
     }
-    .mini-card{
+    .work-card{
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
       border-radius: var(--radius);
       padding:14px;
+      display:flex;
+      flex-direction:column;
+      height:100%;
     }
-    .mini-card h3,
-    .mini-card h4{ margin:0 0 8px; }
-    .mini-card p{ margin:0; color:var(--muted); }
-    .mini-card img{
+    .work-card.web .testimonial{ border-left-color: rgba(34,193,255,.45); }
+    .work-card.pc .testimonial{ border-left-color: rgba(53,208,127,.45); }
+    .work-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .work-pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.85rem;
+      white-space:nowrap;
+    }
+    .work-img{
       width:100%;
-      height:160px;
+      height:220px;
       object-fit:cover;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      margin:10px 0;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
     }
-    .mini-bullets{
+    .testimonial{
       margin:10px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-weight:750;
+      padding:10px 12px;
+      border-left:3px solid rgba(255,255,255,.2);
+      background: rgba(0,0,0,.10);
+      border-radius:12px;
+      color: rgba(233,238,245,.86);
+      font-style: italic;
+      font-weight:600;
+      font-size:.95rem;
+      line-height:1.55;
+      min-height:120px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .testimonial .who{
+      display:block;
+      margin-top:6px;
+      color: rgba(169,180,195,.9);
+      font-style: normal;
+      font-weight:800;
+      font-size:.9rem;
     }
 
     .connect-grid{
@@ -366,21 +305,16 @@
       justify-content:flex-end;
     }
 
-    .pricing-wrap{
-      position:relative;
-      padding: 0 52px;
-    }
+    .pricing-wrap{ position:relative; padding:0 52px; }
     .car-btn{
-      width:42px;
-      height:42px;
+      width:42px; height:42px;
       border-radius:999px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      font-size: 1.4rem;
-      font-weight: 950;
+      font-size:1.4rem;
+      font-weight:950;
       cursor:pointer;
-      user-select:none;
       position:absolute;
       top:50%;
       transform:translateY(-50%);
@@ -388,18 +322,8 @@
     }
     #pricePrev{ left:10px; }
     #priceNext{ right:10px; }
-
-    .carousel{
-      width:100%;
-      overflow:hidden;
-      border-radius: var(--radius);
-    }
-    .carousel-track{
-      display:flex;
-      gap:12px;
-      transition: transform .35s ease;
-      will-change: transform;
-    }
+    .carousel{ width:100%; overflow:hidden; border-radius: var(--radius); }
+    .carousel-track{ display:flex; gap:12px; transition: transform .35s ease; will-change: transform; }
     .carousel-slide{
       flex: 0 0 calc((100% - 24px) / 3);
       background: rgba(255,255,255,.04);
@@ -410,11 +334,9 @@
       outline:none;
       display:flex;
       flex-direction:column;
-      min-height: 172px;
+      min-height:172px;
     }
     .carousel-slide:hover{ border-color: var(--line2); }
-    .carousel-slide:focus{ box-shadow: 0 0 0 3px rgba(53,208,127,.22); }
-
     .price-top{
       display:flex;
       align-items:flex-start;
@@ -422,32 +344,18 @@
       gap:10px;
       margin-bottom:10px;
     }
-    .carousel-slide h3{
-      margin:0;
-      line-height:1.05;
-      min-height: 2.2em;
-    }
+    .carousel-slide h3{ margin:0; line-height:1.05; min-height:2.2em; }
     .price-pill{
       border:1px solid var(--line);
       background: rgba(255,255,255,.05);
       padding:8px 10px;
-      border-radius: 999px;
-      font-weight: 950;
-      white-space: nowrap;
-      flex: 0 0 auto;
+      border-radius:999px;
+      font-weight:950;
+      white-space:nowrap;
+      flex:0 0 auto;
     }
-    .tap-hint{
-      margin-top:auto;
-      padding-top:12px;
-      color: var(--muted);
-      font-weight: 850;
-      font-size: .9rem;
-    }
-    .carousel-meta{
-      display:flex;
-      justify-content:center;
-      margin-top: 10px;
-    }
+    .tap-hint{ margin-top:auto; padding-top:12px; color:var(--muted); font-weight:850; font-size:.9rem; }
+    .carousel-meta{ display:flex; justify-content:center; margin-top:10px; }
     .dots{ display:flex; gap:8px; align-items:center; justify-content:center; }
     .dot{
       width:8px; height:8px;
@@ -455,17 +363,8 @@
       border:1px solid var(--line);
       background: rgba(255,255,255,.06);
     }
-    .dot.active{
-      background: rgba(53,208,127,.75);
-      border-color: rgba(53,208,127,.55);
-    }
-    .auto-note{
-      margin:12px 0 0;
-      text-align:center;
-      color:var(--muted);
-      font-size:.9rem;
-      font-weight:800;
-    }
+    .dot.active{ background: rgba(53,208,127,.75); border-color: rgba(53,208,127,.55); }
+    .auto-note{ margin:12px 0 0; text-align:center; color:var(--muted); font-size:.9rem; font-weight:800; }
 
     .modal{
       position:fixed;
@@ -474,33 +373,27 @@
       z-index:999;
     }
     .modal[aria-hidden="false"]{ display:block; }
-    .modal-backdrop{
-      position:absolute;
-      inset:0;
-      background: rgba(0,0,0,.55);
-    }
+    .modal-backdrop{ position:absolute; inset:0; background: rgba(0,0,0,.55); }
     .modal-card{
       position:relative;
-      width: min(980px, calc(100% - 32px));
-      margin: 6vh auto;
+      width:min(980px, calc(100% - 32px));
+      margin:6vh auto;
       background: rgba(15,22,33,.94);
       border:1px solid var(--line);
-      border-radius: 22px;
+      border-radius:22px;
       box-shadow: var(--shadow);
-      padding: 16px;
+      padding:16px;
     }
     .modal-close{
       position:absolute;
-      top: 12px;
-      right: 12px;
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
+      top:12px; right:12px;
+      width:40px; height:40px;
+      border-radius:999px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      font-size: 1.05rem;
-      font-weight: 950;
+      font-size:1.05rem;
+      font-weight:950;
       cursor:pointer;
     }
     .modal-head{
@@ -508,36 +401,20 @@
       align-items:flex-start;
       justify-content:space-between;
       gap:12px;
-      padding-right: 46px;
+      padding-right:46px;
     }
     .modal-price{
       border:1px solid var(--line);
       background: rgba(255,255,255,.05);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-weight: 950;
-      white-space: nowrap;
+      padding:8px 10px;
+      border-radius:999px;
+      font-weight:950;
+      white-space:nowrap;
     }
-    .modal-cols{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top: 14px;
-    }
-    .modal-list{
-      margin:0;
-      padding-left:18px;
-      color: var(--muted);
-      font-weight: 780;
-    }
-    .modal-cols > div:last-child{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .modal-cols > div:last-child .btn{
-      margin-top:auto;
-    }
+    .modal-cols{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+    .modal-list{ margin:0; padding-left:18px; color: var(--muted); font-weight:780; }
+    .modal-cols > div:last-child{ display:flex; flex-direction:column; gap:10px; }
+    .modal-cols > div:last-child .btn{ margin-top:auto; }
     #mGuard{
       margin:0;
       padding:12px;
@@ -545,34 +422,20 @@
       border-radius:14px;
       background: rgba(255,255,255,.04);
       color: var(--muted);
-      font-weight: 760;
+      font-weight:760;
     }
     .mini-brief{
       margin-top:10px;
       border:1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
+      border-radius:14px;
+      padding:12px;
       background: rgba(255,255,255,.04);
     }
 
-    .quote-form{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      max-width: 920px;
-    }
-    .quote-form .segmented{
-      grid-column: 1 / -1;
-    }
-    .form-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    .segmented{
-      display:flex;
-      gap:12px;
-    }
+    .quote-form{ display:flex; flex-direction:column; gap:12px; max-width:920px; }
+    .quote-form .segmented{ grid-column:1 / -1; }
+    .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .segmented{ display:flex; gap:12px; }
     .seg{
       flex:1;
       display:flex;
@@ -588,8 +451,7 @@
     .seg span{ white-space:nowrap; }
     .seg input{
       appearance:none;
-      width:18px;
-      height:18px;
+      width:18px; height:18px;
       border-radius:999px;
       border:2px solid rgba(255,255,255,.35);
       position:relative;
@@ -602,18 +464,10 @@
       border-radius:999px;
       background: rgba(53,208,127,.9);
     }
-    .seg:has(input:checked){
-      border-color: rgba(53,208,127,.45);
-      box-shadow: 0 0 0 3px rgba(53,208,127,.14);
-    }
-    .seg:focus-within{ box-shadow: 0 0 0 3px rgba(53,208,127,.18); }
+    .seg:has(input:checked){ border-color: rgba(53,208,127,.45); box-shadow: 0 0 0 3px rgba(53,208,127,.14); }
 
-    .quote-form label{
-      font-weight: 900;
-      font-size: .92rem;
-    }
+    .quote-form label{ font-weight:900; font-size:.92rem; }
     .quote-form input,
-    .quote-form select,
     .quote-form textarea{
       width:100%;
       padding:12px 14px;
@@ -623,17 +477,7 @@
       color: var(--text);
       font-family: inherit;
     }
-    .quote-form textarea{
-      resize: vertical;
-      min-height: 130px;
-    }
-    .quote-form input:focus,
-    .quote-form textarea:focus,
-    .quote-form select:focus{
-      outline:none;
-      border-color: rgba(53,208,127,.6);
-      box-shadow: 0 0 0 3px rgba(53,208,127,.18);
-    }
+    .quote-form textarea{ resize:vertical; min-height:130px; }
 
     footer{
       border-top:1px solid var(--line);
@@ -641,26 +485,23 @@
       color:var(--muted);
       font-weight:780;
     }
-    .footer-inner{
-      display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-    }
+    .footer-inner{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 
     @media (max-width: 1100px){
       .carousel-slide{ flex-basis: calc((100% - 12px) / 2); }
+      .proof-grid{ grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 920px){
       .lane-grid, .strip, .proof-grid, .connect-grid{ grid-template-columns:1fr; }
-      .showcase-metrics{ grid-template-columns:1fr; }
       .form-grid{ grid-template-columns:1fr; }
       nav{ display:none; }
       .nav-wrap{ justify-content:flex-end; }
-      .carousel-slide{ flex-basis: 100%; }
+      .carousel-slide{ flex-basis:100%; }
       .car-btn{ display:none; }
       .pricing-wrap{ padding:0; }
-      .modal-cols{ grid-template-columns: 1fr; }
-      .modal-card{ margin: 10vh auto; }
+      .modal-cols{ grid-template-columns:1fr; }
+      .modal-card{ margin:10vh auto; }
       .connect-actions{ justify-content:flex-start; }
-      .showcase-media img{ height:260px; }
     }
   </style>
 </head>
@@ -672,7 +513,6 @@
         <img class="logo" src="logo.png" alt="Byte My System logo" />
         <span>Byte My System</span>
       </a>
-
       <div class="nav-wrap">
         <nav aria-label="Primary navigation">
           <a href="#web">Websites</a>
@@ -744,61 +584,48 @@
 
     <section id="proof">
       <div class="container">
-        <div class="panel soft">
+        <div class="panel alt">
           <div class="panel-head">
-            <h2>Website work that feels clean, modern and easy to trust.</h2>
-            <p class="muted">Your other beauty-site example has a softer, more editorial feel. I’ve nodded to that here by making this section cleaner and more polished, without turning Byte My System pink and confusing the whole brand.</p>
+            <h2>Recent work</h2>
+            <p class="muted">A few examples to show range. Same core approach, different client styles.</p>
           </div>
 
           <div class="proof-grid">
-            <article class="showcase-card">
-              <div class="showcase-top">
-                <div class="showcase-kicker">Featured website build</div>
-                <h3>Modern brochure websites for service businesses</h3>
-                <p>Built to look credible on first visit, work properly on mobile and make it obvious what the business does, who it helps and how to get in touch.</p>
+            <article class="work-card web">
+              <div class="work-head">
+                <h3 style="margin:0;">Business website</h3>
+                <span class="work-pill">Brochure site</span>
               </div>
-
-              <div class="showcase-media">
-                <img src="DataWorxsite.png" alt="Screenshot of a modern business website example" loading="lazy" />
-              </div>
-
-              <div class="showcase-body">
-                <p class="muted">This is the kind of layout direction we aim for: strong headline, clean sections, simple navigation and no clutter for the sake of looking ‘creative’.</p>
-
-                <div class="showcase-metrics">
-                  <div class="metric">
-                    <strong>Cleaner first impression</strong>
-                    <span>Clearer structure and stronger trust from the first scroll.</span>
-                  </div>
-                  <div class="metric">
-                    <strong>Better on mobile</strong>
-                    <span>Layouts designed to make sense on phones, not just desktops.</span>
-                  </div>
-                  <div class="metric">
-                    <strong>No builder lock-in</strong>
-                    <span>Fast static hosting and fewer headaches later.</span>
-                  </div>
-                </div>
-              </div>
+              <img class="work-img" src="DataWorxsite.png" alt="Business website example" loading="lazy" />
+              <p class="testimonial">
+                “Fast, clean site with no monthly fees — and it actually explains what we do clearly on mobile.”
+                <span class="who">— Small business owner</span>
+              </p>
             </article>
 
-            <div class="side-stack">
-              <article class="mini-card">
-                <h3>Also available: PC support</h3>
-                <p>Still here, still useful — just not the headline act.</p>
-                <img src="pcbuild.jpg" alt="Compact media centre PC build" loading="lazy" />
-                <p class="muted">Ideal for upgrades, custom builds and fixing machines that have decided to become dramatic for no reason.</p>
-              </article>
+            <article class="work-card web">
+              <div class="work-head">
+                <h3 style="margin:0;">Beauty website</h3>
+                <span class="work-pill">Client style example</span>
+              </div>
+              <img class="work-img" src="skin-edit.png" alt="Beauty website example" loading="lazy" />
+              <p class="testimonial">
+                “Soft, clean design tailored to the client’s brand — shows the look can shift depending on who the site is for.”
+                <span class="who">— Beauty business example</span>
+              </p>
+            </article>
 
-              <article class="mini-card">
-                <h4>Best fit for</h4>
-                <ul class="mini-bullets">
-                  <li>Solo businesses and local services</li>
-                  <li>Consultants, trades and beauty brands</li>
-                  <li>Businesses that need a proper site without bloated monthly tools</li>
-                </ul>
-              </article>
-            </div>
+            <article class="work-card pc">
+              <div class="work-head">
+                <h3 style="margin:0;">PC support</h3>
+                <span class="work-pill">Add-on service</span>
+              </div>
+              <img class="work-img" src="pcbuild.jpg" alt="PC build example" loading="lazy" />
+              <p class="testimonial">
+                “Had a compact media centre built from scratch. Super quiet, tidy internals, and exactly the spec we needed.”
+                <span class="who">— Home user</span>
+              </p>
+            </article>
           </div>
         </div>
       </div>
@@ -812,9 +639,8 @@
               <h2 style="margin:0 0 8px;">Need leads as well as a website?</h2>
               <p class="muted">Lead generation lives under <strong>DataWorx</strong>, not Byte My System. That’s where <strong>Leadify</strong> sits — a product focused on finding and qualifying business leads. So if you need a site now and smarter outreach later, there’s a clean path for both.</p>
             </div>
-
             <div class="connect-actions">
-              <a class="btn btn-soft" href="https://data-worx.uk" target="_blank" rel="noopener noreferrer">Visit DataWorx</a>
+              <a class="btn btn-ghost" href="https://data-worx.uk" target="_blank" rel="noopener noreferrer">Visit DataWorx</a>
               <a class="btn btn-ghost" href="https://leadify.streamlit.app" target="_blank" rel="noopener noreferrer">Explore Leadify</a>
             </div>
           </div>
@@ -827,108 +653,46 @@
         <div class="panel">
           <div class="panel-head">
             <h2>Website pricing</h2>
-            <p class="muted">Websites are the core service, so pricing is built around them. The carousel now auto-scrolls as well, because dead sliders just sit there like showroom furniture.</p>
+            <p class="muted">Websites are the core service, so pricing is built around them. The carousel auto-scrolls too, because static sliders just sit there doing absolutely nothing.</p>
           </div>
 
           <div class="pricing-wrap">
             <button class="car-btn" type="button" id="pricePrev" aria-label="Previous pricing option">‹</button>
-
             <div class="carousel" aria-label="Website pricing carousel">
               <div class="carousel-track" id="pricingTrack">
-                <article class="carousel-slide" tabindex="0"
-                  data-title="Starter Website"
-                  data-price="from £400"
-                  data-desc="A clean one-page site for sole traders and simple businesses."
-                  data-includes="1 page|Mobile-first layout|Basic design using your branding|Contact section (email or simple form)|Domain connection support"
-                  data-guardrails="Price increases if: extra pages, copywriting, custom graphics, galleries/testimonials, maps/embeds, urgent turnaround."
-                  data-brief="Business name + what you do|Logo/colours (or we’ll keep it simple)|Any example sites you like|Your deadline"
-                >
-                  <div class="price-top">
-                    <h3>Starter<br>Website</h3>
-                    <div class="price-pill">from <strong>£400</strong></div>
-                  </div>
+                <article class="carousel-slide" tabindex="0" data-title="Starter Website" data-price="from £400" data-desc="A clean one-page site for sole traders and simple businesses." data-includes="1 page|Mobile-first layout|Basic design using your branding|Contact section (email or simple form)|Domain connection support" data-guardrails="Price increases if: extra pages, copywriting, custom graphics, galleries/testimonials, maps/embeds, urgent turnaround." data-brief="Business name + what you do|Logo/colours (or we’ll keep it simple)|Any example sites you like|Your deadline">
+                  <div class="price-top"><h3>Starter<br>Website</h3><div class="price-pill">from <strong>£400</strong></div></div>
                   <p class="muted">One-page site for a simple online presence.</p>
                   <div class="tap-hint">Click for details</div>
                 </article>
-
-                <article class="carousel-slide" tabindex="0"
-                  data-title="Business Website"
-                  data-price="from £1,200"
-                  data-desc="Multi-page brochure site designed to generate enquiries and look credible."
-                  data-includes="3–5 pages|Clear navigation|Basic SEO setup (titles + descriptions)|Performance optimisation|Mobile & tablet friendly|Contact page"
-                  data-guardrails="Price increases if: more than 5 pages, CMS/blog, advanced forms, integrations, content creation, premium design iterations, urgent turnaround."
-                  data-brief="Business name + services|Pages you want (3–5)|Any copy you already have|Example sites + colours|Deadline"
-                >
-                  <div class="price-top">
-                    <h3>Business<br>Website</h3>
-                    <div class="price-pill">from <strong>£1,200</strong></div>
-                  </div>
+                <article class="carousel-slide" tabindex="0" data-title="Business Website" data-price="from £1,200" data-desc="Multi-page brochure site designed to generate enquiries and look credible." data-includes="3–5 pages|Clear navigation|Basic SEO setup (titles + descriptions)|Performance optimisation|Mobile & tablet friendly|Contact page" data-guardrails="Price increases if: more than 5 pages, CMS/blog, advanced forms, integrations, content creation, premium design iterations, urgent turnaround." data-brief="Business name + services|Pages you want (3–5)|Any copy you already have|Example sites + colours|Deadline">
+                  <div class="price-top"><h3>Business<br>Website</h3><div class="price-pill">from <strong>£1,200</strong></div></div>
                   <p class="muted">A proper business site with structure.</p>
                   <div class="tap-hint">Click for details</div>
                 </article>
-
-                <article class="carousel-slide" tabindex="0"
-                  data-title="Advanced Website"
-                  data-price="from £2,500"
-                  data-desc="For businesses where the website is a serious part of revenue and growth."
-                  data-includes="6+ pages or complex layout|Strategy-led structure|Analytics setup|More revision rounds|Priority delivery option"
-                  data-guardrails="Price varies based on: page count, features, integrations, content needs, and turnaround time."
-                  data-brief="Full page list + goals|Any integrations needed|Content status (ready/not ready)|Deadline + priorities"
-                >
-                  <div class="price-top">
-                    <h3>Advanced<br>Website</h3>
-                    <div class="price-pill">from <strong>£2,500</strong></div>
-                  </div>
+                <article class="carousel-slide" tabindex="0" data-title="Advanced Website" data-price="from £2,500" data-desc="For businesses where the website is a serious part of revenue and growth." data-includes="6+ pages or complex layout|Strategy-led structure|Analytics setup|More revision rounds|Priority delivery option" data-guardrails="Price varies based on: page count, features, integrations, content needs, and turnaround time." data-brief="Full page list + goals|Any integrations needed|Content status (ready/not ready)|Deadline + priorities">
+                  <div class="price-top"><h3>Advanced<br>Website</h3><div class="price-pill">from <strong>£2,500</strong></div></div>
                   <p class="muted">Custom builds with more depth.</p>
                   <div class="tap-hint">Click for details</div>
                 </article>
-
-                <article class="carousel-slide" tabindex="0"
-                  data-title="Ecommerce Website"
-                  data-price="quote only"
-                  data-desc="Online selling + payments needs a bespoke quote. We’ll recommend the best route and price it properly."
-                  data-includes="Payments setup (Stripe/Shopify)|Platform recommendation|Checkout flow setup|Guidance on products/shipping/tax|Analytics basics"
-                  data-guardrails="Quote depends on: number of products/variants, shipping & tax rules, integrations, and whether you need accounts/subscriptions."
-                  data-brief="What are you selling?|Approx product count + variants|Do you need shipping?|Any platforms you prefer (Shopify/Woo)|Deadline + budget range"
-                >
-                  <div class="price-top">
-                    <h3>Ecommerce<br>Website</h3>
-                    <div class="price-pill"><strong>Quote only</strong></div>
-                  </div>
+                <article class="carousel-slide" tabindex="0" data-title="Ecommerce Website" data-price="quote only" data-desc="Online selling + payments needs a bespoke quote. We’ll recommend the best route and price it properly." data-includes="Payments setup (Stripe/Shopify)|Platform recommendation|Checkout flow setup|Guidance on products/shipping/tax|Analytics basics" data-guardrails="Quote depends on: number of products/variants, shipping & tax rules, integrations, and whether you need accounts/subscriptions." data-brief="What are you selling?|Approx product count + variants|Do you need shipping?|Any platforms you prefer (Shopify/Woo)|Deadline + budget range">
+                  <div class="price-top"><h3>Ecommerce<br>Website</h3><div class="price-pill"><strong>Quote only</strong></div></div>
                   <p class="muted">Payments, products, shipping — quoted to spec.</p>
                   <div class="tap-hint">Click for details</div>
                 </article>
-
-                <article class="carousel-slide" tabindex="0"
-                  data-title="Support & Updates"
-                  data-price="from £300 / month"
-                  data-desc="Ongoing website support on a monthly retainer. Priority updates, fixes, and advice — no lock-in."
-                  data-includes="Monthly retainer (scoped hours)|Content updates (fair use)|Minor layout tweaks|Advice & support|Priority email"
-                  data-guardrails="Price varies based on: hours per month, urgency, ecommerce support, integrations, and content creation needs."
-                  data-brief="Type of site|What you want help with|How often updates are needed|Any deadlines or priorities"
-                >
-                  <div class="price-top">
-                    <h3>Support &<br>Updates</h3>
-                    <div class="price-pill">from <strong>£300 / mo</strong></div>
-                  </div>
+                <article class="carousel-slide" tabindex="0" data-title="Support & Updates" data-price="from £300 / month" data-desc="Ongoing website support on a monthly retainer. Priority updates, fixes, and advice — no lock-in." data-includes="Monthly retainer (scoped hours)|Content updates (fair use)|Minor layout tweaks|Advice & support|Priority email" data-guardrails="Price varies based on: hours per month, urgency, ecommerce support, integrations, and content creation needs." data-brief="Type of site|What you want help with|How often updates are needed|Any deadlines or priorities">
+                  <div class="price-top"><h3>Support &<br>Updates</h3><div class="price-pill">from <strong>£300 / mo</strong></div></div>
                   <p class="muted">Ongoing support on a proper retainer.</p>
                   <div class="tap-hint">Click for details</div>
                 </article>
               </div>
             </div>
-
             <button class="car-btn" type="button" id="priceNext" aria-label="Next pricing option">›</button>
           </div>
 
-          <div class="carousel-meta">
-            <div class="dots" id="priceDots" aria-label="Carousel position"></div>
-          </div>
-
+          <div class="carousel-meta"><div class="dots" id="priceDots" aria-label="Carousel position"></div></div>
           <p class="auto-note">Auto-scrolling every few seconds. Tap any card to pause and open the details.</p>
-
-          <p class="muted" style="margin:10px 0 0; font-weight:900;">
-            All prices are starting points. Final quote confirmed after a short email brief. No lock-in.
-          </p>
+          <p class="muted" style="margin:10px 0 0; font-weight:900;">All prices are starting points. Final quote confirmed after a short email brief. No lock-in.</p>
         </div>
       </div>
     </section>
@@ -943,53 +707,35 @@
 
           <form class="quote-form" id="quoteForm" action="https://formspree.io/f/xeeejvrw" method="POST">
             <input type="hidden" name="service_detail" id="serviceDetail" value="">
-
             <div class="form-grid">
               <div>
                 <label for="qName">Name</label>
                 <input id="qName" type="text" name="name" required placeholder="Your name">
               </div>
-
               <div>
                 <label for="qEmail">Email</label>
                 <input id="qEmail" type="email" name="email" required placeholder="you@email.com">
               </div>
             </div>
-
             <div>
               <label>What do you need help with?</label>
               <div class="segmented" role="radiogroup" aria-label="Service">
-                <label class="seg">
-                  <input type="radio" name="service" value="Website" required>
-                  <span>Website</span>
-                </label>
-                <label class="seg">
-                  <input type="radio" name="service" value="PC help" required>
-                  <span>PC build / repair / upgrade</span>
-                </label>
+                <label class="seg"><input type="radio" name="service" value="Website" required><span>Website</span></label>
+                <label class="seg"><input type="radio" name="service" value="PC help" required><span>PC build / repair / upgrade</span></label>
               </div>
             </div>
-
             <div>
               <label for="qMessage">Tell us a bit more</label>
               <textarea id="qMessage" name="message" rows="5" required placeholder="Website: what you do, pages needed, examples you like, deadline&#10;PC: specs (CPU/GPU/RAM/SSD), what’s wrong, what you use it for"></textarea>
             </div>
-
             <div>
               <label for="qBudget">Budget range (optional)</label>
               <input id="qBudget" type="text" name="budget" placeholder="e.g. £300–£500">
             </div>
-
             <button class="btn btn-solid" type="submit">Send quote request</button>
-
-            <p class="muted" style="margin:8px 0 0; font-weight:850;">
-              We’ll reply by email. No spam. No sales calls.
-            </p>
+            <p class="muted" style="margin:8px 0 0; font-weight:850;">We’ll reply by email. No spam. No sales calls.</p>
           </form>
-
-          <p class="muted" style="margin:14px 0 0; font-weight:850;">
-            Reply time: as fast as we can — we’re not a call centre, we’re actually doing the work.
-          </p>
+          <p class="muted" style="margin:14px 0 0; font-weight:850;">Reply time: as fast as we can — we’re not a call centre, we’re actually doing the work.</p>
         </div>
       </div>
     </section>
@@ -1006,31 +752,24 @@
     <div class="modal-backdrop" data-close="1"></div>
     <div class="modal-card" role="document">
       <button class="modal-close" type="button" aria-label="Close" data-close="1">✕</button>
-
       <div class="modal-head">
         <h3 id="mTitle" style="margin:0;">Title</h3>
         <div class="modal-price" id="mPrice">from £0</div>
       </div>
-
       <p class="muted" id="mDesc" style="margin:10px 0 0;"></p>
-
       <div class="modal-cols">
         <div>
           <h4 style="margin:0 0 8px;">Includes</h4>
           <ul id="mIncludes" class="modal-list"></ul>
-
           <div class="mini-brief">
             <h4 style="margin:0 0 8px;">What we need from you</h4>
             <ul id="mBrief" class="modal-list" style="margin:0;"></ul>
           </div>
         </div>
-
         <div>
           <h4 style="margin:0;">Price changes when</h4>
           <p id="mGuard"></p>
-          <a class="btn btn-solid" id="mQuoteBtn" href="#contact" data-service="Website" style="width:100%;">
-            Get a website quote
-          </a>
+          <a class="btn btn-solid" id="mQuoteBtn" href="#contact" data-service="Website" style="width:100%;">Get a website quote</a>
         </div>
       </div>
     </div>
@@ -1046,17 +785,13 @@
 
       function setService(value){
         const radios = document.querySelectorAll('input[name="service"]');
-        radios.forEach(r => {
-          r.checked = (r.value === value);
-        });
+        radios.forEach(r => { r.checked = (r.value === value); });
       }
 
       function focusForm(){
         const form = document.getElementById("quoteForm");
         if (!form) return;
-        setTimeout(() => {
-          if (messageBox) messageBox.focus({ preventScroll: true });
-        }, 50);
+        setTimeout(() => { if (messageBox) messageBox.focus({ preventScroll: true }); }, 50);
       }
 
       document.addEventListener("click", (e) => {
@@ -1078,40 +813,30 @@
 
       function openModal(slide){
         stopAutoScroll(true);
-
         const title = slide.dataset.title || "";
         const price = slide.dataset.price || "";
         const desc = slide.dataset.desc || "";
         const includes = (slide.dataset.includes || "").split("|").filter(Boolean);
         const guard = slide.dataset.guardrails || "";
         const brief = (slide.dataset.brief || "").split("|").filter(Boolean);
-
         mTitle.textContent = title;
         mPrice.textContent = price;
         mDesc.textContent = desc;
-
         mIncludes.innerHTML = "";
         includes.forEach(item => {
           const li = document.createElement("li");
           li.textContent = item;
           mIncludes.appendChild(li);
         });
-
         mBrief.innerHTML = "";
         brief.forEach(item => {
           const li = document.createElement("li");
           li.textContent = item;
           mBrief.appendChild(li);
         });
-
         const detailField = document.getElementById("serviceDetail");
-        if (detailField) {
-          detailField.value = title.toLowerCase().includes("ecommerce") ? "ecommerce" : "";
-        }
-
+        if (detailField) detailField.value = title.toLowerCase().includes("ecommerce") ? "ecommerce" : "";
         mGuard.textContent = guard;
-        if (mQuoteBtn) mQuoteBtn.setAttribute("data-service", "Website");
-
         modal.setAttribute("aria-hidden","false");
         document.body.style.overflow = "hidden";
       }
@@ -1122,17 +847,11 @@
       }
 
       modal.addEventListener("click", (e) => {
-        if(e.target && e.target.dataset && e.target.dataset.close){
-          closeModal();
-        }
+        if (e.target && e.target.dataset && e.target.dataset.close) closeModal();
       });
-
       document.addEventListener("keydown", (e) => {
-        if(e.key === "Escape" && modal.getAttribute("aria-hidden") === "false"){
-          closeModal();
-        }
+        if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
       });
-
       if (mQuoteBtn){
         mQuoteBtn.addEventListener("click", () => {
           closeModal();
@@ -1148,7 +867,6 @@
       const dotsWrap = document.getElementById("priceDots");
       const carousel = document.querySelector(".carousel");
       const pricingWrap = document.querySelector(".pricing-wrap");
-
       let index = 0;
 
       function visibleCount(){
@@ -1157,45 +875,27 @@
         if (w <= 1100) return 2;
         return 3;
       }
-
-      function maxIndex(){
-        return Math.max(0, slides.length - visibleCount());
-      }
-
-      function clampIndex(){
-        index = Math.max(0, Math.min(index, maxIndex()));
-      }
-
-      function slideStep(){
-        const rect = slides[0].getBoundingClientRect();
-        return rect.width + 12;
-      }
+      function maxIndex(){ return Math.max(0, slides.length - visibleCount()); }
+      function clampIndex(){ index = Math.max(0, Math.min(index, maxIndex())); }
+      function slideStep(){ return slides[0].getBoundingClientRect().width + 12; }
 
       function render(){
         clampIndex();
         track.style.transform = `translateX(${-index * slideStep()}px)`;
-
         const positions = maxIndex() + 1;
-
         if (dotsWrap.childElementCount !== positions){
           dotsWrap.innerHTML = "";
-          for(let i=0;i<positions;i++){
+          for (let i = 0; i < positions; i++){
             const d = document.createElement("span");
             d.className = "dot" + (i === index ? " active" : "");
             d.setAttribute("role","button");
             d.setAttribute("tabindex","0");
             d.setAttribute("aria-label", `Go to position ${i+1}`);
-            d.addEventListener("click", () => {
-              index = i;
-              render();
-              stopAutoScroll(true);
-            });
+            d.addEventListener("click", () => { index = i; render(); stopAutoScroll(true); });
             d.addEventListener("keydown", (e) => {
               if (e.key === "Enter" || e.key === " "){
                 e.preventDefault();
-                index = i;
-                render();
-                stopAutoScroll(true);
+                index = i; render(); stopAutoScroll(true);
               }
             });
             dotsWrap.appendChild(d);
@@ -1203,7 +903,6 @@
         } else {
           Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle("active", i === index));
         }
-
         prevBtn.disabled = index === 0;
         nextBtn.disabled = index === maxIndex();
         prevBtn.style.opacity = prevBtn.disabled ? .45 : 1;
@@ -1215,59 +914,38 @@
         index = index >= maxIndex() ? 0 : index + 1;
         render();
       }
-
       function startAutoScroll(){
         if (autoPaused || window.innerWidth <= 920) return;
         clearInterval(autoTimer);
         autoTimer = setInterval(nextSlideAuto, 3500);
       }
-
       function stopAutoScroll(pauseCompletely = false){
         clearInterval(autoTimer);
         autoTimer = null;
         if (pauseCompletely) autoPaused = true;
       }
 
-      prevBtn.addEventListener("click", () => {
-        index -= 1;
-        render();
-        stopAutoScroll(true);
-      });
-      nextBtn.addEventListener("click", () => {
-        index += 1;
-        render();
-        stopAutoScroll(true);
-      });
-
+      prevBtn.addEventListener("click", () => { index -= 1; render(); stopAutoScroll(true); });
+      nextBtn.addEventListener("click", () => { index += 1; render(); stopAutoScroll(true); });
       slides.forEach(slide => {
         slide.addEventListener("click", () => openModal(slide));
         slide.addEventListener("keydown", (e) => {
-          if(e.key === "Enter" || e.key === " "){
+          if (e.key === "Enter" || e.key === " "){
             e.preventDefault();
             openModal(slide);
           }
         });
       });
-
       [carousel, pricingWrap].forEach(el => {
         if (!el) return;
-        el.addEventListener("mouseenter", () => {
-          if (!autoPaused) clearInterval(autoTimer);
-        });
-        el.addEventListener("mouseleave", () => {
-          if (!autoPaused) startAutoScroll();
-        });
-        el.addEventListener("touchstart", () => stopAutoScroll(true), { passive: true });
+        el.addEventListener("mouseenter", () => { if (!autoPaused) clearInterval(autoTimer); });
+        el.addEventListener("mouseleave", () => { if (!autoPaused) startAutoScroll(); });
+        el.addEventListener("touchstart", () => stopAutoScroll(true), { passive:true });
       });
-
       document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-          clearInterval(autoTimer);
-        } else if (!autoPaused) {
-          startAutoScroll();
-        }
+        if (document.hidden) clearInterval(autoTimer);
+        else if (!autoPaused) startAutoScroll();
       });
-
       window.addEventListener("resize", () => {
         if (index > maxIndex()) index = maxIndex();
         render();

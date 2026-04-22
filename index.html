@@ -146,7 +146,7 @@
     /* Lanes */
     .lane-grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.45fr .85fr;
       gap:14px;
       align-items:stretch;
     }
@@ -647,12 +647,12 @@
 
       <div class="nav-wrap">
         <nav aria-label="Primary navigation">
-          <a href="#pc">PC help</a>
           <a href="#web">Websites</a>
           <a href="#proof">Work</a>
           <a href="#pricing">Pricing</a>
+          <a href="#pc">PC help</a>
         </nav>
-        <a class="btn btn-solid" href="#contact">Get a quote</a>
+        <a class="btn btn-solid" href="#contact" data-service="Website">Get a website quote</a>
       </div>
     </div>
   </header>
@@ -662,36 +662,35 @@
     <section class="hero">
       <div class="container">
         <div class="hero-head">
-          <h1>Pick a lane: PC help or a business website.</h1>
-          <p class="lead">Fast fixes, honest advice, clear pricing. No lock-in. No upsells. No nonsense.</p>
+          <h1>Clean, fast small business websites that look credible and get enquiries.</h1>
+          <p class="lead">We build modern websites with clear pricing, honest advice and no builder lock-in. Need PC help as well? We do that too — just as a smaller side service, not the whole show.</p>
         </div>
 
         <div class="lane-grid" aria-label="Primary services">
-          <div class="lane pc" id="pc">
-            <h2>⚙️ PC Builds, Repairs & Upgrades</h2>
-            <p>From “it won’t turn on” to “why is my GPU trying to cook itself?” — we fix and optimise.</p>
-            <ul>
-              <li>Custom builds (work, gaming, creator)</li>
-              <li>Diagnostics, crashes, overheating</li>
-              <li>Upgrades: SSD/RAM/GPU/airflow</li>
-            </ul>
-            <div class="actions">
-              <a class="btn btn-green" href="#contact" data-service="PC help">Get a PC quote</a>
-              <a class="btn btn-ghost" href="#contact" data-service="PC help">What to include</a>
-            </div>
-          </div>
-
           <div class="lane web" id="web">
             <h2>🌐 Small Business Websites</h2>
-            <p>Fast, clean websites built on modern static hosting — no subscription builder lock-in.</p>
+            <p>Websites are the main event here — built to help you look professional, explain what you do clearly and make it easy for people to contact you.</p>
             <ul>
-              <li>One-page or up to 5 pages</li>
-              <li>Domain setup + mobile-first layout</li>
-              <li>Basic SEO + performance</li>
+              <li>One-page or up to 5-page brochure websites</li>
+              <li>Mobile-first layouts with domain setup support</li>
+              <li>Basic SEO, performance and clean structure built in</li>
             </ul>
             <div class="actions">
               <a class="btn btn-blue" href="#contact" data-service="Website">Get a website quote</a>
               <a class="btn btn-ghost" href="#pricing">See pricing</a>
+            </div>
+          </div>
+
+          <div class="lane pc" id="pc">
+            <h2>⚙️ Also available: PC help</h2>
+            <p>A smaller add-on service for home users and small businesses that need practical help without the usual waffle.</p>
+            <ul>
+              <li>Custom builds and upgrades</li>
+              <li>Diagnostics, crashes and overheating</li>
+              <li>SSD, RAM and GPU installs</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btn-green" href="#contact" data-service="PC help">Ask about PC help</a>
             </div>
           </div>
         </div>
@@ -700,17 +699,17 @@
           <div class="step">
             <div class="num">1</div>
             <h3>You message</h3>
-            <p>Tell us what you need + budget. PCs: include specs. Websites: include what you do and pages needed.</p>
+            <p>Tell us what your business does, what kind of site you need and roughly what budget you’re working with.</p>
           </div>
           <div class="step">
             <div class="num">2</div>
             <h3>We recommend</h3>
-            <p>Best value route + alternatives. If the right answer is “don’t upgrade yet”, we’ll say it.</p>
+            <p>We’ll suggest the best-value route, flag what actually matters and skip the fake-agency fluff.</p>
           </div>
           <div class="step">
             <div class="num">3</div>
             <h3>We deliver</h3>
-            <p>Clean build / proper fix / fast website. No lock-in. No mystery fees.</p>
+            <p>You get a fast, clean website with no lock-in, no mystery fees and no nonsense stapled on top.</p>
           </div>
         </div>
       </div>
@@ -721,30 +720,15 @@
       <div class="container">
         <div class="panel alt">
           <div class="panel-head">
-            <h2>Our work</h2>
-            <p class="muted">A small sample of our work. If you want something similar, email us and we’ll quote it properly.</p>
+            <h2>Website work first. PC help in the background.</h2>
+            <p class="muted">A small sample of the kind of website work we focus on. If you want something similar, send over a brief and we’ll quote it properly.</p>
           </div>
 
           <div class="proof-grid">
-            <div class="work-card pc">
-              <div class="work-head">
-                <h3 style="margin:0;">PC builds & fixes</h3>
-                <span class="work-pill">Media centre build</span>
-              </div>
-
-              <img class="work-img" src="pcbuild.jpg" alt="Compact media centre PC build" loading="lazy" />
-
-              <p class="testimonial">
-                “Had a compact media centre built from scratch. Super quiet, tidy internals, and exactly the spec we needed.
-                Looks great in the living room and just works.”
-                <span class="who">— Home user</span>
-              </p>
-            </div>
-
             <div class="work-card web">
               <div class="work-head">
                 <h3 style="margin:0;">Websites</h3>
-                <span class="work-pill">Brochure website</span>
+                <span class="work-pill">Business website</span>
               </div>
 
               <img class="work-img" src="DataWorxsite.png" alt="Screenshot of a modern small business website" loading="lazy" />
@@ -752,6 +736,20 @@
               <p class="testimonial">
                 “Fast, clean site with no monthly fees — and it actually explains what we do clearly on mobile.”
                 <span class="who">— Small business owner</span>
+              </p>
+            </div>
+
+            <div class="work-card pc">
+              <div class="work-head">
+                <h3 style="margin:0;">PC support</h3>
+                <span class="work-pill">Add-on service</span>
+              </div>
+
+              <img class="work-img" src="pcbuild.jpg" alt="Compact media centre PC build" loading="lazy" />
+
+              <p class="testimonial">
+                “Had a compact media centre built from scratch. Super quiet, tidy internals, and exactly the spec we needed.”
+                <span class="who">— Home user</span>
               </p>
             </div>
           </div>
@@ -765,7 +763,7 @@
         <div class="panel">
           <div class="panel-head">
             <h2>Website pricing</h2>
-            <p class="muted">Starting prices with guardrails. Click a package for what’s included and what changes the price.</p>
+            <p class="muted">Websites are the core service, so pricing is built around them. Click a package for what’s included and what changes the price.</p>
           </div>
 
           <div class="pricing-wrap">
@@ -877,7 +875,7 @@
         <div class="panel">
           <div class="panel-head">
             <h2>Get a quote</h2>
-            <p class="muted">Fill in the form and we’ll come back with the best route + a clear cost. No faff.</p>
+            <p class="muted">Tell us what you need and we’ll come back with the best route and a clear cost. Websites are the main focus, but PC help is available too.</p>
           </div>
 
           <form class="quote-form" id="quoteForm"
@@ -903,13 +901,13 @@
             
               <div class="segmented" role="radiogroup" aria-label="Service">
                 <label class="seg">
-                  <input type="radio" name="service" value="PC help" required>
-                  <span>PC build / repair / upgrade</span>
+                  <input type="radio" name="service" value="Website" required>
+                  <span>Website</span>
                 </label>
             
                 <label class="seg">
-                  <input type="radio" name="service" value="Website" required>
-                  <span>Website</span>
+                  <input type="radio" name="service" value="PC help" required>
+                  <span>PC build / repair / upgrade</span>
                 </label>
               </div>
             </div>
@@ -917,7 +915,7 @@
             <div>
               <label for="qMessage">Tell us a bit more</label>
               <textarea id="qMessage" name="message" rows="5" required
-                placeholder="PC: specs (CPU/GPU/RAM/SSD), what’s wrong, what you use it for&#10;Website: what you do, pages needed, examples you like, deadline"></textarea>
+                placeholder="Website: what you do, pages needed, examples you like, deadline&#10;PC: specs (CPU/GPU/RAM/SSD), what’s wrong, what you use it for"></textarea>
             </div>
 
             <div>
@@ -987,6 +985,8 @@
 
     (function(){
 
+      const messageBox = document.getElementById("qMessage");
+
       function setService(value){
         const radios = document.querySelectorAll('input[name="service"]');
         radios.forEach(r => {
@@ -994,19 +994,9 @@
         });
       }
 
-      // ===== Service preselect helpers (buttons set the form dropdown) =====
-      const serviceSelect = document.getElementById("qService");
-      const messageBox = document.getElementById("qMessage");
-
-      function setService(value){
-        if (!serviceSelect) return;
-        serviceSelect.value = value || "";
-      }
-
       function focusForm(){
         const form = document.getElementById("quoteForm");
         if (!form) return;
-        // small delay so hash scroll finishes
         setTimeout(() => {
           if (messageBox) messageBox.focus({ preventScroll: true });
         }, 50);
@@ -1065,7 +1055,6 @@
         
         mGuard.textContent = guard;
 
-        // Modal CTA always selects Website in the form (makes sense for this modal)
         if (mQuoteBtn) mQuoteBtn.setAttribute("data-service", "Website");
 
         modal.setAttribute("aria-hidden","false");
@@ -1089,7 +1078,6 @@
         }
       });
 
-      // Close modal when CTA clicked (then scroll to form + preselect service)
       if (mQuoteBtn){
         mQuoteBtn.addEventListener("click", () => {
           closeModal();
@@ -1145,7 +1133,8 @@
             d.addEventListener("keydown", (e) => {
               if (e.key === "Enter" || e.key === " "){
                 e.preventDefault();
-                index = i; render();
+                index = i;
+                render();
               }
             });
             dotsWrap.appendChild(d);

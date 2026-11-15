@@ -811,7 +811,31 @@
     body .hero .hero-copy .eyebrow span{color:#75c84a!important}
     body .hero .hero-copy .btn-solid{background:#0756b8!important;color:#fff!important;border-color:#0756b8!important}
     body .hero .hero-copy .btn-solid:hover{background:#06499c!important}
-\n  </style>
+\n  
+    /* Pricing is presented as a full-width service list, not a grid of small cards. */
+    .pricing-grid{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .pricing-card{display:grid;grid-template-columns:minmax(145px,.65fr) minmax(230px,1.1fr) minmax(250px,1.2fr) minmax(170px,.7fr);align-items:center;gap:24px;padding:22px 18px;background:#fff;border:0;border-bottom:1px solid #e2e6e8;border-left:4px solid var(--green);border-radius:0}
+    .pricing-card:last-child{border-bottom:0}
+    .pricing-card.website-price{border-left-color:#8593a0}
+    .pricing-card.ai-price{border-left-color:var(--blue)}
+    .pricing-card.retainer-price{background:#f1f6fb;border-left-color:var(--blue)}
+    .pricing-ident .package-type{margin:0 0 8px}
+    .pricing-ident h3{font-size:1.13rem;line-height:1.25;letter-spacing:-.025em;color:var(--ink);margin:0}
+    .pricing-scope .package-copy{font-size:.88rem;line-height:1.5;color:var(--body);min-height:0;margin:0 0 8px}
+    .pricing-scope ul{display:flex;flex-wrap:wrap;gap:4px 18px;list-style:none;padding:0;margin:0}
+    .pricing-scope li{position:relative;padding:0 0 0 13px;color:#4e5e70;font-size:.76rem;line-height:1.45}
+    .pricing-scope li:before{content:"";position:absolute;left:0;top:.48em;width:5px;height:5px;background:var(--green);border-radius:50%}
+    .pricing-card .package-price{font-size:.78rem;color:#516276;margin:0;text-align:right;white-space:nowrap}
+    .pricing-card .package-price strong{display:block;font-size:1.75rem;letter-spacing:-.05em;color:var(--ink);margin:0}
+    .pricing-card .package-price.quote-price{font-size:1.35rem;line-height:1.15;font-weight:850;color:var(--ink);white-space:normal}
+    .pricing-card .package-link{justify-content:center;gap:10px;margin:0;padding:11px 13px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-size:.83rem;white-space:nowrap}
+    .pricing-card .package-link:hover{background:#063f89;color:#fff}
+    .pricing-card.retainer-price .package-link{background:var(--green);border-color:var(--text);color:var(--text);box-shadow:3px 3px 0 var(--text)}
+    .pricing-notes{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:14px;padding-top:12px;font-size:.76rem}
+    .pricing-notes .vat-note{flex-basis:100%;margin-top:3px;padding-top:10px;border-top:1px solid var(--rule);color:#526274;font-weight:700}
+    @media(max-width:900px){.pricing-card{grid-template-columns:minmax(130px,.7fr) minmax(200px,1fr) minmax(145px,.55fr);gap:16px}.pricing-card .package-link{grid-column:3;grid-row:2}.pricing-card .package-price{grid-column:3;grid-row:1}.pricing-scope{grid-column:2;grid-row:1 / span 2}}
+    @media(max-width:700px){.pricing-grid{gap:0}.pricing-card{grid-template-columns:1fr auto;gap:8px 14px;padding:18px 12px}.pricing-ident{grid-column:1;grid-row:1}.pricing-card .package-price{grid-column:2;grid-row:1;text-align:right}.pricing-card .package-price strong{font-size:1.5rem}.pricing-scope{grid-column:1 / -1;grid-row:2}.pricing-card .package-link{grid-column:1 / -1;grid-row:3;justify-self:start;margin-top:5px}.pricing-card .package-price.quote-price{font-size:1.1rem}.pricing-notes{gap:7px 15px}}
+</style>
 
   <style>
     :root{--ink:#14243a;--body:#536277;--blue:#0756b8;--green:#78d64b;--rule:#dce3ea;--paper:#f7f9fb}
@@ -1310,67 +1334,46 @@
             <span class="section-kicker">Straightforward starting prices</span>
             <h2>Pick a useful first step</h2>
           </div>
-          <p>Scoped first. Fixed build price agreed before work starts.</p>
+          <p>Starting points for common projects. We agree the scope and price before work starts.</p>
         </div>
 
-        <div class="pricing-grid" aria-label="Website and automation starting prices">
-          <article class="pricing-card website-price">
-            <div class="package-type">WEBSITES</div>
-            <h3>Small business website</h3>
-            <p class="package-price">from <strong>£400</strong></p>
-            <p class="package-copy">A polished, mobile-first one-page website to get your business online.</p>
-            <ul>
-              <li>One-page layout</li>
-              <li>Your branding and contact details</li>
-              <li>Quote agreed before build</li>
-            </ul>
-            <a class="package-link" href="#contact" data-service="Website" data-detail="One-page business website">Discuss a website <span aria-hidden="true">↗</span></a>
-          </article>
-
+        <div class="pricing-grid" aria-label="AI automation, support and website pricing">
           <article class="pricing-card">
-            <div class="package-type">AUTOMATION · 01</div>
-            <h3>Single-task automation</h3>
-            <p class="package-price">from <strong>£750</strong></p>
-            <p class="package-copy">Automate one clear, repetitive task from trigger to hand-off.</p>
-            <ul>
-              <li>One defined workflow</li>
-              <li>Connect suitable existing tools</li>
-              <li>Tested build and handover</li>
-            </ul>
+            <div class="pricing-ident"><div class="package-type">AUTOMATION · 01</div><h3>Single-task automation</h3></div>
+            <div class="pricing-scope"><p class="package-copy">Automate one clear, repetitive task from trigger to hand-off.</p><ul><li>One defined workflow</li><li>Connect suitable tools</li><li>Tested build and handover</li></ul></div>
+            <p class="package-price">from<strong>£1,250</strong></p>
             <a class="package-link" href="#contact" data-service="AI &amp; automation" data-detail="Single-task automation">Discuss this workflow <span aria-hidden="true">↗</span></a>
           </article>
-
           <article class="pricing-card">
-            <div class="package-type">AUTOMATION · 02</div>
-            <h3>Connected workflow</h3>
-            <p class="package-price">from <strong>£1,500</strong></p>
-            <p class="package-copy">Link multiple steps and tools into a dependable end-to-end process.</p>
-            <ul>
-              <li>Multi-step workflow design</li>
-              <li>Checks for exceptions and hand-offs</li>
-              <li>Testing and team handover</li>
-            </ul>
+            <div class="pricing-ident"><div class="package-type">AUTOMATION · 02</div><h3>Connected workflow</h3></div>
+            <div class="pricing-scope"><p class="package-copy">Link multiple steps and tools into a dependable end-to-end process.</p><ul><li>Multi-step workflow design</li><li>Exception checks and hand-offs</li><li>Testing and team handover</li></ul></div>
+            <p class="package-price">from<strong>£2,500</strong></p>
             <a class="package-link" href="#contact" data-service="AI &amp; automation" data-detail="Connected workflow automation">Discuss this workflow <span aria-hidden="true">↗</span></a>
           </article>
-
           <article class="pricing-card ai-price">
-            <div class="package-type">AUTOMATION · 03</div>
-            <h3>AI-assisted process</h3>
-            <p class="package-price">from <strong>£2,500</strong></p>
-            <p class="package-copy">Add AI to suitable steps such as sorting, extracting or summarising information.</p>
-            <ul>
-              <li>AI step within a defined process</li>
-              <li>Human review for important decisions</li>
-              <li>Testing against real examples</li>
-            </ul>
+            <div class="pricing-ident"><div class="package-type">AUTOMATION · 03</div><h3>AI-assisted process</h3></div>
+            <div class="pricing-scope"><p class="package-copy">Add AI to suitable steps such as sorting, extracting or summarising information.</p><ul><li>AI within a defined process</li><li>Human review where it matters</li><li>Testing against real examples</li></ul></div>
+            <p class="package-price">from<strong>£4,000</strong></p>
             <a class="package-link" href="#contact" data-service="AI &amp; automation" data-detail="AI-assisted process automation">Discuss this workflow <span aria-hidden="true">↗</span></a>
           </article>
+          <article class="pricing-card retainer-price">
+            <div class="pricing-ident"><div class="package-type">ONGOING SUPPORT</div><h3>Automation care retainer</h3></div>
+            <div class="pricing-scope"><p class="package-copy">Keep live workflows monitored, maintained and improving as your business changes.</p><ul><li>Monitoring and issue fixes</li><li>Agreed updates and improvements</li><li>Scope tailored to your setup</li></ul></div>
+            <p class="package-price quote-price">Scoped to your needs</p>
+            <a class="package-link" href="#contact" data-service="AI &amp; automation" data-detail="Ongoing automation support retainer">Get a quote <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="pricing-card website-price">
+            <div class="pricing-ident"><div class="package-type">WEBSITES</div><h3>Small business website</h3></div>
+            <div class="pricing-scope"><p class="package-copy">A polished, mobile-first one-page website to get your business online.</p><ul><li>One-page layout</li><li>Your branding and contact details</li><li>Scope agreed before build</li></ul></div>
+            <p class="package-price">from<strong>£600</strong></p>
+            <a class="package-link" href="#contact" data-service="Website" data-detail="One-page business website">Discuss a website <span aria-hidden="true">↗</span></a>
+          </article>
         </div>
-
         <div class="pricing-notes">
-          <span>One-off build prices</span>
+          <span>Builds are scoped and quoted before work starts</span>
           <span>Software and AI usage fees are separate</span>
-          <span>Fixed quote before work starts</span>
+          <span>Retainer scope agreed monthly</span>
+          <span class="vat-note">Prices shown are the total payable. Byte My System is not currently VAT registered.</span>
         </div>
       </div>
     </section>

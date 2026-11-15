@@ -110,7 +110,7 @@
 
     main{ padding-bottom:18px; }
     section{ padding:32px 0; }
-    #ai, #process, #pc, #web, #proof, #pricing, #connect, #contact { scroll-margin-top:92px; }
+    #ai, #process, #pc, #automation-feature, #website-pricing, #proof, #pricing, #connect, #contact { scroll-margin-top:92px; }
 
     .hero{ padding-top:34px; }
     .hero-head{
@@ -959,6 +959,27 @@
     @media(min-width:701px){.panel-head p{white-space:nowrap}}
     .btn span[aria-hidden="true"],.hero-link span[aria-hidden="true"],.package-link span[aria-hidden="true"]{display:none}
 
+
+    .automation-preview{display:flex;align-items:center;padding:19px 8px!important}
+    .automation-screen{width:100%;padding:14px 14px 11px;background:#f7f9fb;border:1px solid #e0e7ed;border-radius:6px}
+    .automation-screen-title{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid #e0e7ed}
+    .automation-screen-title small{display:block;color:#71849a;font-size:.48rem;font-weight:800;letter-spacing:.1em;margin-bottom:3px}
+    .automation-screen-title strong{display:block;color:#233850;font-size:.76rem}
+    .automation-status,.automation-approval{white-space:nowrap;color:#4c8d35;font-size:.47rem;font-weight:800;letter-spacing:.04em}
+    .automation-status{padding:5px 7px;background:#eaf5e4;border:1px solid #d7e9cf;border-radius:3px}
+    .automation-route{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);align-items:center;gap:4px;padding:15px 0 12px}
+    .automation-node{min-width:0;min-height:67px;padding:8px 7px;background:#fff;border:1px solid #dce5ec;border-radius:4px}
+    .automation-node i{display:grid;place-items:center;width:18px;height:18px;margin-bottom:5px;border-radius:4px;background:#edf3f8;color:#0756b8;font-size:.53rem;font-style:normal;font-weight:850}
+    .automation-node b{display:block;overflow:hidden;color:#2d4056;font-size:.55rem;line-height:1.2;text-overflow:ellipsis;white-space:nowrap}
+    .automation-node small{display:block;margin-top:3px;color:#758496;font-size:.48rem;line-height:1.2}
+    .automation-node-ai i{background:#edf4fc;color:#0756b8}
+    .automation-node-review i{background:#eaf5e4;color:#4c9635}
+    .automation-connector{height:1px;background:#b9c9d8;position:relative}
+    .automation-connector:after{content:"";position:absolute;right:0;top:-3px;width:6px;height:6px;border-top:1px solid #9eb2c5;border-right:1px solid #9eb2c5;transform:rotate(45deg)}
+    .automation-human{display:flex;align-items:center;gap:8px;padding:8px 9px;background:#fff;border:1px solid #e2e8ed;border-radius:4px;color:#69798b;font-size:.5rem}
+    .automation-human b{color:#40536a;font-size:.5rem;font-weight:700}
+    .automation-approval{margin-left:auto;color:#0756b8}
+    @media(max-width:700px){.automation-screen{padding:11px 9px}.automation-route{grid-template-columns:minmax(0,1fr) 13px minmax(0,1fr) 13px minmax(0,1fr);gap:3px}.automation-node{padding:7px 5px}.automation-node b{font-size:.48rem}.automation-node small{font-size:.43rem}.automation-human{gap:5px;font-size:.43rem}.automation-human b{font-size:.43rem}.automation-status{font-size:.42rem;padding:4px 5px}}
 </style>
 
   <style>
@@ -1189,7 +1210,7 @@
       <div class="nav-wrap">
         <nav aria-label="Primary navigation">
           <a href="#ai">AI &amp; automation</a>
-          <a href="#web">Websites</a>
+          <a href="#website-pricing">Websites</a>
           <a href="#proof">Use cases</a>
           <a href="#pricing">Pricing</a>
           <a href="#pc">PC help</a>
@@ -1315,6 +1336,43 @@
 
     
 
+    <section id="automation-feature" class="website-showcase">
+      <div class="container">
+        <div class="website-layout">
+          <div class="browser-preview" aria-label="Illustrative AI automation workflow preview">
+            <div class="browser-chrome"><span></span><span></span><span></span><div>automation desk</div></div>
+            <div class="browser-page">
+              <div class="browser-nav"><b>WORKFLOW OVERVIEW</b><span>Runs　 Rules　 Review</span></div>
+              <div class="browser-hero automation-preview">
+                <div class="automation-screen">
+                  <div class="automation-screen-title">
+                    <div><small>ENQUIRY HANDLING</small><strong>New request · 09:41</strong></div>
+                    <span class="automation-status">READY FOR REVIEW</span>
+                  </div>
+                  <div class="automation-route" aria-label="Capture request, extract details, prepare a draft for human review">
+                    <div class="automation-node"><i>01</i><b>New enquiry</b><small>Captured</small></div>
+                    <span class="automation-connector" aria-hidden="true"></span>
+                    <div class="automation-node automation-node-ai"><i>AI</i><b>Key details</b><small>Extracted</small></div>
+                    <span class="automation-connector" aria-hidden="true"></span>
+                    <div class="automation-node automation-node-review"><i>✓</i><b>Draft reply</b><small>Needs your review</small></div>
+                  </div>
+                  <div class="automation-human"><span>Human check</span><b>Nothing sent without approval</b><span class="automation-approval">YOU APPROVE</span></div>
+                </div>
+              </div>
+              <div class="browser-footer"><span>01 — Capture</span><span>02 — Prepare</span><span>03 — Approve</span></div>
+            </div>
+          </div>
+          <div class="website-copy">
+            <span class="feature-index">02 / AUTOMATE</span>
+            <h2>Start with one task. Let AI handle the repeat work.</h2>
+            <p>We map one repetitive task, connect the right tools and automate the routine steps, with a person still in control where judgement matters.</p>
+            <div class="website-price-line"><span>Single-task automation</span><strong>from £1,250</strong></div>
+            <a class="btn btn-blue" href="#contact" data-service="AI &amp; automation" data-detail="Single-task automation">Discuss this workflow</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="process" class="build-process">
       <div class="container">
         <div class="process-heading">
@@ -1366,6 +1424,12 @@
             <p class="package-price quote-price">Scoped to your needs</p>
             <a class="package-link" href="#contact" data-service="AI &amp; automation" data-detail="Ongoing automation support retainer">Get a quote <span aria-hidden="true">↗</span></a>
           </article>
+          <article class="pricing-card website-price" id="website-pricing">
+            <div class="pricing-ident"><div class="package-type">WEBSITE</div><h3>One-page business website</h3></div>
+            <div class="pricing-scope"><p class="package-copy">A focused, mobile-first page for small businesses that need a professional place to send customers.</p><ul><li>One clear page</li><li>Mobile-friendly design</li><li>Contact route included</li></ul></div>
+            <p class="package-price">from<strong>£600</strong></p>
+            <a class="package-link" href="#contact" data-service="Website" data-detail="One-page business website">Get a website quote <span aria-hidden="true">↗</span></a>
+          </article>
           
         </div>
         <div class="pricing-notes">
@@ -1406,30 +1470,7 @@
       </div>
     </section>
 
-    <section id="web" class="website-showcase">
-      <div class="container">
-        <div class="website-layout">
-          <div class="browser-preview" aria-label="Example small business website preview">
-            <div class="browser-chrome"><span></span><span></span><span></span><div>yourbusiness.co.uk</div></div>
-            <div class="browser-page">
-              <div class="browser-nav"><b>YOUR BUSINESS</b><span>Services　 About　 Contact</span></div>
-              <div class="browser-hero">
-                <div class="browser-copy"><small>LOCAL SERVICE · WEBSITE PREVIEW</small><strong>A clear first impression.</strong><p>Show people what you do and make the next step easy.</p><span class="browser-button">Get in touch</span></div>
-                <div class="browser-shape" aria-hidden="true"><i></i><b></b><span></span></div>
-              </div>
-              <div class="browser-footer"><span>01 — Services</span><span>02 — About</span><span>03 — Contact</span></div>
-            </div>
-          </div>
-          <div class="website-copy">
-            <span class="feature-index">SEPARATE SERVICE</span>
-            <h2>A website that makes the next step obvious.</h2>
-            <p>One focused, mobile-first page for small businesses that need a professional place to send customers.</p>
-            <div class="website-price-line"><span>Website projects</span><strong>Quoted separately</strong></div>
-            <a class="btn btn-blue" href="#contact" data-service="Website" data-detail="One-page business website">Get a website quote</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <section id="connect" class="pc-support">
       <div class="container">

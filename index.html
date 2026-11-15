@@ -1149,6 +1149,33 @@
     #pricing .pricing-heading h2{white-space:nowrap;font-size:clamp(1.55rem,2.45vw,2.3rem)}
     #pricing .pricing-card.ai-price h3{color:#fff!important}
 
+
+    /* Final pricing layout overrides keep the service list full-width at every breakpoint. */
+    #pricing .pricing-grid{display:flex!important;flex-direction:column!important;gap:0!important;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    #pricing .pricing-card{display:grid!important;grid-template-columns:minmax(145px,.65fr) minmax(230px,1.1fr) minmax(250px,1.2fr) minmax(170px,.7fr);align-items:center;gap:24px;padding:22px 18px;background:#fff;border:0;border-bottom:1px solid #dce4e9;border-left:4px solid var(--green);border-radius:0;box-shadow:none;overflow:visible;min-height:0}
+    #pricing .pricing-card:last-child{border-bottom:0}
+    #pricing .pricing-card.website-price{border-left-color:#8493a0;background:#fff}
+    #pricing .pricing-card.ai-price{border-left-color:var(--blue);background:#14243a;color:#fff}
+    #pricing .pricing-card.retainer-price{border-left-color:var(--green);background:#f1f6fb}
+    #pricing .pricing-ident .package-type{margin:0 0 8px}
+    #pricing .pricing-ident h3{font-size:1.13rem;line-height:1.25;letter-spacing:-.025em;color:var(--ink);margin:0;min-height:0}
+    #pricing .pricing-card.ai-price .pricing-ident h3{color:#fff}
+    #pricing .pricing-scope .package-copy{font-size:.88rem;line-height:1.5;color:var(--body);min-height:0;margin:0 0 8px}
+    #pricing .pricing-scope ul{display:flex;flex-wrap:wrap;gap:4px 18px;list-style:none;padding:0;margin:0}
+    #pricing .pricing-scope li{position:relative;padding:0 0 0 13px;color:#4e5e70;font-size:.76rem;line-height:1.45}
+    #pricing .pricing-scope li:before{content:"";position:absolute;left:0;top:.48em;width:5px;height:5px;background:var(--green);border-radius:50%}
+    #pricing .pricing-card.ai-price .pricing-scope .package-copy,#pricing .pricing-card.ai-price .pricing-scope li{color:#dce6ef}
+    #pricing .pricing-card .package-price{font-size:.78rem;color:#516276;margin:0;text-align:right;white-space:nowrap}
+    #pricing .pricing-card .package-price strong{display:block;font-size:1.75rem;letter-spacing:-.05em;color:var(--ink);margin:0}
+    #pricing .pricing-card.ai-price .package-price,#pricing .pricing-card.ai-price .package-price strong{color:#fff}
+    #pricing .pricing-card .package-price.quote-price{font-size:1.25rem;line-height:1.15;font-weight:850;color:var(--ink);white-space:normal}
+    #pricing .pricing-card .package-link{justify-content:center;gap:8px;margin:0;padding:11px 12px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-size:.81rem;white-space:nowrap}
+    #pricing .pricing-card .package-link:hover{background:#063f89;color:#fff}
+    #pricing .pricing-card.retainer-price .package-link{background:var(--green);border-color:var(--text);color:var(--text);box-shadow:3px 3px 0 var(--text)}
+    #pricing .pricing-notes{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:14px;padding-top:12px;font-size:.76rem}
+    #pricing .pricing-notes .vat-note{flex-basis:100%;margin-top:3px;padding-top:10px;border-top:1px solid var(--rule);color:#526274;font-weight:700}
+    @media(max-width:900px){#pricing .pricing-card{grid-template-columns:minmax(130px,.7fr) minmax(200px,1fr) minmax(145px,.55fr);gap:16px}#pricing .pricing-card .package-price{grid-column:3;grid-row:1}#pricing .pricing-card .package-link{grid-column:3;grid-row:2}#pricing .pricing-card .pricing-scope{grid-column:2;grid-row:1 / span 2}}
+    @media(max-width:700px){#pricing .pricing-card{grid-template-columns:1fr auto;gap:8px 14px;padding:18px 12px}#pricing .pricing-ident{grid-column:1;grid-row:1}#pricing .pricing-card .package-price{grid-column:2;grid-row:1;text-align:right}#pricing .pricing-card .package-price strong{font-size:1.5rem}#pricing .pricing-card .pricing-scope{grid-column:1 / -1;grid-row:2}#pricing .pricing-card .package-link{grid-column:1 / -1;grid-row:3;justify-self:start;margin-top:5px}#pricing .pricing-card .package-price.quote-price{font-size:1.05rem}#pricing .pricing-notes{gap:7px 15px}}
 </style>
 </head>
 

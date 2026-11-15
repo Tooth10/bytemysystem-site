@@ -523,136 +523,156 @@
       .seg{ min-width:0; }
     }
   
-    /* Byte My System — a workflow-first automation studio */
-    :root{--bg:#faf9fc;--surface:#fff;--text:#211b2d;--muted:#655e6f;--line:#e5e0ec;--line2:#c9c1d6;--green:#7950d9;--blue:#6a43c4;--radius:15px;--shadow:none;--max:1160px;}
-    html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.58;}
-    header{background:rgba(250,249,252,.96);backdrop-filter:blur(12px);border-color:#e8e3ee;}
-    .brand{font-weight:900;letter-spacing:-.035em;}
-    .logo{border-radius:11px;background:#fff;border-color:#e7e1ef;}
-    nav{color:#494254;font-size:.92rem;font-weight:720;}
-    nav a:hover{color:var(--green);}
-    .btn{border-radius:999px;padding:13px 19px;background:#fff;color:var(--text);border:1px solid var(--line2);font-weight:800;box-shadow:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(48,31,77,.11);filter:none;}
-    .btn-solid{background:#7548d2;color:#fff;border-color:#7548d2;box-shadow:0 7px 18px rgba(79,48,145,.18);}
-    .btn-green{background:#eee8fb;border-color:#dcd0f4;color:#51349b;}
-    .btn-blue{background:#fff;border-color:#cfc4e2;color:#53379a;}
-    .btn-ghost{background:transparent;border-color:currentColor;box-shadow:none;}
-    .hero{padding:64px 0 36px;background:radial-gradient(ellipse at 50% 0%,#f0eaff 0,rgba(250,249,252,0) 57%);}
-    .hero-copy{max-width:850px;margin:0 auto 42px;text-align:center;}
-    .hero-copy .eyebrow{display:inline-flex;align-items:center;gap:9px;margin:0 0 18px;padding:8px 13px;border:1px solid #e1d8f1;border-radius:999px;background:rgba(255,255,255,.72);color:#6242ab;font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;}
-    .eyebrow-mark{width:8px;height:8px;border-radius:50%;background:#8a61e2;box-shadow:0 0 0 4px #e8def8;}
-    .hero h1{margin:0;color:#241a34;font-size:clamp(3rem,6.4vw,5.6rem);line-height:.99;letter-spacing:-.065em;font-weight:760;}
-    .hero h1 span{color:#7650cc;}
-    .hero .lead{max-width:680px;margin:22px auto 0;color:#615a6b;font-size:1.12rem;line-height:1.72;}
-    .hero-copy .actions{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin-top:27px;}
-    .hero-link{color:#493b60;font-size:.95rem;font-weight:800;border-bottom:1px solid #b9a9d5;padding:8px 0;}
-    .hero-link span{color:#7950d9;margin-left:4px;}
-    .workflow-canvas{position:relative;overflow:hidden;padding:22px 26px 18px;border:1px solid #e2dced;border-radius:20px;background:linear-gradient(135deg,#f4efff 0%,#faf8ff 62%,#f0ebfa 100%);box-shadow:0 22px 60px rgba(48,31,77,.09);}
-    .workflow-canvas:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#b7a8d8 1px,transparent 1px);background-size:22px 22px;opacity:.28;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);}
-    .canvas-top,.workflow-tabs,.workflow-panel,.canvas-bottom{position:relative;z-index:1;}
-    .canvas-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:17px;border-bottom:1px solid rgba(78,58,117,.13);}
-    .canvas-label{display:flex;align-items:center;gap:11px;}
-    .canvas-label strong,.canvas-label small{display:block;}
-    .canvas-label strong{font-size:.9rem;letter-spacing:-.015em;}
-    .canvas-label small{margin-top:2px;color:#706780;font-size:.76rem;}
-    .canvas-symbol{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#7650cc;color:#fff;font-weight:950;font-size:.92rem;}
-    .example-tag{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid #d8d0e5;border-radius:999px;background:rgba(255,255,255,.68);color:#665a7b;font-size:.65rem;font-weight:900;letter-spacing:.08em;white-space:nowrap;}
-    .example-tag i{width:7px;height:7px;border-radius:50%;background:#7b55d0;}
-    .workflow-tabs{display:flex;gap:7px;justify-content:center;margin:17px auto 20px;}
-    .workflow-tab{padding:8px 13px;border:1px solid transparent;border-radius:999px;background:transparent;color:#655b75;font:inherit;font-size:.79rem;font-weight:780;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease;}
-    .workflow-tab:hover{transform:translateY(-2px);}
-    .workflow-tab.is-active{background:#fff;color:#56339f;border-color:#ded5ee;box-shadow:0 3px 11px rgba(58,36,92,.08);}
-    .workflow-panel{display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr) 72px minmax(0,1fr);align-items:center;max-width:1000px;margin:0 auto;transition:opacity .18s ease,transform .18s ease;}
-    .workflow-panel.is-changing{opacity:.35;transform:translateY(4px);}
-    .flow-card{min-height:144px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:18px;border:1px solid #e2dced;border-radius:14px;background:#fff;box-shadow:0 8px 21px rgba(54,38,84,.055);transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;}
-    .flow-card:hover{transform:translateY(-4px);border-color:#c4b4e5;box-shadow:0 13px 26px rgba(54,38,84,.1);}
-    .flow-card-review{background:#fbf9ff;border-color:#cfc2e8;}
-    .flow-kind{display:flex;align-items:center;gap:8px;margin-bottom:15px;color:#746a83;font-size:.65rem;font-weight:900;letter-spacing:.085em;}
-    .kind-icon{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#eee8fb;color:#714ac7;font-size:.82rem;font-style:normal;}
-    .kind-ai{background:#7650cc;color:#fff;}
-    .kind-review{background:#e9e0f8;color:#5c3aa8;}
-    .flow-card strong{font-size:1rem;line-height:1.35;letter-spacing:-.02em;}
-    .flow-card small{margin-top:6px;color:#706a79;font-size:.8rem;line-height:1.4;}
-    .flow-link{position:relative;height:2px;background:#d5c9e9;}
-    .flow-link:after{content:"";position:absolute;top:-4px;left:0;width:10px;height:10px;border-radius:50%;background:#8055db;box-shadow:0 0 0 4px rgba(128,85,219,.14);animation:flow-travel 2.4s ease-in-out infinite;}
-    .flow-link:nth-of-type(2):after{animation-delay:.6s;}
-    .flow-link:nth-of-type(4):after{animation-delay:1.2s;}
-    @keyframes flow-travel{0%{left:0;opacity:.45}50%{opacity:1}100%{left:calc(100% - 10px);opacity:.45}}
-    .canvas-bottom{display:flex;justify-content:space-between;gap:12px;margin-top:18px;padding-top:14px;border-top:1px solid rgba(78,58,117,.13);color:#6d647a;font-size:.73rem;}
-    .canvas-bottom span:first-child{display:flex;align-items:center;gap:7px;font-weight:800;color:#574674;}
-    .review-dot{width:8px;height:8px;border-radius:50%;background:#7650cc;}
-    .hero-points{display:flex;justify-content:center;gap:clamp(18px,4vw,54px);flex-wrap:wrap;padding:24px 0 4px;color:#5f5869;font-size:.82rem;font-weight:700;}
-    .hero-points span:before{content:"✓";margin-right:8px;color:#7650cc;font-weight:950;}
-    .lane-grid{grid-template-columns:1.2fr .8fr;gap:18px;margin-top:24px;}
-    .lane,.panel,.modal-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:none;}
-    .lane{padding:26px;transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease;}
-    .lane:hover{transform:translateY(-4px);box-shadow:0 15px 34px rgba(48,31,77,.08);border-color:#c9b9e4;}
-    .lane:before{display:none;}
-    .lane.pc{background:#281d3d;color:#fff;border-color:#281d3d;}
-    .lane.pc p,.lane.pc ul{color:#d6cfe1;}
-    .service-index{display:flex;align-items:center;gap:10px;margin-bottom:17px;color:#7450c5;font-size:.68rem;font-weight:900;letter-spacing:.1em;}
-    .service-index:first-letter{font-size:.85rem;}
-    .lane.pc .service-index{color:#c9b4ff;}
-    .lane h2{font-size:1.55rem;letter-spacing:-.035em;}
-    .lane .actions{align-items:center;}
-    .text-link{font-size:.9rem;font-weight:850;color:#6844b5;text-decoration:underline;text-underline-offset:4px;}
-    .strip{grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;}
-    .step{padding:20px;background:#fff;border:1px solid var(--line);border-radius:14px;transition:transform .22s ease,box-shadow .22s ease;}
-    .step:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(48,31,77,.07);}
-    .step:after{display:none;}
-    .step .num{width:auto;height:auto;border:0;border-radius:0;background:none;color:#7950d9;margin:0 0 12px;font-size:.72rem;letter-spacing:.1em;}
-    .panel{padding:24px;}
-    .panel.alt{background:#f1edf7;border-color:#e3dced;}
-    .panel-head{border-color:var(--line);}
-    .work-card,.carousel-slide{background:#fff;border-color:var(--line);border-radius:14px;}
-    .work-card{box-shadow:0 6px 18px rgba(48,31,77,.055);}
-    .work-pill,.price-pill{background:#f3eff9;color:#514267;border-color:#e2dced;border-radius:999px;}
-    .pricing-wrap{padding:0 48px;}
-    .car-btn{background:#281d3d;color:#fff;border:0;border-radius:50%;box-shadow:none;}
-    .dot.active{background:#7950d9;border-color:#7950d9;}
-    .carousel-slide{box-shadow:0 6px 18px rgba(48,31,77,.05);}
-    .modal-card{background:#fff;}
-    .modal-close{background:#281d3d;color:#fff;border:0;border-radius:50%;}
-    .quote-form input,.quote-form textarea{background:#fff;color:var(--text);border-color:var(--line2);border-radius:10px;}
-    .seg{background:#fff;border-radius:10px;}
-    .seg:has(input:checked){border-color:#7950d9;box-shadow:0 0 0 2px rgba(121,80,217,.14);}
-    footer{color:var(--muted);border-color:var(--line);}
-    :focus-visible{outline:3px solid rgba(121,80,217,.42);outline-offset:3px;}
-    @media(max-width:920px){
-      .hero{padding-top:42px;}
-      .hero-copy{margin-bottom:31px;}
-      .workflow-panel{grid-template-columns:1fr 46px 1fr 46px 1fr;}
-      .flow-card{padding:14px;min-height:150px;}
-      .lane-grid{grid-template-columns:1fr;}
-      .strip{grid-template-columns:1fr;}
+    /* Byte My System: bold, hands-on and distinct from DataWorx */
+    :root{
+      --bg:#f4f2e9;--surface:#fffefa;--text:#171b1d;--muted:#5a6265;
+      --line:#d3d4cc;--line2:#b5bbb4;--green:#79d64b;--blue:#0052b8;
+      --radius:5px;--shadow:none;--max:1160px;
     }
-    @media(max-width:640px){
-      .hero{padding-top:32px;}
-      .hero h1{font-size:clamp(2.8rem,12vw,4rem);}
-      .hero .lead{font-size:1rem;}
-      .hero-copy .actions{gap:14px;}
-      .workflow-canvas{padding:15px 13px 13px;border-radius:16px;}
-      .canvas-top{align-items:flex-start;}
-      .example-tag{font-size:.58rem;}
-      .workflow-tabs{justify-content:flex-start;overflow-x:auto;margin:14px 0;}
-      .workflow-tab{white-space:nowrap;padding:8px 11px;}
-      .workflow-panel{grid-template-columns:1fr;gap:0;}
-      .flow-card{min-height:0;padding:13px 15px;}
-      .flow-kind{margin-bottom:8px;}
-      .flow-link{width:2px;height:22px;margin-left:29px;}
-      .flow-link:after{top:0;left:-4px;width:10px;height:10px;animation:flow-travel-vertical 1.7s ease-in-out infinite;}
-      @keyframes flow-travel-vertical{0%{top:0;opacity:.4}100%{top:calc(100% - 10px);opacity:1}}
-      .canvas-bottom{align-items:flex-start;flex-direction:column;}
-      .hero-points{justify-content:flex-start;gap:9px;flex-direction:column;font-size:.78rem;}
-      .lane{padding:22px;}
+    body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;}
+    header{background:rgba(244,242,233,.97);backdrop-filter:none;border-color:#d5d5cd;}
+    nav{color:#343b3e;font-size:.93rem;font-weight:750;}
+    .brand{font-weight:950;letter-spacing:-.035em;}
+    .logo{border-radius:4px;background:#fffefa;border-color:#d3d4cc;}
+    .btn{border-radius:4px;padding:13px 17px;background:var(--surface);color:var(--text);border:1px solid var(--text);font-weight:850;box-shadow:3px 3px 0 var(--text);transition:transform .18s ease,box-shadow .18s ease,background .18s ease;}
+    .btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--text);filter:none;}
+    .btn-solid{background:var(--green);color:var(--text);border-color:var(--text);box-shadow:4px 4px 0 var(--text);}
+    .btn-green{background:#79d64b;color:var(--text);border-color:var(--text);}
+    .btn-blue{background:#e7ebff;color:#00479f;border-color:#172dc1;}
+    .btn-ghost{background:transparent;border-color:currentColor;box-shadow:none;}
+    .hero{padding:20px 0 38px;}
+    .hero-shell{overflow:hidden;background:var(--blue);color:#fff;border:1px solid #172dc1;border-radius:5px;box-shadow:8px 8px 0 #171b1d;}
+    .hero-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:clamp(28px,5vw,64px);align-items:center;padding:clamp(28px,5vw,62px);}
+    .hero-copy{max-width:650px;}
+    .hero-copy .eyebrow{margin:0 0 18px;color:var(--green);font-size:.77rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;}
+    .hero-copy .eyebrow span{color:#fff;opacity:.65;padding:0 4px;}
+    .hero h1{margin:0;max-width:11ch;color:#fff;font-size:clamp(3.1rem,6vw,5.5rem);line-height:.96;letter-spacing:-.065em;font-weight:950;}
+    .hero h1 em{color:var(--green);font-style:normal;}
+    .hero .lead{margin-top:22px;max-width:54ch;color:rgba(255,255,255,.86);font-size:1.08rem;line-height:1.7;}
+    .hero-copy .actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:27px;}
+    .hero-copy .btn-solid{background:var(--green);color:#171b1d;}
+    .hero-link{font-weight:850;color:#fff;border-bottom:1px solid rgba(255,255,255,.55);padding:8px 0;}
+    .hero-link span{color:var(--green);padding-left:5px;}
+    .workflow-board{color:#161a1c;background:var(--green);border:1px solid #171b1d;border-radius:5px;padding:18px;box-shadow:6px 6px 0 #171b1d;transform:rotate(1deg);}
+    .board-top{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:0 0 14px;border-bottom:1px solid rgba(23,27,29,.28);font-size:.7rem;font-weight:950;letter-spacing:.09em;}
+    .board-live{display:flex;align-items:center;gap:7px;font-size:.64rem;}
+    .board-live i{width:8px;height:8px;display:block;background:#0052b8;border-radius:50%;}
+    .workflow-tabs{display:flex;gap:5px;margin:14px 0 6px;}
+    .workflow-tab{flex:1;min-width:0;padding:9px 7px;border:1px solid transparent;border-radius:3px;background:transparent;color:#31382f;font:inherit;font-size:.74rem;font-weight:850;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease;}
+    .workflow-tab:hover{transform:translateY(-2px);}
+    .workflow-tab.is-active{background:#171b1d;color:#fff;}
+    .workflow-panel{display:grid;gap:0;transition:opacity .16s ease,transform .16s ease;}
+    .workflow-panel.is-changing{opacity:.35;transform:translateY(5px);}
+    .flow-step{position:relative;display:grid;grid-template-columns:42px 1fr;align-items:center;gap:12px;padding:14px 5px;border-top:1px solid rgba(23,27,29,.2);}
+    .flow-index{display:grid;place-items:center;width:36px;height:36px;border:1px solid #171b1d;border-radius:3px;font-size:.76rem;font-weight:950;}
+    .flow-step strong{display:block;font-size:.9rem;line-height:1.3;}
+    .flow-step small{display:block;margin-top:3px;color:#485044;font-size:.75rem;}
+    .board-foot{margin:12px 0 0;padding-top:11px;border-top:1px solid rgba(23,27,29,.2);font-size:.72rem;color:#485044;}
+    .hero-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:13px clamp(28px,5vw,62px);background:#171b1d;color:var(--green);font-size:.68rem;font-weight:900;letter-spacing:.1em;}
+    .lane-grid{grid-template-columns:1.2fr .8fr;gap:18px;margin-top:26px;}
+    .lane,.panel,.modal-card{background:var(--surface);border:1px solid var(--line);border-radius:5px;box-shadow:none;}
+    .lane{padding:25px;}
+    .lane:before{display:none;}
+    .lane.pc{background:#171b1d;color:#fff;border-color:#171b1d;box-shadow:6px 6px 0 var(--green);}
+    .lane.pc p,.lane.pc ul{color:#ccd2cd;}
+    .lane h2{font-size:1.55rem;letter-spacing:-.03em;}
+    .service-index{display:block;margin-bottom:16px;color:var(--blue);font-size:.7rem;font-weight:950;letter-spacing:.12em;}
+    .lane.pc .service-index{color:var(--green);}
+    .lane .actions{align-items:center;}
+    .text-link{font-size:.9rem;font-weight:850;color:#172dc1;text-decoration:underline;text-underline-offset:4px;}
+    .strip{gap:0;margin-top:24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+    .step{padding:19px 20px;background:transparent;border:0;border-right:1px solid var(--line);border-radius:0;}
+    .step:last-child{border-right:0;}
+    .step:after{display:none;}
+    .step .num{width:auto;height:auto;border:0;border-radius:0;background:none;color:var(--blue);margin:0 0 10px;font-size:.72rem;letter-spacing:.1em;}
+    .step h3{font-size:1rem;}
+    .step p{font-size:.91rem;}
+    .panel{padding:24px;}
+    .panel.alt{background:#ecebe2;border-color:var(--line);}
+    .panel-head{border-color:var(--line);}
+    .work-card,.carousel-slide{background:var(--surface);border-color:var(--line);border-radius:5px;}
+    .work-card{box-shadow:3px 3px 0 #d9d9d0;}
+    .work-pill,.price-pill{background:#f1f0e8;color:var(--text);border-color:var(--line);border-radius:3px;}
+    .connect-grid{gap:22px;}
+    .pricing-wrap{padding:0 48px;}
+    .car-btn{background:#171b1d;color:#fff;border:0;border-radius:3px;box-shadow:3px 3px 0 var(--green);}
+    .dot.active{background:var(--blue);border-color:var(--blue);}
+    .carousel-slide{box-shadow:3px 3px 0 #d9d9d0;}
+    .modal-card{background:var(--surface);}
+    .modal-close{background:#171b1d;color:#fff;border:0;border-radius:3px;}
+    .quote-form input,.quote-form textarea{background:#fffefa;color:var(--text);border-color:var(--line2);border-radius:4px;}
+    .seg{background:#fffefa;border-radius:4px;}
+    .seg:has(input:checked){border-color:var(--blue);box-shadow:0 0 0 2px rgba(0,82,184,.14);}
+    footer{color:var(--muted);border-color:var(--line);}
+    :focus-visible{outline:3px solid #d9ff4f;outline-offset:3px;}
+    @keyframes step-arrive{from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .workflow-panel:not(.is-changing) .flow-step{animation:step-arrive .28s ease both;}
+    .workflow-panel:not(.is-changing) .flow-step:nth-child(2){animation-delay:.06s;}
+    .workflow-panel:not(.is-changing) .flow-step:nth-child(3){animation-delay:.12s;}
+    @media(max-width:920px){
+      .hero-layout{grid-template-columns:1fr;gap:30px;padding:30px;}
+      .hero h1{max-width:10ch;font-size:clamp(3rem,11vw,4.6rem);}
+      .workflow-board{transform:none;}
+      .lane-grid{grid-template-columns:1fr;}
+      .strip{grid-template-columns:1fr;border-bottom:0;}
+      .step{border-right:0;border-bottom:1px solid var(--line);}
+      .step:last-child{border-bottom:0;}
+    }
+    @media(max-width:540px){
+      .hero-shell{box-shadow:4px 4px 0 #171b1d;}
+      .hero-layout{padding:24px 18px 26px;}
+      .hero-bottom{padding:12px 18px;gap:7px;}
+      .hero-bottom span{font-size:.6rem;}
+      .workflow-board{padding:12px;}
+      .workflow-tabs{gap:2px;}
+      .workflow-tab{font-size:.67rem;padding:8px 4px;}
+      .flow-step{grid-template-columns:34px 1fr;padding:12px 3px;}
+      .flow-index{width:29px;height:29px;}
+      .lane{padding:20px;}
       .pricing-wrap{padding:0;}
       .car-btn{display:none;}
     }
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
     }
-  </style>
+  
+    .btn-blue{background:var(--blue);border-color:#171b1d;color:#fff;}
+    .text-link{color:#0052b8;}
+    .workflow-board{color:#171b1d;background:#f7fff2;border:1px solid #171b1d;border-radius:5px;padding:17px;box-shadow:6px 6px 0 #171b1d;transform:rotate(1deg);}
+    .canvas-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:13px;border-bottom:1px solid rgba(23,27,29,.2);}
+    .canvas-label{display:flex;align-items:center;gap:9px;}
+    .canvas-label strong,.canvas-label small{display:block;}
+    .canvas-label strong{font-size:.86rem;}
+    .canvas-label small{margin-top:2px;color:#59615b;font-size:.7rem;}
+    .canvas-symbol{display:grid;place-items:center;width:31px;height:31px;border-radius:3px;background:#0052b8;color:#fff;font-weight:950;}
+    .example-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border:1px solid #b8c7b0;border-radius:3px;background:#fff;color:#263226;font-size:.59rem;font-weight:950;letter-spacing:.07em;white-space:nowrap;}
+    .example-tag i{width:7px;height:7px;border-radius:50%;background:#79d64b;border:1px solid #171b1d;}
+    .workflow-tabs{display:flex;gap:4px;margin:12px 0 14px;}
+    .workflow-tab{flex:1;min-width:0;padding:8px 5px;border:1px solid transparent;border-radius:3px;background:transparent;color:#303a31;font:inherit;font-size:.67rem;font-weight:900;cursor:pointer;transition:background .18s ease,color .18s ease,transform .18s ease;}
+    .workflow-tab:hover{transform:translateY(-2px);}
+    .workflow-tab.is-active{background:#79d64b;color:#171b1d;border-color:#171b1d;}
+    .workflow-panel{display:grid;grid-template-columns:minmax(0,1fr) 25px minmax(0,1fr) 25px minmax(0,1fr);align-items:center;transition:opacity .16s ease,transform .16s ease;}
+    .workflow-panel.is-changing{opacity:.35;transform:translateY(4px);}
+    .flow-card{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:132px;padding:12px 10px;border:1px solid #bfc8b9;border-radius:4px;background:#fff;}
+    .flow-card-review{background:#eef9e7;border-color:#171b1d;}
+    .flow-kind{display:flex;align-items:center;gap:6px;margin-bottom:11px;color:#3f493f;font-size:.55rem;font-weight:950;letter-spacing:.05em;}
+    .kind-icon{display:grid;place-items:center;width:22px;height:22px;border-radius:3px;background:#e4f3db;color:#171b1d;font-size:.73rem;font-style:normal;}
+    .kind-ai{background:#0052b8;color:#fff;}
+    .kind-review{background:#79d64b;color:#171b1d;}
+    .flow-card strong{font-size:.74rem;line-height:1.3;}
+    .flow-card small{margin-top:5px;color:#59615b;font-size:.62rem;line-height:1.35;}
+    .flow-link{position:relative;height:2px;background:#b6cdb0;}
+    .flow-link:after{content:"";position:absolute;top:-4px;left:0;width:9px;height:9px;border-radius:50%;background:#0052b8;animation:logo-flow 2s ease-in-out infinite;}
+    .flow-link:nth-of-type(2):after{animation-delay:.7s;}
+    @keyframes logo-flow{0%{left:0;opacity:.45}55%{opacity:1}100%{left:calc(100% - 9px);opacity:.45}}
+    .canvas-bottom{display:flex;justify-content:space-between;gap:9px;margin-top:13px;padding-top:11px;border-top:1px solid rgba(23,27,29,.18);color:#4b554b;font-size:.61rem;}
+    .canvas-bottom span:first-child{font-weight:950;color:#171b1d;}
+    .review-dot{display:inline-block;width:7px;height:7px;margin-right:5px;border-radius:50%;background:#79d64b;border:1px solid #171b1d;}
+    @media(max-width:920px){.workflow-board{transform:none;}.workflow-panel{grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr) 42px minmax(0,1fr);}.flow-card{padding:13px;}}
+    @media(max-width:540px){.workflow-panel{grid-template-columns:1fr;gap:0;}.flow-card{min-height:0;padding:13px;}.flow-kind{margin-bottom:7px;}.flow-link{width:2px;height:19px;margin-left:25px;}.flow-link:after{top:0;left:-4px;width:9px;height:9px;animation:logo-flow-vertical 1.7s ease-in-out infinite;}.canvas-bottom{align-items:flex-start;flex-direction:column;}.workflow-tab{font-size:.62rem;padding:8px 3px;}}
+    @keyframes logo-flow-vertical{0%{top:0;opacity:.4}100%{top:calc(100% - 9px);opacity:1}}
+    @media(prefers-reduced-motion:reduce){.flow-link:after{animation:none!important;left:50%;}}
+</style>
 </head>
 
 <body>
@@ -677,74 +697,78 @@
   <main id="top">
     <section class="hero">
       <div class="container">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-mark"></span> AI &amp; automation for small businesses</p>
-          <h1>Make the busywork<br><span>move itself.</span></h1>
-          <p class="lead">Practical AI and automation for the tasks that slow a business down. We map the process, build the useful parts, and leave people in control of the important decisions.</p>
-          <div class="actions">
-            <a class="btn btn-solid" href="#contact" data-service="AI &amp; automation">Show us what takes too long <span aria-hidden="true">↗</span></a>
-            <a class="hero-link" href="#proof">Explore common workflows <span aria-hidden="true">↓</span></a>
-          </div>
-        </div>
+        <div class="hero-shell">
+          <div class="hero-layout">
+            <div class="hero-copy">
+              <p class="eyebrow">Byte My System <span>•</span> AI &amp; automation</p>
+              <h1>Less busywork.<br><em>More real work.</em></h1>
+              <p class="lead">We build practical AI and automation that takes repetitive jobs off your list — from sorting enquiries to keeping routine admin moving. Built around your business, with people still in control.</p>
+              <div class="actions">
+                <a class="btn btn-solid" href="#contact" data-service="AI &amp; automation">Tell us what’s slowing you down <span aria-hidden="true">↗</span></a>
+                <a class="hero-link" href="#proof">See what could be improved <span aria-hidden="true">↓</span></a>
+              </div>
+            </div>
 
-        <div class="workflow-canvas" aria-label="Interactive example automation workflow">
-          <div class="canvas-top">
-            <div class="canvas-label"><span class="canvas-symbol">B</span><div><strong>Workflow preview</strong><small>See a task move from start to review</small></div></div>
-            <span class="example-tag"><i></i> EXAMPLE FLOW</span>
+            <div class="workflow-board" aria-label="Interactive example automation workflow">
+              <div class="canvas-top">
+                <div class="canvas-label"><span class="canvas-symbol">B</span><div><strong>Workflow preview</strong><small>See a task move from start to review</small></div></div>
+                <span class="example-tag"><i></i> EXAMPLE FLOW</span>
+              </div>
+              <div class="workflow-tabs" role="tablist" aria-label="Choose a workflow example">
+                <button class="workflow-tab is-active" id="tab-enquiry" type="button" role="tab" aria-selected="true" aria-controls="workflow-panel" data-workflow="enquiry">Enquiries</button>
+                <button class="workflow-tab" id="tab-documents" type="button" role="tab" aria-selected="false" aria-controls="workflow-panel" tabindex="-1" data-workflow="documents">Documents</button>
+                <button class="workflow-tab" id="tab-followup" type="button" role="tab" aria-selected="false" aria-controls="workflow-panel" tabindex="-1" data-workflow="followup">Follow-up</button>
+              </div>
+              <div class="workflow-panel" id="workflow-panel" role="tabpanel" aria-labelledby="tab-enquiry" aria-live="polite">
+                <article class="flow-card">
+                  <span class="flow-kind"><b class="kind-icon kind-inbox">↘</b> START</span>
+                  <strong id="flow-title-1">A new enquiry arrives</strong>
+                  <small id="flow-note-1">Form, email or message</small>
+                </article>
+                <span class="flow-link" aria-hidden="true"><i></i></span>
+                <article class="flow-card">
+                  <span class="flow-kind"><b class="kind-icon kind-ai">✳</b> AUTOMATION</span>
+                  <strong id="flow-title-2">Key details are organised</strong>
+                  <small id="flow-note-2">Useful information gathered</small>
+                </article>
+                <span class="flow-link" aria-hidden="true"><i></i></span>
+                <article class="flow-card flow-card-review">
+                  <span class="flow-kind"><b class="kind-icon kind-review">✓</b> YOUR REVIEW</span>
+                  <strong id="flow-title-3">Reply ready to check</strong>
+                  <small id="flow-note-3">Your team approves the next step</small>
+                </article>
+              </div>
+              <div class="canvas-bottom"><span><i class="review-dot"></i> People stay in control</span><span>Illustrative example · scope depends on your process</span></div>
+            </div>
+<div class="hero-bottom">
+            <span>AI THAT HAS A JOB TO DO</span>
+            <span>SMALL BUSINESS WEBSITES</span>
+            <span>DIGITAL TOOLS THAT SAVE TIME</span>
           </div>
-          <div class="workflow-tabs" role="tablist" aria-label="Choose a workflow example">
-            <button class="workflow-tab is-active" id="tab-enquiry" type="button" role="tab" aria-selected="true" aria-controls="workflow-panel" data-workflow="enquiry">Enquiry handling</button>
-            <button class="workflow-tab" id="tab-documents" type="button" role="tab" aria-selected="false" aria-controls="workflow-panel" tabindex="-1" data-workflow="documents">Document admin</button>
-            <button class="workflow-tab" id="tab-followup" type="button" role="tab" aria-selected="false" aria-controls="workflow-panel" tabindex="-1" data-workflow="followup">Customer follow-up</button>
-          </div>
-          <div class="workflow-panel" id="workflow-panel" role="tabpanel" aria-labelledby="tab-enquiry" aria-live="polite">
-            <article class="flow-card">
-              <span class="flow-kind"><b class="kind-icon kind-inbox">↘</b> START</span>
-              <strong id="flow-title-1">A new enquiry arrives</strong>
-              <small id="flow-note-1">Form, email or message</small>
-            </article>
-            <span class="flow-link" aria-hidden="true"><i></i></span>
-            <article class="flow-card">
-              <span class="flow-kind"><b class="kind-icon kind-ai">✳</b> AUTOMATION</span>
-              <strong id="flow-title-2">Key details are organised</strong>
-              <small id="flow-note-2">Useful information gathered</small>
-            </article>
-            <span class="flow-link" aria-hidden="true"><i></i></span>
-            <article class="flow-card flow-card-review">
-              <span class="flow-kind"><b class="kind-icon kind-review">✓</b> YOUR REVIEW</span>
-              <strong id="flow-title-3">Reply ready to check</strong>
-              <small id="flow-note-3">Your team approves the next step</small>
-            </article>
-          </div>
-          <div class="canvas-bottom"><span><i class="review-dot"></i> People stay in control</span><span>Illustrative example · scope depends on your process</span></div>
-        </div>
-
-        <div class="hero-points">
-          <span>Start with one repetitive task</span><span>Use the tools you already have</span><span>Keep a human check where it matters</span>
         </div>
 
         <div class="lane-grid" aria-label="Services">
           <div class="lane pc" id="ai">
-            <span class="service-index">01 <span>AI &amp; AUTOMATION</span></span>
-            <h2>Make routine work flow.</h2>
-            <p>We build small, practical improvements around how your business actually works — not AI for AI’s sake.</p>
+            <span class="service-index">01 / AUTOMATE</span>
+            <h2>AI &amp; workflow automation</h2>
+            <p>Start with one task that repeats too often. We’ll map the steps, find where automation helps, and keep the right checks in place.</p>
             <ul>
               <li>Reduce repetitive admin and manual hand-offs</li>
               <li>Support enquiries, follow-ups and routine information processing</li>
               <li>Connect suitable tools with clear human review points</li>
             </ul>
             <div class="actions">
-              <a class="btn btn-green" href="#contact" data-service="AI &amp; automation">Discuss an automation <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-green" href="#contact" data-service="AI &amp; automation">Discuss an AI project <span aria-hidden="true">↗</span></a>
             </div>
           </div>
 
           <div class="lane web" id="web">
-            <span class="service-index">02 <span>WEBSITES &amp; DIGITAL TOOLS</span></span>
-            <h2>Build a better front door.</h2>
-            <p>Modern websites and useful digital tools that help customers understand your offer and take the next step.</p>
+            <span class="service-index">02 / BUILD</span>
+            <h2>Websites &amp; digital tools</h2>
+            <p>When customers need to find you, understand your offer and get in touch, a good website does the hard work quietly.</p>
             <ul>
               <li>Mobile-first small business websites</li>
-              <li>Clear forms and online workflows</li>
+              <li>Clear forms and useful online workflows</li>
               <li>Straightforward scope and no builder lock-in</li>
             </ul>
             <div class="actions">
@@ -755,9 +779,21 @@
         </div>
 
         <div class="strip" id="process" aria-label="How it works">
-          <div class="step"><div class="num">01</div><h3>Find the friction</h3><p>Show us what keeps getting repeated, copied or forgotten.</p></div>
-          <div class="step"><div class="num">02</div><h3>Map the real process</h3><p>We’ll identify what can be streamlined and what should stay human-led.</p></div>
-          <div class="step"><div class="num">03</div><h3>Build what helps</h3><p>Start with one clear improvement, then expand only if it proves useful.</p></div>
+          <div class="step">
+            <div class="num">01</div>
+            <h3>Show us the friction</h3>
+            <p>Tell us what keeps getting repeated, copied or forgotten.</p>
+          </div>
+          <div class="step">
+            <div class="num">02</div>
+            <h3>Get a straight answer</h3>
+            <p>We’ll tell you what can be improved and what should stay human-led.</p>
+          </div>
+          <div class="step">
+            <div class="num">03</div>
+            <h3>Start small and useful</h3>
+            <p>Build one clear improvement, then decide whether it is worth expanding.</p>
+          </div>
         </div>
       </div>
     </section>

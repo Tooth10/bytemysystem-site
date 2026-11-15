@@ -812,6 +812,126 @@
     body .hero .hero-copy .btn-solid{background:#0756b8!important;color:#fff!important;border-color:#0756b8!important}
     body .hero .hero-copy .btn-solid:hover{background:#06499c!important}
 \n  </style>
+
+  <style>
+    :root{--ink:#14243a;--body:#536277;--blue:#0756b8;--green:#78d64b;--rule:#dce3ea;--paper:#f7f9fb}
+    body{background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    .container{width:min(100% - 56px,1200px)}
+    header{background:rgba(255,255,255,.96);border-bottom:1px solid var(--rule)}
+    .topbar{min-height:76px}.brand{font-size:1rem}.logo{width:40px;height:40px}
+    nav{gap:24px}nav a{font-size:.9rem;color:#425267;font-weight:600}
+    .nav-wrap{gap:24px}
+    .btn{border-radius:8px;box-shadow:none!important;font-weight:650}
+    .btn-solid,.btn-blue{background:var(--blue);color:white;border:1px solid var(--blue)}
+    .btn-green{background:var(--green);color:#162619;border:1px solid #70ca43}
+    .hero{padding:50px 0 14px;background:transparent}
+    .hero-shell{background:none;border:0;box-shadow:none;border-radius:0;padding:0;overflow:visible}
+    .hero-layout{display:grid;grid-template-columns:1fr;justify-items:center;gap:32px;padding:22px 0 22px}
+    .hero-copy{text-align:center;max-width:920px}
+    .hero-copy .eyebrow{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border-radius:99px;background:#eef3f7!important;border:1px solid #e1e8ee;color:#566a80!important;margin:0 0 20px}
+    .hero-copy .eyebrow span{color:var(--green)!important}
+    body .hero .hero-copy h1{color:var(--ink)!important;font-size:clamp(3.1rem,6vw,5rem);line-height:.99;letter-spacing:-.065em;max-width:1000px;margin:0 auto 20px}
+    body .hero .hero-copy h1 em{color:var(--blue)!important;font-style:normal}
+    body .hero .hero-copy .lead{color:var(--body)!important;font-size:1.15rem;line-height:1.65;max-width:770px;margin:0 auto}
+    .hero-copy .actions{justify-content:center;margin-top:25px}
+    body .hero .hero-copy .btn-solid{background:var(--blue)!important;color:#fff!important;border-color:var(--blue)!important}
+    .workflow-board{width:min(100%,1000px);margin:0 auto;background:#fff;border:1px solid #dce4ec;border-radius:13px;padding:20px 22px;box-shadow:0 12px 36px rgba(20,42,67,.075)}
+    .canvas-top{border-bottom:1px solid #e9eef2}.canvas-symbol{background:#edf4fc;color:var(--blue)}
+    .workflow-tabs{padding:15px 0}.workflow-tab{border-radius:6px}
+    .workflow-tab.is-active{background:#edf4fc;color:var(--blue);border-color:#d6e5f5}
+    .flow-card{box-shadow:none;border-radius:8px}.flow-card-review{background:#f8fbf6;border-color:#d9e8d2}
+    .flow-link{background:#cdd8e3}.canvas-bottom{color:#69788b}
+    .hero-bottom{display:none}
+    .lane-grid{display:grid;grid-template-columns:1fr;gap:0;margin:18px 0 0;border-top:1px solid var(--rule)}
+    .lane{display:grid;grid-template-columns:minmax(190px,.7fr) minmax(0,1.55fr) auto;align-items:start;gap:8px 34px;background:transparent!important;color:var(--ink)!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:24px 0!important;border-bottom:1px solid var(--rule)}
+    .lane.pc{border-top:0}
+    .service-index{grid-column:1;grid-row:1;color:#63778c!important}
+    .lane h2{grid-column:1;grid-row:2;font-size:1.5rem;color:var(--ink);letter-spacing:-.035em;margin:1px 0 0}
+    .lane p{grid-column:2;grid-row:1/3;color:var(--body)!important;margin:0;max-width:650px}
+    .lane ul{grid-column:2;grid-row:3;margin:0;padding-left:18px;color:var(--body)!important}
+    .lane li{color:var(--body)!important}
+    .lane .actions{grid-column:3;grid-row:1/4;align-self:center;margin:0;white-space:nowrap}
+    .strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:transparent;border:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);border-radius:0;margin:0}
+    .step{padding:18px 22px 18px 0;border:0}
+    .step+.step{border-left:1px solid var(--rule);padding-left:22px}
+    .step h3{font-size:.96rem;margin:5px 0 4px}
+    .step p{font-size:.82rem}
+    section:not(.hero){padding:30px 0}
+    .panel,.panel.alt{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
+    .panel-head{display:grid;grid-template-columns:minmax(230px,.65fr) minmax(0,1.35fr);align-items:end;gap:28px;width:100%;max-width:none;border-bottom:1px solid var(--rule);padding:0 0 17px;margin:0 0 22px}
+    .panel-head>div{min-width:0}
+    .panel-head h2,.connect-copy h2{font-size:clamp(1.65rem,2.6vw,2rem);letter-spacing:-.045em;color:var(--ink);margin:0}
+    .panel-head p{width:100%;max-width:none;color:var(--body)!important;line-height:1.6;font-size:1rem;margin:0}
+    .section-kicker{display:block;color:#657990;font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:7px}
+    #proof .panel-head{margin-bottom:18px}
+    .proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+    .work-card{background:transparent!important;border:0!important;border-top:2px solid #dce5ed!important;border-radius:0!important;box-shadow:none!important;padding:16px 22px 0 0!important}
+    .work-card+.work-card{padding-left:22px!important;border-left:1px solid var(--rule)!important}
+    .work-card.web{border-top-color:var(--blue)!important}.work-card.pc{border-top-color:var(--green)!important}
+    .work-head{align-items:center;gap:8px}.work-card h3{font-size:1.05rem;color:var(--ink)}
+    .work-card p{font-size:.92rem;line-height:1.6}
+    .work-pill{background:transparent!important;color:#6b7d91!important;padding:0!important;font-size:.66rem}
+    #connect{padding:24px 0!important}
+    #connect .panel{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0}
+    .connect-grid{align-items:center}
+    .connect-copy{max-width:790px}.connect-copy h2{font-size:1.35rem}.connect-copy p{margin:4px 0 0}
+    .pricing-heading{margin-bottom:22px}
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+    .pricing-card{background:#fff;border:1px solid #dce4eb;border-top:3px solid #6fca45;border-radius:9px;padding:20px 18px 18px;display:flex;flex-direction:column;min-width:0}
+    .pricing-card.website-price{border-top-color:#8192a5}
+    .pricing-card.ai-price{border-top-color:var(--blue)}
+    .package-type{font-size:.65rem;line-height:1.2;letter-spacing:.1em;font-weight:800;color:#65788d;margin-bottom:14px}
+    .pricing-card h3{font-size:1.12rem;line-height:1.25;letter-spacing:-.025em;color:var(--ink);margin:0 0 10px}
+    .package-price{font-size:.9rem;color:#516276;margin:0 0 9px}
+    .package-price strong{font-size:1.7rem;letter-spacing:-.05em;color:var(--ink);margin-left:4px}
+    .package-copy{font-size:.84rem;line-height:1.55;color:var(--body);min-height:52px;margin:0 0 10px}
+    .pricing-card ul{list-style:none;padding:0;margin:0 0 18px}
+    .pricing-card li{position:relative;padding:6px 0 6px 17px;border-top:1px solid #edf0f3;color:#4e5e70;font-size:.78rem;line-height:1.4}
+    .pricing-card li:before{content:"";position:absolute;left:0;top:13px;width:6px;height:6px;background:var(--green);border-radius:50%}
+    .package-link{display:flex;justify-content:space-between;align-items:center;gap:7px;margin-top:auto;padding-top:12px;border-top:1px solid #e8edf1;color:var(--blue);font-size:.83rem;font-weight:700}
+    .package-link:hover{color:#063f89}
+    .pricing-notes{display:flex;flex-wrap:wrap;gap:8px 28px;border-top:1px solid var(--rule);margin-top:15px;padding-top:13px;color:#66778a;font-size:.75rem}
+    .pricing-notes span:before{content:"✓";color:#62b83e;font-weight:800;margin-right:7px}
+    #contact .panel-head{margin-bottom:20px}
+    .quote-form{border-top:1px solid var(--rule);padding-top:20px}
+    input,textarea,select{font:inherit;border:1px solid #d7dfe7;border-radius:7px;padding:11px 12px;background:#fff}
+    footer{background:#14243a;color:#e7edf4}
+    footer a{color:#dce8f5}
+    @media(max-width:1000px){
+      .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero-copy{max-width:850px}
+      .lane{grid-template-columns:minmax(160px,.65fr) minmax(0,1.4fr);gap:8px 24px}
+      .lane .actions{grid-column:2;grid-row:4;justify-self:start;margin-top:10px}
+    }
+    @media(max-width:700px){
+      .container{width:min(100% - 36px,1200px)}
+      .topbar{min-height:66px}.nav-wrap{gap:12px}nav{gap:15px;overflow:auto}.nav-wrap>.btn{display:none}
+      nav a{font-size:.78rem;white-space:nowrap}
+      .hero{padding:32px 0 10px}
+      .hero-layout{gap:24px;padding:12px 0 16px}
+      body .hero .hero-copy h1{font-size:clamp(2.5rem,11vw,3.7rem)}
+      body .hero .hero-copy .lead{font-size:1rem}
+      .workflow-board{padding:14px}
+      .workflow-panel{grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr) 16px minmax(0,1fr);gap:3px}
+      .flow-card{padding:10px 8px;min-height:116px}.flow-kind{font-size:.53rem;gap:4px}.kind-icon{width:19px;height:19px}
+      .flow-card strong{font-size:.71rem}.flow-card small{font-size:.62rem}.canvas-bottom{font-size:.61rem}
+      .lane{grid-template-columns:1fr;gap:7px;padding:20px 0!important}
+      .lane p,.lane h2,.lane ul,.lane .actions,.service-index{grid-column:1;grid-row:auto}
+      .lane .actions{margin-top:8px}
+      .strip{grid-template-columns:1fr}
+      .step,.step+.step{padding:13px 0;border:0;border-top:1px solid var(--rule)}
+      .panel-head{grid-template-columns:1fr;gap:8px;padding-bottom:14px;margin-bottom:17px}
+      .proof-grid{grid-template-columns:1fr}
+      .work-card,.work-card+.work-card{padding:14px 0 0!important;border-left:0!important}
+      .pricing-grid{grid-template-columns:1fr;gap:10px}
+      .pricing-card{padding:18px}
+      .package-copy{min-height:0}
+      section:not(.hero){padding:22px 0}
+      #connect{padding:16px 0!important}
+      .panel-head h2,.connect-copy h2{font-size:1.55rem}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flow-link:after{animation:none}}
+  </style>
 </head>
 
 <body>
@@ -826,6 +946,7 @@
           <a href="#ai">AI &amp; automation</a>
           <a href="#web">Websites</a>
           <a href="#proof">Use cases</a>
+          <a href="#pricing">Pricing</a>
           <a href="#pc">PC help</a>
         </nav>
         <a class="btn btn-solid" href="#contact" data-service="AI &amp; automation">Discuss an AI idea</a>
@@ -840,15 +961,15 @@
           <div class="hero-layout">
             <div class="hero-copy">
               <p class="eyebrow">Byte My System <span>•</span> AI &amp; automation</p>
-              <h1>Less busywork.<br><em>More real work.</em></h1>
-              <p class="lead">We build practical AI and automation that takes repetitive jobs off your list — from sorting enquiries to keeping routine admin moving. Built around your business, with people still in control.</p>
+              <h1>Make repetitive work<br><em>move on its own.</em></h1>
+              <p class="lead">We connect the steps, tools and checks your business already relies on, so routine work keeps moving and people stay in control.</p>
               <div class="actions">
-                <a class="btn btn-solid" href="#contact" data-service="AI &amp; automation">Tell us what’s slowing you down <span aria-hidden="true">↗</span></a>
-                <a class="hero-link" href="#proof">See what could be improved <span aria-hidden="true">↓</span></a>
+                <a class="btn btn-solid" href="#contact" data-service="AI &amp; automation">Talk through a workflow <span aria-hidden="true">↗</span></a>
+                <a class="hero-link" href="#proof">See the workflow example <span aria-hidden="true">↓</span></a>
               </div>
             </div>
 
-            <div class="workflow-board" aria-label="Interactive example automation workflow">
+            <div class="workflow-board" id="workflow-demo" aria-label="Interactive example automation workflow">
               <div class="canvas-top">
                 <div class="canvas-label"><span class="canvas-symbol">B</span><div><strong>Workflow preview</strong><small>See a task move from start to review</small></div></div>
                 <span class="example-tag"><i></i> EXAMPLE FLOW</span>
@@ -890,7 +1011,7 @@
           <div class="lane pc" id="ai">
             <span class="service-index">01 / AUTOMATE</span>
             <h2>AI &amp; workflow automation</h2>
-            <p>Start with one task that repeats too often. We’ll map the steps, find where automation helps, and keep the right checks in place.</p>
+            <p>We map one repetitive process, connect the right tools and add review points where a person should stay involved.</p>
             <ul>
               <li>Reduce repetitive admin and manual hand-offs</li>
               <li>Support enquiries, follow-ups and routine information processing</li>
@@ -904,7 +1025,7 @@
           <div class="lane web" id="web">
             <span class="service-index">02 / BUILD</span>
             <h2>Websites &amp; digital tools</h2>
-            <p>When customers need to find you, understand your offer and get in touch, a good website does the hard work quietly.</p>
+            <p>A clear, fast website that explains what you do and makes it easy for customers to contact you.</p>
             <ul>
               <li>Mobile-first small business websites</li>
               <li>Clear forms and useful online workflows</li>
@@ -933,6 +1054,78 @@
             <h3>Start small and useful</h3>
             <p>Build one clear improvement, then decide whether it is worth expanding.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="pricing-heading panel-head">
+          <div>
+            <span class="section-kicker">Straightforward starting prices</span>
+            <h2>Pick a useful first step</h2>
+          </div>
+          <p>Every project is scoped before work begins. Choose a starting point, explain the process, and get a fixed quote for the agreed build.</p>
+        </div>
+
+        <div class="pricing-grid" aria-label="Website and automation starting prices">
+          <article class="pricing-card website-price">
+            <div class="package-type">WEBSITES</div>
+            <h3>Small business website</h3>
+            <p class="package-price">from <strong>£400</strong></p>
+            <p class="package-copy">A polished, mobile-first one-page website to get your business online.</p>
+            <ul>
+              <li>One-page layout</li>
+              <li>Your branding and contact details</li>
+              <li>Quote agreed before build</li>
+            </ul>
+            <a class="package-link" href="#contact" data-service="Website" data-detail="One-page business website">Discuss a website <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="pricing-card">
+            <div class="package-type">AUTOMATION · 01</div>
+            <h3>Single-task automation</h3>
+            <p class="package-price">from <strong>£750</strong></p>
+            <p class="package-copy">Automate one clear, repetitive task from trigger to hand-off.</p>
+            <ul>
+              <li>One defined workflow</li>
+              <li>Connect suitable existing tools</li>
+              <li>Tested build and handover</li>
+            </ul>
+            <a class="package-link" href="#contact" data-service="AI &amp; automation" data-detail="Single-task automation">Discuss this workflow <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="pricing-card">
+            <div class="package-type">AUTOMATION · 02</div>
+            <h3>Connected workflow</h3>
+            <p class="package-price">from <strong>£1,500</strong></p>
+            <p class="package-copy">Link multiple steps and tools into a dependable end-to-end process.</p>
+            <ul>
+              <li>Multi-step workflow design</li>
+              <li>Checks for exceptions and hand-offs</li>
+              <li>Testing and team handover</li>
+            </ul>
+            <a class="package-link" href="#contact" data-service="AI &amp; automation" data-detail="Connected workflow automation">Discuss this workflow <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="pricing-card ai-price">
+            <div class="package-type">AUTOMATION · 03</div>
+            <h3>AI-assisted process</h3>
+            <p class="package-price">from <strong>£2,500</strong></p>
+            <p class="package-copy">Add AI to suitable steps such as sorting, extracting or summarising information.</p>
+            <ul>
+              <li>AI step within a defined process</li>
+              <li>Human review for important decisions</li>
+              <li>Testing against real examples</li>
+            </ul>
+            <a class="package-link" href="#contact" data-service="AI &amp; automation" data-detail="AI-assisted process automation">Discuss this workflow <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+
+        <div class="pricing-notes">
+          <span>One-off build prices</span>
+          <span>Software and AI usage fees are separate</span>
+          <span>Fixed quote before work starts</span>
         </div>
       </div>
     </section>
@@ -990,54 +1183,7 @@
       </div>
     </section>
 
-    <section id="pricing">
-      <div class="container">
-        <div class="panel">
-          <div class="panel-head">
-            <h2>Website pricing</h2>
-            <p class="muted">Website work has clear starting prices below. AI and automation projects are scoped after a short conversation, once we understand the workflow and tools involved.</p>
-          </div>
-
-          <div class="pricing-wrap">
-            <button class="car-btn" type="button" id="pricePrev" aria-label="Previous pricing option">‹</button>
-            <div class="carousel" aria-label="Website pricing carousel">
-              <div class="carousel-track" id="pricingTrack">
-                <article class="carousel-slide" tabindex="0" data-title="Starter Website" data-price="from £400" data-desc="A clean one-page site for sole traders and simple businesses." data-includes="1 page|Mobile-first layout|Basic design using your branding|Contact section (email or simple form)|Domain connection support" data-guardrails="Price increases if: extra pages, copywriting, custom graphics, galleries/testimonials, maps/embeds, urgent turnaround." data-brief="Business name + what you do|Logo/colours (or we’ll keep it simple)|Any example sites you like|Your deadline">
-                  <div class="price-top"><h3>Starter<br>Website</h3><div class="price-pill">from <strong>£400</strong></div></div>
-                  <p class="muted">One-page site for a simple online presence.</p>
-                  <div class="tap-hint">Click for details</div>
-                </article>
-                <article class="carousel-slide" tabindex="0" data-title="Business Website" data-price="from £1,200" data-desc="Multi-page brochure site designed to generate enquiries and look credible." data-includes="3–5 pages|Clear navigation|Basic SEO setup (titles + descriptions)|Performance optimisation|Mobile & tablet friendly|Contact page" data-guardrails="Price increases if: more than 5 pages, CMS/blog, advanced forms, integrations, content creation, premium design iterations, urgent turnaround." data-brief="Business name + services|Pages you want (3–5)|Any copy you already have|Example sites + colours|Deadline">
-                  <div class="price-top"><h3>Business<br>Website</h3><div class="price-pill">from <strong>£1,200</strong></div></div>
-                  <p class="muted">A proper business site with structure.</p>
-                  <div class="tap-hint">Click for details</div>
-                </article>
-                <article class="carousel-slide" tabindex="0" data-title="Advanced Website" data-price="from £2,500" data-desc="For businesses where the website is a serious part of revenue and growth." data-includes="6+ pages or complex layout|Strategy-led structure|Analytics setup|More revision rounds|Priority delivery option" data-guardrails="Price varies based on: page count, features, integrations, content needs, and turnaround time." data-brief="Full page list + goals|Any integrations needed|Content status (ready/not ready)|Deadline + priorities">
-                  <div class="price-top"><h3>Advanced<br>Website</h3><div class="price-pill">from <strong>£2,500</strong></div></div>
-                  <p class="muted">Custom builds with more depth.</p>
-                  <div class="tap-hint">Click for details</div>
-                </article>
-                <article class="carousel-slide" tabindex="0" data-title="Ecommerce Website" data-price="quote only" data-desc="Online selling + payments needs a bespoke quote. We’ll recommend the best route and price it properly." data-includes="Payments setup (Stripe/Shopify)|Platform recommendation|Checkout flow setup|Guidance on products/shipping/tax|Analytics basics" data-guardrails="Quote depends on: number of products/variants, shipping & tax rules, integrations, and whether you need accounts/subscriptions." data-brief="What are you selling?|Approx product count + variants|Do you need shipping?|Any platforms you prefer (Shopify/Woo)|Deadline + budget range">
-                  <div class="price-top"><h3>Ecommerce<br>Website</h3><div class="price-pill"><strong>Quote only</strong></div></div>
-                  <p class="muted">Payments, products, shipping — quoted to spec.</p>
-                  <div class="tap-hint">Click for details</div>
-                </article>
-                <article class="carousel-slide" tabindex="0" data-title="Support & Updates" data-price="from £300 / month" data-desc="Ongoing website support on a monthly retainer. Priority updates, fixes, and advice — no lock-in." data-includes="Monthly retainer (scoped hours)|Content updates (fair use)|Minor layout tweaks|Advice & support|Priority email" data-guardrails="Price varies based on: hours per month, urgency, ecommerce support, integrations, and content creation needs." data-brief="Type of site|What you want help with|How often updates are needed|Any deadlines or priorities">
-                  <div class="price-top"><h3>Support &<br>Updates</h3><div class="price-pill">from <strong>£300 / mo</strong></div></div>
-                  <p class="muted">Ongoing support on a proper retainer.</p>
-                  <div class="tap-hint">Click for details</div>
-                </article>
-              </div>
-            </div>
-            <button class="car-btn" type="button" id="priceNext" aria-label="Next pricing option">›</button>
-          </div>
-
-          <div class="carousel-meta"><div class="dots" id="priceDots" aria-label="Carousel position"></div></div>
-          <p class="auto-note">Select a card to see what is included and what can affect the final price.</p>
-          <p class="muted" style="margin:10px 0 0; font-weight:900;">All prices are starting points. Final quote confirmed after a short email brief. No lock-in.</p>
-        </div>
-      </div>
-    </section>
+    
 
     <section id="contact">
       <div class="container">
@@ -1091,216 +1237,28 @@
     </div>
   </footer>
 
-  <div class="modal" id="priceModal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-backdrop" data-close="1"></div>
-    <div class="modal-card" role="document">
-      <button class="modal-close" type="button" aria-label="Close" data-close="1">✕</button>
-      <div class="modal-head">
-        <h3 id="mTitle" style="margin:0;">Title</h3>
-        <div class="modal-price" id="mPrice">from £0</div>
-      </div>
-      <p class="muted" id="mDesc" style="margin:10px 0 0;"></p>
-      <div class="modal-cols">
-        <div>
-          <h4 style="margin:0 0 8px;">Includes</h4>
-          <ul id="mIncludes" class="modal-list"></ul>
-          <div class="mini-brief">
-            <h4 style="margin:0 0 8px;">What we need from you</h4>
-            <ul id="mBrief" class="modal-list" style="margin:0;"></ul>
-          </div>
-        </div>
-        <div>
-          <h4 style="margin:0;">Price changes when</h4>
-          <p id="mGuard"></p>
-          <a class="btn btn-solid" id="mQuoteBtn" href="#contact" data-service="Website" style="width:100%;">Get a website quote</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
+    <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
     (function(){
       const messageBox = document.getElementById("qMessage");
-      let autoTimer = null;
-      let autoPaused = false;
-
+      const detailField = document.getElementById("serviceDetail");
       function setService(value){
-        const radios = document.querySelectorAll('input[name="service"]');
-        radios.forEach(r => { r.checked = (r.value === value); });
-      }
-
-      function focusForm(){
-        const form = document.getElementById("quoteForm");
-        if (!form) return;
-        setTimeout(() => { if (messageBox) messageBox.focus({ preventScroll: true }); }, 50);
-      }
-
-      document.addEventListener("click", (e) => {
-        const a = e.target.closest("a[data-service]");
-        if (!a) return;
-        const svc = a.getAttribute("data-service");
-        if (svc) setService(svc);
-        focusForm();
-      });
-
-      const modal = document.getElementById("priceModal");
-      const mTitle = document.getElementById("mTitle");
-      const mPrice = document.getElementById("mPrice");
-      const mDesc = document.getElementById("mDesc");
-      const mIncludes = document.getElementById("mIncludes");
-      const mGuard = document.getElementById("mGuard");
-      const mBrief = document.getElementById("mBrief");
-      const mQuoteBtn = document.getElementById("mQuoteBtn");
-
-      function openModal(slide){
-        stopAutoScroll(true);
-        const title = slide.dataset.title || "";
-        const price = slide.dataset.price || "";
-        const desc = slide.dataset.desc || "";
-        const includes = (slide.dataset.includes || "").split("|").filter(Boolean);
-        const guard = slide.dataset.guardrails || "";
-        const brief = (slide.dataset.brief || "").split("|").filter(Boolean);
-        mTitle.textContent = title;
-        mPrice.textContent = price;
-        mDesc.textContent = desc;
-        mIncludes.innerHTML = "";
-        includes.forEach(item => {
-          const li = document.createElement("li");
-          li.textContent = item;
-          mIncludes.appendChild(li);
-        });
-        mBrief.innerHTML = "";
-        brief.forEach(item => {
-          const li = document.createElement("li");
-          li.textContent = item;
-          mBrief.appendChild(li);
-        });
-        const detailField = document.getElementById("serviceDetail");
-        if (detailField) detailField.value = title.toLowerCase().includes("ecommerce") ? "ecommerce" : "";
-        mGuard.textContent = guard;
-        modal.setAttribute("aria-hidden","false");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeModal(){
-        modal.setAttribute("aria-hidden","true");
-        document.body.style.overflow = "";
-      }
-
-      modal.addEventListener("click", (e) => {
-        if (e.target && e.target.dataset && e.target.dataset.close) closeModal();
-      });
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
-      });
-      if (mQuoteBtn){
-        mQuoteBtn.addEventListener("click", () => {
-          closeModal();
-          setService("Website");
-          focusForm();
+        document.querySelectorAll('input[name="service"]').forEach(radio => {
+          radio.checked = radio.value === value;
         });
       }
-
-      const track = document.getElementById("pricingTrack");
-      const slides = Array.from(track.querySelectorAll(".carousel-slide"));
-      const prevBtn = document.getElementById("pricePrev");
-      const nextBtn = document.getElementById("priceNext");
-      const dotsWrap = document.getElementById("priceDots");
-      const carousel = document.querySelector(".carousel");
-      const pricingWrap = document.querySelector(".pricing-wrap");
-      let index = 0;
-
-      function visibleCount(){
-        const w = window.innerWidth;
-        if (w <= 920) return 1;
-        if (w <= 1100) return 2;
-        return 3;
-      }
-      function maxIndex(){ return Math.max(0, slides.length - visibleCount()); }
-      function clampIndex(){ index = Math.max(0, Math.min(index, maxIndex())); }
-      function slideStep(){ return slides[0].getBoundingClientRect().width + 12; }
-
-      function render(){
-        clampIndex();
-        track.style.transform = `translateX(${-index * slideStep()}px)`;
-        const positions = maxIndex() + 1;
-        if (dotsWrap.childElementCount !== positions){
-          dotsWrap.innerHTML = "";
-          for (let i = 0; i < positions; i++){
-            const d = document.createElement("span");
-            d.className = "dot" + (i === index ? " active" : "");
-            d.setAttribute("role","button");
-            d.setAttribute("tabindex","0");
-            d.setAttribute("aria-label", `Go to position ${i+1}`);
-            d.addEventListener("click", () => { index = i; render(); stopAutoScroll(true); });
-            d.addEventListener("keydown", (e) => {
-              if (e.key === "Enter" || e.key === " "){
-                e.preventDefault();
-                index = i; render(); stopAutoScroll(true);
-              }
-            });
-            dotsWrap.appendChild(d);
-          }
-        } else {
-          Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle("active", i === index));
+      document.addEventListener("click", event => {
+        const link = event.target.closest("a[data-service]");
+        if (!link) return;
+        setService(link.getAttribute("data-service"));
+        if (detailField) detailField.value = link.getAttribute("data-detail") || "";
+        if (messageBox) {
+          const detail = link.getAttribute("data-detail");
+          if (detail) messageBox.placeholder = "Tell us about your " + detail.toLowerCase() + " and what you want it to do.";
         }
-        prevBtn.disabled = index === 0;
-        nextBtn.disabled = index === maxIndex();
-        prevBtn.style.opacity = prevBtn.disabled ? .45 : 1;
-        nextBtn.style.opacity = nextBtn.disabled ? .45 : 1;
-      }
-
-      function nextSlideAuto(){
-        if (maxIndex() === 0) return;
-        index = index >= maxIndex() ? 0 : index + 1;
-        render();
-      }
-      function startAutoScroll(){
-        if (autoPaused || window.innerWidth <= 920) return;
-        clearInterval(autoTimer);
-        autoTimer = setInterval(nextSlideAuto, 3500);
-      }
-      function stopAutoScroll(pauseCompletely = false){
-        clearInterval(autoTimer);
-        autoTimer = null;
-        if (pauseCompletely) autoPaused = true;
-      }
-
-      prevBtn.addEventListener("click", () => { index -= 1; render(); stopAutoScroll(true); });
-      nextBtn.addEventListener("click", () => { index += 1; render(); stopAutoScroll(true); });
-      slides.forEach(slide => {
-        slide.addEventListener("click", () => openModal(slide));
-        slide.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " "){
-            e.preventDefault();
-            openModal(slide);
-          }
-        });
       });
-      [carousel, pricingWrap].forEach(el => {
-        if (!el) return;
-        el.addEventListener("mouseenter", () => { if (!autoPaused) clearInterval(autoTimer); });
-        el.addEventListener("mouseleave", () => { if (!autoPaused) startAutoScroll(); });
-        el.addEventListener("touchstart", () => stopAutoScroll(true), { passive:true });
-      });
-      document.addEventListener("visibilitychange", () => {
-        if (document.hidden) clearInterval(autoTimer);
-        else if (!autoPaused) startAutoScroll();
-      });
-      window.addEventListener("resize", () => {
-        if (index > maxIndex()) index = maxIndex();
-        render();
-        clearInterval(autoTimer);
-        if (!autoPaused) startAutoScroll();
-      });
-
-      render();
-      startAutoScroll();
     })();
   </script>
-
   <script>
     (function(){
       const data = {

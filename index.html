@@ -1120,7 +1120,12 @@
       #contact .panel-head{grid-template-columns:1fr}
     }
     @media(prefers-reduced-motion:reduce){.studio-connector i,.process-join i,.mini-line i{animation:none}}
-  </style>
+  
+    #pricing .pricing-heading{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+    #pricing .pricing-heading h2{white-space:nowrap;font-size:clamp(1.55rem,2.45vw,2.3rem)}
+    #pricing .pricing-card.ai-price h3{color:#fff!important}
+
+</style>
 </head>
 
 <body>

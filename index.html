@@ -4,8 +4,8 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Byte My System | Small Business Websites & PC Help</title>
-  <meta name="description" content="Clean, fast small business websites with clear pricing and no builder lock-in. PC builds, repairs and upgrades are also available as a smaller add-on service." />
+  <title>Byte My System | Practical AI & Automation for Small Businesses</title>
+  <meta name="description" content="Put AI to work in your small business. Byte My System builds practical AI automations, useful digital tools and modern websites, with clear advice and no unnecessary complexity." />
   <meta name="theme-color" content="#0b0f14" />
 
   <style>
@@ -110,16 +110,33 @@
 
     main{ padding-bottom:18px; }
     section{ padding:32px 0; }
-    #pc, #web, #proof, #pricing, #connect, #contact { scroll-margin-top:92px; }
+    #ai, #process, #pc, #web, #proof, #pricing, #connect, #contact { scroll-margin-top:92px; }
 
     .hero{ padding-top:34px; }
     .hero-head{
       display:flex;
       flex-direction:column;
       align-items:flex-start;
-      gap:10px;
-      margin-bottom:18px;
+      gap:12px;
+      margin-bottom:22px;
+      max-width:850px;
     }
+    .hero-head .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 11px;
+      border:1px solid rgba(53,208,127,.35);
+      border-radius:999px;
+      background:rgba(53,208,127,.09);
+      color:#9cf0bd;
+      font-size:.84rem;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green);}
     h1{
       margin:0;
       font-size: clamp(2.2rem, 4.2vw, 3.4rem);
@@ -135,7 +152,7 @@
 
     .lane-grid{
       display:grid;
-      grid-template-columns: 1.45fr .85fr;
+      grid-template-columns: 1.2fr 1fr;
       gap:14px;
       align-items:stretch;
     }
@@ -502,6 +519,8 @@
       .modal-cols{ grid-template-columns:1fr; }
       .modal-card{ margin:10vh auto; }
       .connect-actions{ justify-content:flex-start; }
+      .segmented{ flex-direction:column; }
+      .seg{ min-width:0; }
     }
   </style>
 </head>
@@ -515,12 +534,12 @@
       </a>
       <div class="nav-wrap">
         <nav aria-label="Primary navigation">
+          <a href="#ai">AI &amp; automation</a>
           <a href="#web">Websites</a>
-          <a href="#proof">Work</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#proof">Use cases</a>
           <a href="#pc">PC help</a>
         </nav>
-        <a class="btn btn-solid" href="#contact" data-service="Website">Get a website quote</a>
+        <a class="btn btn-solid" href="#contact" data-service="AI &amp; automation">Discuss an AI idea</a>
       </div>
     </div>
   </header>
@@ -529,54 +548,60 @@
     <section class="hero">
       <div class="container">
         <div class="hero-head">
-          <h1>Clean, fast small business websites that look credible and get enquiries.</h1>
-          <p class="lead">We build modern websites with clear pricing, honest advice and no builder lock-in. Need PC help as well? We do that too — just as a smaller side service, not the whole show.</p>
+          <span class="eyebrow">Practical AI for small businesses</span>
+          <h1>Make AI useful in the work you already do.</h1>
+          <p class="lead">We find the repetitive tasks slowing your business down, then build sensible AI and automation around the tools and processes you already use. Start with one useful improvement, keep people in control, and grow from there.</p>
+          <div class="actions">
+            <a class="btn btn-solid" href="#contact" data-service="AI &amp; automation">Talk through an AI idea</a>
+            <a class="btn btn-ghost" href="#ai">Explore what we do</a>
+          </div>
         </div>
 
-        <div class="lane-grid" aria-label="Primary services">
-          <div class="lane web" id="web">
-            <h2>🌐 Small Business Websites</h2>
-            <p>Websites are the main event here — built to help you look professional, explain what you do clearly and make it easy for people to contact you.</p>
+        <div class="lane-grid" aria-label="Services">
+          <div class="lane pc" id="ai">
+            <h2>AI &amp; workflow automation</h2>
+            <p>Practical systems that take friction out of everyday work — scoped around a real business need, not AI for its own sake.</p>
             <ul>
-              <li>One-page or up to 5-page brochure websites</li>
-              <li>Mobile-first layouts with domain setup support</li>
-              <li>Basic SEO, performance and clean structure built in</li>
+              <li>Reduce repetitive admin and manual hand-offs</li>
+              <li>Support enquiries, follow-ups and routine information processing</li>
+              <li>Connect suitable tools with clear human review points</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btn-green" href="#contact" data-service="AI &amp; automation">Discuss an AI project</a>
+              <a class="btn btn-ghost" href="#proof">See common starting points</a>
+            </div>
+          </div>
+
+          <div class="lane web" id="web">
+            <h2>Websites &amp; digital tools</h2>
+            <p>Clear, fast websites and small digital tools that help customers understand what you offer and take the next step.</p>
+            <ul>
+              <li>Mobile-first small business websites</li>
+              <li>Useful forms, integrations and simple online workflows</li>
+              <li>Clear scope, straightforward pricing and no builder lock-in</li>
             </ul>
             <div class="actions">
               <a class="btn btn-blue" href="#contact" data-service="Website">Get a website quote</a>
-              <a class="btn btn-ghost" href="#pricing">See pricing</a>
-            </div>
-          </div>
-
-          <div class="lane pc" id="pc">
-            <h2>⚙️ Also available: PC help</h2>
-            <p>A smaller add-on service for home users and small businesses that need practical help without the usual waffle.</p>
-            <ul>
-              <li>Custom builds and upgrades</li>
-              <li>Diagnostics, crashes and overheating</li>
-              <li>SSD, RAM and GPU installs</li>
-            </ul>
-            <div class="actions">
-              <a class="btn btn-green" href="#contact" data-service="PC help">Ask about PC help</a>
+              <a class="btn btn-ghost" href="#pricing">Website pricing</a>
             </div>
           </div>
         </div>
 
-        <div class="strip" aria-label="How it works">
+        <div class="strip" id="process" aria-label="How it works">
           <div class="step">
             <div class="num">1</div>
-            <h3>You message</h3>
-            <p>Tell us what your business does, what kind of site you need and roughly what budget you’re working with.</p>
+            <h3>Start with the problem</h3>
+            <p>We look at the task, who does it and where time or information gets lost.</p>
           </div>
           <div class="step">
             <div class="num">2</div>
-            <h3>We recommend</h3>
-            <p>We’ll suggest the best-value route, flag what actually matters and skip the fake-agency fluff.</p>
+            <h3>Choose a sensible route</h3>
+            <p>We explain what AI or automation can help with, what it cannot, and what should stay human-led.</p>
           </div>
           <div class="step">
             <div class="num">3</div>
-            <h3>We deliver</h3>
-            <p>You get a fast, clean website with no lock-in, no mystery fees and no nonsense stapled on top.</p>
+            <h3>Build and hand over</h3>
+            <p>You get a focused solution, a clear handover and room to improve it as you learn.</p>
           </div>
         </div>
       </div>
@@ -586,45 +611,33 @@
       <div class="container">
         <div class="panel alt">
           <div class="panel-head">
-            <h2>Recent work</h2>
-            <p class="muted">A few examples to show range. Same core approach, different client styles.</p>
+            <h2>Useful places to start</h2>
+            <p class="muted">Every business is different. These are common workflow ideas to explore, not promises that every task should be automated.</p>
           </div>
 
           <div class="proof-grid">
             <article class="work-card web">
               <div class="work-head">
-                <h3 style="margin:0;">Business website</h3>
-                <span class="work-pill">Brochure site</span>
+                <h3 style="margin:0;">Enquiries &amp; follow-up</h3>
+                <span class="work-pill">Customer workflow</span>
               </div>
-              <img class="work-img" src="DataWorxsite.png" alt="Business website example" loading="lazy" />
-              <p class="testimonial">
-                “Fast, clean site with no monthly fees — and it actually explains what we do clearly on mobile.”
-                <span class="who">— Small business owner</span>
-              </p>
-            </article>
-
-            <article class="work-card web">
-              <div class="work-head">
-                <h3 style="margin:0;">Beauty website</h3>
-                <span class="work-pill">Client style example</span>
-              </div>
-              <img class="work-img" src="skin-edit.png" alt="Beauty website example" loading="lazy" />
-              <p class="testimonial">
-                “Soft, clean design tailored to the client’s brand — shows the look can shift depending on who the site is for.”
-                <span class="who">— Beauty business example</span>
-              </p>
+              <p class="muted">Capture incoming requests, organise key details and help your team respond consistently. People stay responsible for the final reply.</p>
             </article>
 
             <article class="work-card pc">
               <div class="work-head">
-                <h3 style="margin:0;">PC support</h3>
-                <span class="work-pill">Add-on service</span>
+                <h3 style="margin:0;">Repeat admin</h3>
+                <span class="work-pill">Time-saving</span>
               </div>
-              <img class="work-img" src="pcbuild.jpg" alt="PC build example" loading="lazy" />
-              <p class="testimonial">
-                “Had a compact media centre built from scratch. Super quiet, tidy internals, and exactly the spec we needed.”
-                <span class="who">— Home user</span>
-              </p>
+              <p class="muted">Reduce copying, sorting and routine hand-offs between the tools you already rely on, where a dependable integration is available.</p>
+            </article>
+
+            <article class="work-card web">
+              <div class="work-head">
+                <h3 style="margin:0;">Documents &amp; information</h3>
+                <span class="work-pill">Human-reviewed</span>
+              </div>
+              <p class="muted">Use AI to help find, summarise or organise suitable business information, with review steps matched to the importance of the work.</p>
             </article>
           </div>
         </div>
@@ -634,14 +647,13 @@
     <section id="connect">
       <div class="container">
         <div class="panel alt">
-          <div class="connect-grid">
+          <div class="connect-grid" id="pc">
             <div class="connect-copy">
-              <h2 style="margin:0 0 8px;">Need leads as well as a website?</h2>
-              <p class="muted">Lead generation lives under <strong>DataWorx</strong>, not Byte My System. That’s where <strong>Leadify</strong> sits — a product focused on finding and qualifying business leads. So if you need a site now and smarter outreach later, there’s a clean path for both.</p>
+              <h2 style="margin:0 0 8px;">Need help with a PC?</h2>
+              <p class="muted">PC builds, upgrades, diagnostics and repairs are still available as a smaller, practical support service. Tell us what you need and we’ll let you know if it’s a fit.</p>
             </div>
             <div class="connect-actions">
-              <a class="btn btn-ghost" href="https://data-worx.uk" target="_blank" rel="noopener noreferrer">Visit DataWorx</a>
-              <a class="btn btn-ghost" href="https://leadify.streamlit.app" target="_blank" rel="noopener noreferrer">Explore Leadify</a>
+              <a class="btn btn-ghost" href="#contact" data-service="PC help">Ask about PC help</a>
             </div>
           </div>
         </div>
@@ -653,7 +665,7 @@
         <div class="panel">
           <div class="panel-head">
             <h2>Website pricing</h2>
-            <p class="muted">Websites are the core service, so pricing is built around them. The carousel auto-scrolls too, because static sliders just sit there doing absolutely nothing.</p>
+            <p class="muted">Website work has clear starting prices below. AI and automation projects are scoped after a short conversation, once we understand the workflow and tools involved.</p>
           </div>
 
           <div class="pricing-wrap">
@@ -691,7 +703,7 @@
           </div>
 
           <div class="carousel-meta"><div class="dots" id="priceDots" aria-label="Carousel position"></div></div>
-          <p class="auto-note">Auto-scrolling every few seconds. Tap any card to pause and open the details.</p>
+          <p class="auto-note">Select a card to see what is included and what can affect the final price.</p>
           <p class="muted" style="margin:10px 0 0; font-weight:900;">All prices are starting points. Final quote confirmed after a short email brief. No lock-in.</p>
         </div>
       </div>
@@ -702,7 +714,7 @@
         <div class="panel">
           <div class="panel-head">
             <h2>Get a quote</h2>
-            <p class="muted">Tell us what you need and we’ll come back with the best route and a clear cost. Websites are the main focus, but PC help is available too.</p>
+            <p class="muted">Tell us what you want to improve. We’ll come back with a sensible route, clear scope and cost. AI, websites and PC support are all welcome.</p>
           </div>
 
           <form class="quote-form" id="quoteForm" action="https://formspree.io/f/xeeejvrw" method="POST">
@@ -720,13 +732,14 @@
             <div>
               <label>What do you need help with?</label>
               <div class="segmented" role="radiogroup" aria-label="Service">
-                <label class="seg"><input type="radio" name="service" value="Website" required><span>Website</span></label>
+                <label class="seg"><input type="radio" name="service" value="AI &amp; automation" required><span>AI &amp; automation</span></label>
+                <label class="seg"><input type="radio" name="service" value="Website" required><span>Website / digital tool</span></label>
                 <label class="seg"><input type="radio" name="service" value="PC help" required><span>PC build / repair / upgrade</span></label>
               </div>
             </div>
             <div>
               <label for="qMessage">Tell us a bit more</label>
-              <textarea id="qMessage" name="message" rows="5" required placeholder="Website: what you do, pages needed, examples you like, deadline&#10;PC: specs (CPU/GPU/RAM/SSD), what’s wrong, what you use it for"></textarea>
+              <textarea id="qMessage" name="message" rows="5" required placeholder="AI: what task takes too much time, what tools you use, what a better process would look like&#10;Website: what you do, pages needed and deadline&#10;PC: specs, what’s wrong and what you use it for"></textarea>
             </div>
             <div>
               <label for="qBudget">Budget range (optional)</label>

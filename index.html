@@ -936,6 +936,191 @@
     .btn span[aria-hidden="true"],.hero-link span[aria-hidden="true"],.package-link span[aria-hidden="true"]{display:none}
 
 </style>
+
+  <style>
+    /* Product-led feature sections below the preserved hero */
+    .automation-showcase{background:#111d2b;color:#f4f7fa;padding:62px 0 66px!important;overflow:hidden}
+    .automation-layout{display:grid;grid-template-columns:minmax(250px,.76fr) minmax(0,1.24fr);gap:44px;align-items:center}
+    .feature-index{display:block;color:#91d66d;font-size:.7rem;line-height:1.3;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .automation-copy h2,.website-copy h2,.process-heading h2,.use-case-heading h2{font-size:clamp(2rem,3.5vw,3.25rem);line-height:1.04;letter-spacing:-.055em;margin:13px 0 17px}
+    .automation-copy h2{color:#fff;max-width:520px}
+    .automation-copy>p{max-width:460px;color:#bdc7d3;font-size:1.02rem;line-height:1.7;margin:0 0 20px}
+    .feature-checks{list-style:none;padding:0;margin:0 0 25px;display:grid;gap:10px}
+    .feature-checks li{color:#e4eaf0;font-size:.91rem;display:flex;align-items:center;gap:10px}
+    .feature-checks li:before{content:"";width:7px;height:7px;background:#7ad84e;border-radius:50%;box-shadow:0 0 0 4px rgba(122,216,78,.12)}
+    .automation-copy .btn{display:inline-flex;align-items:center}
+    .studio-window{border:1px solid #344255;border-radius:12px;background:#f8fafb;overflow:hidden;box-shadow:0 22px 55px rgba(0,0,0,.28);color:#243347}
+    .studio-topbar{height:48px;background:#fff;border-bottom:1px solid #e1e6eb;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+    .studio-brand{display:flex;align-items:center;gap:9px;font-size:.76rem;font-weight:700;color:#34475d}
+    .studio-mark{display:grid;place-items:center;width:24px;height:24px;border-radius:6px;background:#0756b8;color:#fff;font-size:.68rem;font-weight:900}
+    .studio-status{font-size:.59rem;font-weight:800;letter-spacing:.08em;color:#506174;border:1px solid #dce4eb;border-radius:20px;padding:5px 8px}
+    .studio-status i{display:inline-block;width:6px;height:6px;background:#78d64b;border-radius:50%;margin-right:5px}
+    .studio-main{display:grid;grid-template-columns:54px 1fr;min-height:285px}
+    .studio-rail{background:#162438;color:#d9e5f2;display:flex;flex-direction:column;align-items:center;gap:19px;padding:16px 4px;font-size:.57rem}
+    .studio-rail b{font-size:1.1rem;color:#8bd95e}.studio-rail span{writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.06em;color:#aab8c7}
+    .studio-canvas{padding:19px 18px 15px;min-width:0}
+    .studio-canvas-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:21px}
+    .studio-canvas-head small{display:block;color:#758599;font-size:.55rem;font-weight:800;letter-spacing:.1em;margin-bottom:5px}
+    .studio-canvas-head strong{font-size:.86rem;color:#20334a}
+    .studio-draft{font-size:.56rem;color:#5b9f3c;background:#ecf6e7;border:1px solid #d7ebcd;padding:5px 8px;border-radius:4px;font-weight:800;letter-spacing:.06em}
+    .studio-route{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:center;gap:4px}
+    .studio-node{min-width:0;min-height:123px;background:#fff;border:1px solid #dce4eb;border-radius:8px;padding:11px 10px;box-shadow:0 4px 11px rgba(33,53,78,.04)}
+    .studio-node-ai{background:#f6f9fd;border-color:#cbdcf0}.studio-node-check{background:#f8fcf5;border-color:#d6e8cc}
+    .node-icon{display:grid;place-items:center;width:23px;height:23px;border-radius:6px;margin-bottom:9px;font-size:.78rem;font-style:normal;font-weight:800}
+    .node-mail{background:#e8f1fc;color:#0756b8}.node-spark{background:#e8f1fc;color:#0756b8}.node-check{background:#e9f5e3;color:#59a63b}
+    .studio-node small{display:block;color:#7d8a98;font-size:.51rem;font-weight:800;letter-spacing:.08em;margin-bottom:5px}
+    .studio-node strong{display:block;color:#20334a;font-size:.72rem;line-height:1.3}
+    .studio-node em{display:block;color:#768395;font-size:.59rem;font-style:normal;margin-top:6px;line-height:1.35}
+    .studio-connector{height:1px;background:#b9c8d7;position:relative}
+    .studio-connector i{position:absolute;top:-3px;left:0;width:7px;height:7px;border-radius:50%;background:#78d64b;animation:studio-pulse 2.2s ease-in-out infinite}
+    .studio-connector:nth-of-type(4) i{animation-delay:.7s}
+    .studio-log{margin-top:18px;background:#fff;border:1px solid #e3e9ee;border-radius:7px;padding:5px 11px}
+    .studio-log>div{display:grid;grid-template-columns:9px minmax(0,1fr) auto;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #edf0f3;font-size:.65rem;color:#566679}
+    .studio-log>div:last-child{border:0}
+    .studio-log b{font-size:.59rem;color:#63748a;font-weight:700}
+    .log-dot{width:6px;height:6px;border-radius:50%;background:#79d34d}.log-dot.pending{background:#eab24c}
+    .studio-foot{height:34px;background:#fff;border-top:1px solid #e5eaee;display:flex;justify-content:space-between;align-items:center;padding:0 13px;color:#708094;font-size:.6rem}
+    .studio-foot span:first-child{color:#4c8d35;font-weight:700}
+    @keyframes studio-pulse{0%{transform:translateX(0);opacity:.35}60%{opacity:1}100%{transform:translateX(22px);opacity:.4}}
+    .website-showcase{padding:58px 0 64px!important;background:#f2f6f8}
+    .website-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);align-items:center;gap:65px}
+    .browser-preview{background:#fff;border:1px solid #d9e2e9;border-radius:11px;overflow:hidden;box-shadow:0 18px 45px rgba(30,53,77,.11);transform:rotate(-1deg)}
+    .browser-chrome{height:39px;background:#e8edf1;border-bottom:1px solid #dce3e8;display:flex;align-items:center;gap:6px;padding:0 12px}
+    .browser-chrome>span{width:8px;height:8px;border-radius:50%;background:#a8b4bf}
+    .browser-chrome>span:first-child{background:#7dcf53}.browser-chrome>div{margin-left:13%;width:64%;text-align:center;background:#fff;border:1px solid #dde4e9;border-radius:4px;padding:4px 8px;color:#748295;font-size:.58rem}
+    .browser-page{padding:0 22px;background:#fff}
+    .browser-nav{height:45px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e8edf1;color:#26384d;font-size:.57rem}
+    .browser-nav b{letter-spacing:.08em}.browser-nav span{color:#7e8b99}
+    .browser-hero{min-height:220px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:12px;padding:24px 8px 20px}
+    .browser-copy small{display:block;color:#70849a;font-size:.52rem;font-weight:800;letter-spacing:.1em;margin-bottom:10px}
+    .browser-copy strong{display:block;color:#162a41;font-size:1.45rem;line-height:1.05;letter-spacing:-.045em;max-width:280px}
+    .browser-copy p{font-size:.67rem;color:#65758a;max-width:230px;line-height:1.5;margin:9px 0 13px}
+    .browser-button{display:inline-block;background:#77d44b;color:#142333;border-radius:4px;padding:7px 10px;font-size:.6rem;font-weight:800}
+    .browser-shape{height:150px;position:relative;overflow:hidden;border-radius:50% 44% 16% 34%;background:linear-gradient(140deg,#e8f2fb 0 43%,#cfe1f2 43% 60%,#f0f6e9 60%);border:1px solid #e0e8ed}
+    .browser-shape i,.browser-shape b,.browser-shape span{position:absolute;display:block;background:#fff;border-radius:3px;box-shadow:0 6px 18px rgba(38,73,108,.1)}
+    .browser-shape i{width:60%;height:44px;top:24px;left:15%}.browser-shape b{width:38%;height:47px;bottom:23px;left:14%;background:#78d64b}.browser-shape span{width:33%;height:70px;bottom:10px;right:10%;background:#0756b8}
+    .browser-footer{display:flex;justify-content:space-between;border-top:1px solid #e8edf1;padding:11px 8px;color:#67798d;font-size:.58rem}
+    .website-copy{max-width:420px}
+    .website-copy h2{color:#162a41}
+    .website-copy>p{color:#56677a;font-size:1rem;line-height:1.7;margin:0 0 21px}
+    .website-price-line{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #d4dfe6;border-bottom:1px solid #d4dfe6;padding:13px 0;margin-bottom:20px;color:#56677a;font-size:.91rem}
+    .website-price-line strong{color:#162a41;font-size:1.25rem}
+    .website-copy .btn{display:inline-flex}
+    .build-process{padding:54px 0 58px!important;background:#fff}
+    .process-heading,.use-case-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);align-items:end;gap:35px;margin-bottom:31px}
+    .process-heading h2,.use-case-heading h2{color:#162a41;max-width:640px;margin-bottom:0}
+    .process-heading>p,.use-case-heading>p{margin:0;color:#58697c;line-height:1.7;font-size:.97rem}
+    .process-track{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr) 64px minmax(0,1fr);align-items:start;gap:10px}
+    .process-step{position:relative;background:#f5f8fa;border:1px solid #e0e7ed;border-radius:9px;padding:20px 20px 19px;min-height:180px;overflow:hidden}
+    .process-step:after{content:"";position:absolute;right:-28px;top:-34px;width:100px;height:100px;border:1px solid #dce8f0;border-radius:50%;box-shadow:0 0 0 12px rgba(227,237,243,.48),0 0 0 26px rgba(237,244,247,.5)}
+    .process-number{position:relative;z-index:1;display:block;color:#7190ab;font-size:.66rem;letter-spacing:.1em;font-weight:800}
+    .process-symbol{position:relative;z-index:1;width:34px;height:34px;display:grid;place-items:center;border-radius:7px;background:#e5eff8;color:#0756b8;font-weight:800;font-size:1.08rem;margin:13px 0 10px}
+    .process-live{background:#e7f4df;color:#579c39}.process-step h3{position:relative;z-index:1;color:#20354c;font-size:1.03rem;margin:0 0 6px}
+    .process-step p{position:relative;z-index:1;max-width:350px;color:#617186;font-size:.82rem;line-height:1.55;margin:0}
+    .process-join{height:2px;background:#b9cadd;position:relative;margin-top:40px}
+    .process-join i{position:absolute;left:4px;top:-3px;width:8px;height:8px;background:#79d34d;border-radius:50%;animation:studio-pulse 2.2s ease-in-out infinite}
+    .use-case-section{padding:58px 0 62px!important;background:#edf3f6}
+    .use-case-heading{margin-bottom:21px}
+    .use-case-list{border-top:1px solid #d5dfe6}
+    .use-case-row{display:grid;grid-template-columns:minmax(240px,.78fr) minmax(0,1.22fr);gap:46px;align-items:center;padding:20px 0;border-bottom:1px solid #d5dfe6}
+    .use-case-copy{position:relative;padding-left:48px}
+    .use-case-number{position:absolute;left:0;top:1px;color:#0756b8;font-size:.73rem;font-weight:800;letter-spacing:.08em}
+    .use-case-copy h3{color:#192e45;font-size:1.05rem;margin:0 0 5px}
+    .use-case-copy p{color:#5d6f82;font-size:.84rem;line-height:1.55;margin:0;max-width:480px}
+    .mini-flow{min-height:87px;background:rgba(255,255,255,.75);border:1px solid #d9e3ea;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 17px}
+    .mini-step{width:76px;display:flex;flex-direction:column;align-items:center;gap:5px;color:#62768b}
+    .mini-icon{display:grid;place-items:center;width:31px;height:31px;background:#e7f0f9;border:1px solid #d7e5f2;border-radius:8px;color:#0756b8;font-size:.8rem;font-weight:800}
+    .mini-step-final .mini-icon{background:#e8f5e1;border-color:#d3e8c8;color:#4d9c31}
+    .mini-step small{font-size:.5rem;font-weight:800;letter-spacing:.07em}
+    .mini-line{width:min(11%,52px);height:1px;background:#c2d1df;position:relative}
+    .mini-line i{position:absolute;top:-3px;left:0;width:7px;height:7px;background:#78d64b;border-radius:50%;animation:studio-pulse 2.3s ease-in-out infinite}
+    .mini-doc{width:42px;height:54px;background:#fff;border:1px solid #cad8e5;border-radius:4px;display:flex;flex-direction:column;gap:5px;padding:7px}
+    .mini-doc b{font-size:.48rem;color:#0756b8}.mini-doc span{height:2px;background:#dce5ec}
+    .mini-fields{width:165px;display:grid;gap:3px}
+    .mini-fields span{display:flex;justify-content:space-between;background:#fff;border:1px solid #e1e8ed;padding:4px 6px;color:#718094;font-size:.48rem}
+    .mini-fields b{color:#508d38}
+    .mini-stamp{border:1px solid #8bcf6a;color:#559c38;font-size:.55rem;font-weight:800;letter-spacing:.06em;padding:7px 8px;border-radius:4px;transform:rotate(-4deg)}
+    .mini-stack{position:relative;width:95px;height:47px;display:flex;align-items:flex-end;gap:5px;padding-bottom:2px}
+    .mini-stack i{width:20px;height:24px;background:#dfeaf4;border-radius:3px 3px 0 0;border:1px solid #ccdae6}
+    .mini-stack i:nth-child(2){height:34px;background:#cddff0}.mini-stack i:nth-child(3){height:44px;background:#0756b8;border-color:#0756b8}
+    .mini-stack b{position:absolute;bottom:-9px;left:0;color:#65778b;font-size:.46rem;letter-spacing:.05em}
+    .mini-tools{display:flex;gap:4px}
+    .mini-tools b{display:grid;place-items:center;width:27px;height:27px;background:#edf4fb;border:1px solid #dce7f0;border-radius:6px;color:#0756b8;font-size:.6rem}
+    .mini-tools b:nth-child(2){background:#e8f5df;border-color:#d8e9cf;color:#4b9330}
+    .mini-tools b:nth-child(3){background:#f4f0e4;border-color:#e8e0c7;color:#927330}
+    .mini-done{display:flex;align-items:center;gap:6px;color:#5a7187;font-size:.47rem;line-height:1.3;font-weight:800}
+    .mini-done i{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#e8f5df;color:#559c38;font-style:normal;font-size:.8rem}
+    .pc-support{padding:22px 0!important;background:#fff}
+    .pc-support-inner{display:grid;grid-template-columns:50px 1fr auto;gap:17px;align-items:center;border-top:1px solid #dce4ea;border-bottom:1px solid #dce4ea;padding:17px 0}
+    .pc-emblem{width:46px;height:42px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#162a41;border-radius:5px;color:white;font-size:.47rem;line-height:1.05;letter-spacing:.08em}
+    .pc-emblem b{color:#80d54f;font-size:.87rem;letter-spacing:0}
+    .pc-copy .feature-index{color:#7990a5;font-size:.58rem}.pc-copy h2{color:#1a2e44;font-size:1.12rem;margin:3px 0}.pc-copy p{color:#607286;font-size:.78rem;margin:0}
+    .pc-support .btn{white-space:nowrap}
+    #pricing{padding:57px 0 61px!important;background:#eaf1f5}
+    #pricing .pricing-grid{gap:10px}
+    #pricing .pricing-card{position:relative;border:1px solid #d5dfe7;border-radius:9px;padding:21px 18px 18px;background:#fff;box-shadow:0 9px 25px rgba(27,49,72,.055);overflow:hidden}
+    #pricing .pricing-card:before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:#b8c4ce}
+    #pricing .pricing-card:not(.website-price):before{background:linear-gradient(90deg,#78d64b,#0756b8)}
+    #pricing .pricing-card.ai-price{background:#15283e;border-color:#15283e;color:white}
+    #pricing .pricing-card.ai-price:before{background:#78d64b}
+    #pricing .package-type{color:#74859a;font-size:.62rem}
+    #pricing .ai-price .package-type{color:#b7c5d4}
+    #pricing .pricing-card h3{font-size:1.06rem;line-height:1.25;min-height:2.5em}
+    #pricing .package-price strong{font-size:1.85rem}
+    #pricing .ai-price .package-price,#pricing .ai-price .package-price strong{color:#fff}
+    #pricing .ai-price .package-copy,#pricing .ai-price li{color:#d1dbe5}
+    #pricing .ai-price li{border-color:#314256}
+    #pricing .ai-price .package-link{color:#a4e587;border-color:#35465a}
+    #pricing .pricing-notes{border-color:#cfdae2}
+    #pricing .pricing-heading{margin-bottom:23px}
+    #pricing .panel-head h2{font-size:clamp(1.8rem,3vw,2.5rem)}
+    #contact{padding:48px 0 58px!important;background:#14263b;color:#eff4f7}
+    #contact .panel-head{border-color:#35465a}
+    #contact .panel-head h2{color:#fff}
+    #contact .panel-head p{color:#c2cfdb!important}
+    #contact .section-kicker{color:#91d66d}
+    #contact .quote-form{border-color:#35465a}
+    #contact .quote-form label{color:#e3eaf0}
+    #contact .quote-form .seg{background:#1b3048;border-color:#41546b}
+    #contact .quote-form .seg span{color:#e5ebf1}
+    #contact .quote-form input,#contact .quote-form textarea{background:#f8fafc;color:#1b2d42}
+    #contact .quote-form .muted,#contact .panel>p{color:#bac7d4!important}
+    @media(max-width:950px){
+      .automation-layout{grid-template-columns:1fr;gap:28px}
+      .automation-copy{max-width:700px}
+      .studio-window{max-width:850px}
+      .website-layout{gap:36px}
+      .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:680px){
+      .automation-showcase,.website-showcase,.build-process,.use-case-section,#pricing,#contact{padding:34px 0!important}
+      .studio-main{grid-template-columns:39px 1fr}.studio-rail{gap:14px}
+      .studio-canvas{padding:13px 9px}
+      .studio-route{grid-template-columns:minmax(0,1fr) 13px minmax(0,1fr) 13px minmax(0,1fr);gap:2px}
+      .studio-node{padding:8px 6px;min-height:112px}.studio-node strong{font-size:.62rem}.studio-node em{font-size:.52rem}.studio-node small{font-size:.45rem}
+      .studio-log>div{font-size:.57rem}
+      .website-layout{grid-template-columns:1fr;gap:27px}
+      .website-copy{max-width:none}.browser-preview{transform:none}
+      .browser-hero{min-height:185px;padding:17px 4px}
+      .browser-copy strong{font-size:1.17rem}.browser-shape{height:128px}
+      .process-heading,.use-case-heading{grid-template-columns:1fr;gap:12px;margin-bottom:20px}
+      .process-track{grid-template-columns:1fr;gap:0}
+      .process-step{min-height:0;padding:15px 17px}
+      .process-join{width:2px;height:20px;margin:0 0 0 26px}
+      .process-join i{left:-3px;top:0;animation:none}
+      .use-case-row{grid-template-columns:1fr;gap:12px;padding:16px 0}
+      .mini-flow{padding:10px;gap:6px}
+      .mini-fields{width:115px}
+      .mini-step{width:58px}
+      .pc-support-inner{grid-template-columns:42px 1fr;gap:12px}
+      .pc-emblem{width:40px;height:38px}
+      .pc-support-inner>.btn{grid-column:2;justify-self:start}
+      #pricing .pricing-grid{grid-template-columns:1fr}
+      #pricing .pricing-card h3{min-height:0}
+      #contact .panel-head{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){.studio-connector i,.process-join i,.mini-line i{animation:none}}
+  </style>
 </head>
 
 <body>
@@ -1011,53 +1196,104 @@
           </div>
         </div>
 
-        <div class="lane-grid" aria-label="Services">
-          <div class="lane pc" id="ai">
-            <span class="service-index">01 / AUTOMATE</span>
-            <h2>AI &amp; workflow automation</h2>
-            <p>We map one repetitive process, connect the right tools and add review points where a person should stay involved.</p>
-            <ul>
-              <li>Reduce repetitive admin and manual hand-offs</li>
-              <li>Support enquiries, follow-ups and routine information processing</li>
-              <li>Connect suitable tools with clear human review points</li>
+        </div>
+    </section>
+
+    <section id="ai" class="automation-showcase">
+      <div class="container">
+        <div class="automation-layout">
+          <div class="automation-copy">
+            <span class="feature-index">01 / AUTOMATE</span>
+            <h2>Take the repeat work out of your day.</h2>
+            <p>We map one process, connect the tools you already use and automate the steps that don’t need another manual hand-off.</p>
+            <ul class="feature-checks">
+              <li>Enquiries and follow-ups</li>
+              <li>Routine document handling</li>
+              <li>Human checks where they matter</li>
             </ul>
-            <div class="actions">
-              <a class="btn btn-green" href="#contact" data-service="AI &amp; automation">Discuss an AI project <span aria-hidden="true">↗</span></a>
-            </div>
+            <a class="btn btn-green" href="#contact" data-service="AI &amp; automation" data-detail="AI and workflow automation">Talk through an automation</a>
           </div>
 
-          <div class="lane web" id="web">
-            <span class="service-index">02 / BUILD</span>
-            <h2>Websites &amp; digital tools</h2>
-            <p>A clear, fast website that explains what you do and makes it easy for customers to contact you.</p>
-            <ul>
-              <li>Mobile-first small business websites</li>
-              <li>Clear forms and useful online workflows</li>
-              <li>Straightforward scope and no builder lock-in</li>
-            </ul>
-            <div class="actions">
-              <a class="btn btn-blue" href="#contact" data-service="Website">Get a website quote <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="#pricing">See website pricing</a>
+          <div class="studio-window" aria-label="Illustrative workflow interface">
+            <div class="studio-topbar">
+              <div class="studio-brand"><span class="studio-mark">B</span><span>Workflow studio</span></div>
+              <span class="studio-status"><i></i> EXAMPLE FLOW</span>
             </div>
+            <div class="studio-main">
+              <aside class="studio-rail" aria-hidden="true">
+                <b>≡</b><span>Routes</span><span>Rules</span><span>History</span>
+              </aside>
+              <div class="studio-canvas">
+                <div class="studio-canvas-head">
+                  <div><small>ENQUIRY HANDLING</small><strong>Sort and prepare a response</strong></div>
+                  <span class="studio-draft">DRAFT</span>
+                </div>
+                <div class="studio-route">
+                  <div class="studio-node">
+                    <span class="node-icon node-mail">↘</span>
+                    <small>INCOMING</small><strong>New enquiry</strong><em>Website form</em>
+                  </div>
+                  <span class="studio-connector"><i></i></span>
+                  <div class="studio-node studio-node-ai">
+                    <span class="node-icon node-spark">✳</span>
+                    <small>PROCESS</small><strong>Sort details</strong><em>Category and summary</em>
+                  </div>
+                  <span class="studio-connector"><i></i></span>
+                  <div class="studio-node studio-node-check">
+                    <span class="node-icon node-check">✓</span>
+                    <small>REVIEW</small><strong>Check reply</strong><em>Team approval</em>
+                  </div>
+                </div>
+                <div class="studio-log">
+                  <div><i class="log-dot"></i><span>New request captured</span><b>Ready</b></div>
+                  <div><i class="log-dot"></i><span>Key details organised</span><b>Ready</b></div>
+                  <div><i class="log-dot pending"></i><span>Reply waiting for review</span><b>With you</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="studio-foot"><span>People stay in control</span><span>Illustrative example</span></div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="strip" id="process" aria-label="How it works">
-          <div class="step">
-            <div class="num">01</div>
-            <h3>Show us the friction</h3>
-            <p>Tell us what keeps getting repeated, copied or forgotten.</p>
+    <section id="web" class="website-showcase">
+      <div class="container">
+        <div class="website-layout">
+          <div class="browser-preview" aria-label="Example small business website preview">
+            <div class="browser-chrome"><span></span><span></span><span></span><div>yourbusiness.co.uk</div></div>
+            <div class="browser-page">
+              <div class="browser-nav"><b>YOUR BUSINESS</b><span>Services　 About　 Contact</span></div>
+              <div class="browser-hero">
+                <div class="browser-copy"><small>LOCAL SERVICE · WEBSITE PREVIEW</small><strong>A clear first impression.</strong><p>Show people what you do and make the next step easy.</p><span class="browser-button">Get in touch</span></div>
+                <div class="browser-shape" aria-hidden="true"><i></i><b></b><span></span></div>
+              </div>
+              <div class="browser-footer"><span>01 — Services</span><span>02 — About</span><span>03 — Contact</span></div>
+            </div>
           </div>
-          <div class="step">
-            <div class="num">02</div>
-            <h3>Get a straight answer</h3>
-            <p>We’ll tell you what can be improved and what should stay human-led.</p>
+          <div class="website-copy">
+            <span class="feature-index">02 / BUILD</span>
+            <h2>A website that makes the next step obvious.</h2>
+            <p>One focused, mobile-first page for small businesses that need a professional place to send customers.</p>
+            <div class="website-price-line"><span>One-page website</span><strong>from £400</strong></div>
+            <a class="btn btn-blue" href="#contact" data-service="Website" data-detail="One-page business website">Get a website quote</a>
           </div>
-          <div class="step">
-            <div class="num">03</div>
-            <h3>Start small and useful</h3>
-            <p>Build one clear improvement, then decide whether it is worth expanding.</p>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="build-process">
+      <div class="container">
+        <div class="process-heading">
+          <div><span class="feature-index">A CLEAR ROUTE FROM IDEA TO LIVE</span><h2>Start with the task. Build only what helps.</h2></div>
+          <p>No black box, no oversized transformation plan. We agree the problem, show you the route and build to a fixed scope.</p>
+        </div>
+        <div class="process-track">
+          <article class="process-step"><span class="process-number">01</span><div class="process-symbol process-search">⌕</div><h3>Map the work</h3><p>Understand what happens now, where it slows down and which tools are involved.</p></article>
+          <span class="process-join"><i></i></span>
+          <article class="process-step"><span class="process-number">02</span><div class="process-symbol process-link">↗</div><h3>Design the route</h3><p>Choose the steps automation can handle and where a person should review.</p></article>
+          <span class="process-join"><i></i></span>
+          <article class="process-step"><span class="process-number">03</span><div class="process-symbol process-live">✓</div><h3>Test it with you</h3><p>Check real examples, fix the rough edges and hand over a workflow your team can use.</p></article>
         </div>
       </div>
     </section>
@@ -1134,55 +1370,41 @@
       </div>
     </section>
 
-    <section id="proof">
+    <section id="proof" class="use-case-section">
       <div class="container">
-        <div class="panel alt">
-          <div class="panel-head">
-            <h2>Useful places to start</h2>
-            <p class="muted">Common business workflows we can improve, with people in control.</p>
-          </div>
-
-          <div class="proof-grid">
-            <article class="work-card web">
-              <div class="work-head">
-                <h3 style="margin:0;">Enquiries &amp; follow-up</h3>
-                <span class="work-pill">Customer workflow</span>
-              </div>
-              <p class="muted">Capture incoming requests, organise key details and help your team respond consistently. People stay responsible for the final reply.</p>
-            </article>
-
-            <article class="work-card pc">
-              <div class="work-head">
-                <h3 style="margin:0;">Repeat admin</h3>
-                <span class="work-pill">Time-saving</span>
-              </div>
-              <p class="muted">Reduce copying, sorting and routine hand-offs between the tools you already rely on, where a dependable integration is available.</p>
-            </article>
-
-            <article class="work-card web">
-              <div class="work-head">
-                <h3 style="margin:0;">Documents &amp; information</h3>
-                <span class="work-pill">Human-reviewed</span>
-              </div>
-              <p class="muted">Use AI to help find, summarise or organise suitable business information, with review steps matched to the importance of the work.</p>
-            </article>
-          </div>
+        <div class="use-case-heading">
+          <div><span class="feature-index">COMMON STARTING POINTS</span><h2>Good workflows begin with ordinary work.</h2></div>
+          <p>Every business has its own way of working. These are the kinds of repeat tasks we can help make easier to manage.</p>
+        </div>
+        <div class="use-case-list">
+          <article class="use-case-row">
+            <div class="use-case-copy"><span class="use-case-number">01</span><h3>Enquiries &amp; follow-up</h3><p>Bring requests together, organise key details and prepare the next response for your team.</p></div>
+            <div class="mini-flow mini-flow-enquiry" aria-label="Enquiry workflow: request, organised details, team review">
+              <div class="mini-step"><span class="mini-icon">↘</span><small>REQUEST</small></div><span class="mini-line"><i></i></span><div class="mini-step"><span class="mini-icon">≡</span><small>DETAILS</small></div><span class="mini-line"><i></i></span><div class="mini-step mini-step-final"><span class="mini-icon">✓</span><small>REVIEW</small></div>
+            </div>
+          </article>
+          <article class="use-case-row">
+            <div class="use-case-copy"><span class="use-case-number">02</span><h3>Documents &amp; information</h3><p>Find, extract or summarise suitable information, with a person checking important details.</p></div>
+            <div class="mini-flow mini-flow-docs" aria-label="Document workflow: file, key information, human check">
+              <div class="mini-doc"><b>DOC</b><span></span><span></span><span></span></div><span class="mini-line"><i></i></span><div class="mini-fields"><span>Reference <b>Found</b></span><span>Amount <b>Found</b></span><span>Date <b>Check</b></span></div><span class="mini-line"><i></i></span><div class="mini-stamp">REVIEW</div>
+            </div>
+          </article>
+          <article class="use-case-row">
+            <div class="use-case-copy"><span class="use-case-number">03</span><h3>Repeat admin</h3><p>Reduce copying and routine hand-offs between the business tools you already rely on.</p></div>
+            <div class="mini-flow mini-flow-admin" aria-label="Admin workflow: task, connected tools, completed hand-off">
+              <div class="mini-stack"><i></i><i></i><i></i><b>REPEAT TASK</b></div><span class="mini-line"><i></i></span><div class="mini-tools"><b>A</b><b>B</b><b>C</b></div><span class="mini-line"><i></i></span><div class="mini-done"><i>✓</i><span>HAND-OFF<br>COMPLETE</span></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="connect">
+    <section id="connect" class="pc-support">
       <div class="container">
-        <div class="panel alt">
-          <div class="connect-grid" id="pc">
-            <div class="connect-copy">
-              <h2 style="margin:0 0 8px;">Need help with a PC?</h2>
-              <p class="muted">PC builds, upgrades and repairs are also available as a smaller support service.</p>
-            </div>
-            <div class="connect-actions">
-              <a class="btn btn-ghost" href="#contact" data-service="PC help">Ask about PC help</a>
-            </div>
-          </div>
+        <div class="pc-support-inner" id="pc">
+          <div class="pc-emblem" aria-hidden="true"><span>BYTE</span><b>PC</b></div>
+          <div class="pc-copy"><span class="feature-index">A SECONDARY SERVICE</span><h2>Need a hand with your PC?</h2><p>Builds, upgrades and repairs are available too.</p></div>
+          <a class="btn btn-ghost" href="#contact" data-service="PC help">Ask about PC support</a>
         </div>
       </div>
     </section>

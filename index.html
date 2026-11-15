@@ -931,7 +931,11 @@
       .panel-head h2,.connect-copy h2{font-size:1.55rem}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flow-link:after{animation:none}}
-  </style>
+  
+    @media(min-width:701px){.panel-head p{white-space:nowrap}}
+    .btn span[aria-hidden="true"],.hero-link span[aria-hidden="true"],.package-link span[aria-hidden="true"]{display:none}
+
+</style>
 </head>
 
 <body>
@@ -1065,7 +1069,7 @@
             <span class="section-kicker">Straightforward starting prices</span>
             <h2>Pick a useful first step</h2>
           </div>
-          <p>Every project is scoped before work begins. Choose a starting point, explain the process, and get a fixed quote for the agreed build.</p>
+          <p>Scoped first. Fixed build price agreed before work starts.</p>
         </div>
 
         <div class="pricing-grid" aria-label="Website and automation starting prices">
@@ -1135,7 +1139,7 @@
         <div class="panel alt">
           <div class="panel-head">
             <h2>Useful places to start</h2>
-            <p class="muted">Every business is different. These are common workflow ideas to explore, not promises that every task should be automated.</p>
+            <p class="muted">Common business workflows we can improve, with people in control.</p>
           </div>
 
           <div class="proof-grid">
@@ -1173,7 +1177,7 @@
           <div class="connect-grid" id="pc">
             <div class="connect-copy">
               <h2 style="margin:0 0 8px;">Need help with a PC?</h2>
-              <p class="muted">PC builds, upgrades, diagnostics and repairs are still available as a smaller, practical support service. Tell us what you need and we’ll let you know if it’s a fit.</p>
+              <p class="muted">PC builds, upgrades and repairs are also available as a smaller support service.</p>
             </div>
             <div class="connect-actions">
               <a class="btn btn-ghost" href="#contact" data-service="PC help">Ask about PC help</a>
@@ -1190,7 +1194,7 @@
         <div class="panel">
           <div class="panel-head">
             <h2>Get a quote</h2>
-            <p class="muted">Tell us what you want to improve. We’ll come back with a sensible route, clear scope and cost. AI, websites and PC support are all welcome.</p>
+            <p class="muted">Describe the workflow or website. We’ll reply with a clear route and fixed quote.</p>
           </div>
 
           <form class="quote-form" id="quoteForm" action="https://formspree.io/f/xeeejvrw" method="POST">
